@@ -1,1 +1,1 @@
-# DHGrupo2
+# grupo_2_proyectoIntegrador
