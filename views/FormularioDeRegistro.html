@@ -4,22 +4,74 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>TODO Muebles - Registro</title>
+<style>
+    .formularioColor:focus{
+        background-color: red;
+    }
+
+</style>
+
 </head>
+
 <body>
+
     <h1>Formulario de Registro</h1>
-    <p>Nombre*</p>
-    <p>Apellido*</p>
-    <p>Email*</p>
-    <p>Confirmar Contraseña*</p>
-    <p>Pais de residencia*</p>
-    <p>Tipo de documento*</p>
-    <p>Nº de documento*</p>
-    <p>Genero</p>
-    <p>Fecha de Nacimiento*</p>
-    <p>Celular*</p>
-    <p>Quiero recibir via e-mail ofertas y novedades del sitio web</p>
-    <p>Al registrarte estas aceptando Terminos y condiciones</p>
-    <p>REGISTRAR</p>
+    <form action="" method="post"></form>
+
+    <div>
+    <label for="name">Nombre*</label>
+    <input class= "formularioColor" type="text" name="nombre" id="nombre" placeholder="Ingresa tu nombre">
+</div><div>
+    <label for="Apellido">Apellido*</label>
+    <input class= "formularioColor" type="text" name="Apellido" id="Apellido" placeholder="Ingresa tu Apellido">
+</div><div>
+    <label for="email">Email*</label>
+    <input class= "formularioColor" type="email" name="Email" id="Email" placeholder="Ingresa tu Email">
+</div><div>
+    <label for="Contraseña"> Contraseña*</label>
+    <input class= "formularioColor" type="password" name="Contraseña" id="Contraseña*" placeholder="Ingresa tu Contraseña">
+</div> <div>
+    <label for="Confirmar Contraseña"> Confirmar Contraseña*</label>
+    <input class= "formularioColor" type="password" name="Confirmar Contraseña" id="Confirmar Contraseña*" placeholder="Confirmar Contraseña">
+</div> <div>
+    <label for="Pais de residencia">Pais de residencia*</label>
+    <input class= "formularioColor" type="text" name="Pais de residencia" id="Pais de residencia" placeholder="Pais">
+</div> <div>
+    <label for="Tipo de documento">Tipo de documento*</label>
+    <input class= "formularioColor" type="motivo" name="id mult" id multiple  value="arbol">
+</div> <div>
+    <label for="Nº de documento">Nº de documento*</label>
+    <input class= "formularioColor" type="text" name="Nº de documento" id="Nº de documento" placeholder="Ingresa tu N de documento">
+    
+</div><div>
+    
+    <label for="genero">Hombre</label>
+    <input type="radio" name="variable1" id="opcion1" value="valor1">
+
+    <label for="genero">Mujer</label>
+    <input type="radio" name="variable1" id="opcion2" value="valor2">
+
+</div><div>
+    <label for="Fecha de Nacimiento">Fecha de Nacimiento*</label>
+    <input type="date" name="Fecha de Nacimiento" id="Fecha de Nacimiento">
+    
+</div><div>
+    <label for="name">Celular*</label>
+    <input class= "formularioColor" type="text" name="Celular" id="Celular" placeholder="Ingresa tu Celular">
+</div> <div>
+    <label> Quiero recibir via e-mail ofertas y novedades del sitio web </label>
+    <input type="checkbox" name="newsletter" value="si">
+</div><div>
+
+
+    <label>Al registrarte estas aceptando Terminos y condiciones</label>
+    <input type="checkbox" name="Terminos y condiciones" value="si">
+</div>
+
+    <button type="submit">REGISTRARSE</button>
+    <button type="reset">BORRAR</button>
+    
 </body>
 </html>
