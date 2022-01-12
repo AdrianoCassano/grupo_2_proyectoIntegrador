@@ -1,0 +1,22 @@
+{
+  "name": "grupo_2_proyectointegrador",
+  "version": "1.0.0",
+  "description": "Link al Trello https://trello.com/b/y2RbfqBP/proyectointegrador",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdrianoCassano/grupo_2_proyectoIntegrador.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AdrianoCassano/grupo_2_proyectoIntegrador/issues"
+  },
+  "homepage": "https://github.com/AdrianoCassano/grupo_2_proyectoIntegrador#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}
