@@ -6,14 +6,148 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TODO Muebles - Login</title>
 </head>
+<style>
+    body{
+        background-image: url("https://i.ibb.co/tPyznBz/mueblesfondo.jpg");
+        align-items: center;
+        font-family: 'Roboto', sans-serif;
+    }
+    main {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        font-family: 'Roboto', sans-serif;
+        border-radius: 6px;
+        background: rgba(221, 221, 221, 0.85);
+       margin-left: 100px;
+       margin-right: 100px;
+    }
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background: rgba(221, 221, 221, 0.85);
+        }
+
+    li {
+        float: left;
+}
+
+    li a {
+        display: block;
+        color: rgb(0, 0, 0);
+        text-align: center;
+        padding: 16px;
+        text-decoration: none;
+}
+    .Bienvenido {
+        text-align: center;
+        color: snow;
+    }
+    .login-form {
+        border-radius: 20px;
+        box-sizing: border-box;
+        margin-top: 15px;
+        height: auto;
+        padding: 15px;
+        text-align: center
+    }
+    #username {
+        height: 30px;
+        position: relative;
+        box-sizing: border-box;
+        width: 100%;
+        border: 0;
+        border-radius: 6px;
+        margin: 10px 0px 30px
+    }
+    #password {
+        height: 30px;
+        position: relative;
+        box-sizing: border-box;
+        width: 100%;
+        border: 0;
+        border-radius: 6px;
+        margin: 10px 0px 30px 
+    }
+    #alter{
+        font-style: italic;
+        text-decoration-line: underline;
+        font-size: 12px;
+    }
+    .submit {
+        background-color: rgb(165, 42, 42);
+        border-radius: 6px;
+        border: 0;
+        box-sizing: border-box;
+        color: #eee;
+        cursor: pointer;
+        font-size: 14px;
+        height: 38px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        outline: 0;
+        text-align: center;
+        width: 100%;
+    }
+    .submit:hover{
+        background-color: #c9200a;
+    }
+    footer {
+        text-align: center;
+        color: seashell;
+    }
+</style>
 <body>
-    <h1>Bienvenido!</h1>
-    <h2>Login</h2>
-    <p>Email o usuario:</p>
-    <p>Contraseña:</p>
-    <p>Olvidé mi contraseña</p>
-    <p>Ingresar</p>
-    <p>Registrarme como usuario nuevo</p>
-    <a href= "">Home</a>
+    <header>
+        <div class="top-header">
+            <div class="logo">
+                <a href="/">
+                <img src="/images/TodoMueble.png" alt="" width="80%">
+                </a>
+            </div>
+                <form action="" class=>
+                    <input type="text" placeholder="Buscar productos, marcas...">
+                    <button class="boton">
+                        Buscar
+                    </button>
+                </form>
+        </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Diseño de Interiores</a></li>
+                    <li><a href="#">Contactos</a></li>
+                    <li><a href="#">Registrarse</a></li>
+                </ul>
+            </nav>  
+    </header>
+    <div class="Bienvenido">
+        <h3>Bienvenido!</h3>
+        </div>
+    <main>
+        <form action="/login" method="post" class="login-form">
+            <h3>Login</h3>
+            <div class = "control-login">
+            <label for="username">Email o usuario:</label>
+            <input type="text" name="usuario" id="username" placeholder="">
+            </div>
+            <div class="control-login">
+            <label for="password">Contraseña:</label>
+            <input type="password" name="nombre" id="password" placeholder="">
+            </div>
+            <p id="alter"><a href="#">Olvidé mi contraseña</a></p>
+            </div>
+            <button type="text" class="submit">Enviar</button>
+            <p id="alter"><a href="#">Registrarme como usuario nuevo</a></p>
+        </div>
+        </form>
+    </main>
+    <footer>
+        <p>Copyright © 2022 Todo Muebles Inc.</p>
+    </footer>
 </body>
 </html>
+
+
