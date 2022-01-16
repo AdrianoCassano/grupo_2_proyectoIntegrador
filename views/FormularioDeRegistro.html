@@ -6,46 +6,254 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>TODO Muebles - Registro</title>
-<style>
-    .formularioColor:focus{
-        background-color: red;
-    }
-
-</style>
 
 </head>
 
+<style>
+    .formularioColor:focus{
+        background-color: rgb(9, 255, 0);
+    }
+    body{
+        background-image: url("https://i.ibb.co/tPyznBz/mueblesfondo.jpg");
+        align-items: center;
+        font-family: 'Roboto', sans-serif;
+    }
+    main {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        font-family: 'Roboto', sans-serif;
+        border-radius: 6px;
+        background: rgba(221, 221, 221, 0.85);
+       margin-left: 100px;
+       margin-right: 100px;
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background: rgba(221, 221, 221, 0.85);
+        }
+
+        li {
+        float: left;
+}
+
+li a {
+        display: block;
+        color: rgb(0, 0, 0);
+        text-align: center;
+        padding: 16px;
+        text-decoration: none;
+}
+
+
+    .Formulario-de-Registro {
+        text-align: center;
+        color: snow;
+    }
+
+
+    .register-form {
+        border-radius: 20px;
+        box-sizing: border-box;
+        margin-top: 15px;
+        height: auto;
+        padding: 15px;
+        text-align: center
+    }
+    #nombre {
+        height: 30px;
+        position: relative;
+        box-sizing: border-box;
+        width: 100%;
+        border: 0;
+        border-radius: 6px;
+        margin: 10px 0px 30px
+    }
+
+    #Apellido {
+        height: 30px;
+        position: relative;
+        box-sizing: border-box;
+        width: 100%;
+        border: 0;
+        border-radius: 6px;
+        margin: 10px 0px 30px
+    }
+
+    #Email {
+        height: 30px;
+        position: relative;
+        box-sizing: border-box;
+        width: 100%;
+        border: 0;
+        border-radius: 6px;
+        margin: 10px 0px 30px
+    }
+
+    #Contraseña {
+        height: 30px;
+        position: relative;
+        box-sizing: border-box;
+        width: 100%;
+        border: 0;
+        border-radius: 6px;
+        margin: 10px 0px 30px
+    }
+
+    #Confirmar-Contraseña {
+        height: 30px;
+        position: relative;
+        box-sizing: border-box;
+        width: 100%;
+        border: 0;
+        border-radius: 6px;
+        margin: 10px 0px 30px
+    }
+
+    #Pais-de-residencia {
+        height: 30px;
+        position: relative;
+        box-sizing: border-box;
+        width: 100%;
+        border: 0;
+        border-radius: 6px;
+        margin: 10px 0px 30px
+    }
+
+    #Tipo-de-documento {
+        height: 30px;
+        position: relative;
+        box-sizing: border-box;
+        width: 100%;
+        border: 0;
+        border-radius: 6px;
+        margin: 10px 0px 30px
+    }
+
+    #Nº-de-documento {
+        height: 30px;
+        position: relative;
+        box-sizing: border-box;
+        width: 100%;
+        border: 0;
+        border-radius: 6px;
+        margin: 10px 0px 30px
+    }
+
+    #Fecha-de-Nacimiento {
+        height: 30px;
+        position: relative;
+        box-sizing: border-box;
+        width: 100%;
+        border: 0;
+        border-radius: 6px;
+        margin: 10px 0px 30px
+    }
+
+    #Celular {
+        height: 30px;
+        position: relative;
+        box-sizing: border-box;
+        width: 100%;
+        border: 0;
+        border-radius: 6px;
+        margin: 10px 0px 30px
+    }
+
+    .submit {
+        background-color: rgb(165, 42, 42);
+        border-radius: 6px;
+        border: 0;
+        box-sizing: border-box;
+        color: #eee;
+        cursor: pointer;
+        font-size: 14px;
+        height: 38px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        outline: 0;
+        text-align: center;
+        width: 100%;
+    }
+    .submit:hover{
+        background-color: #c9200a;
+    }
+    footer {
+        text-align: center;
+        color: seashell;
+    }
+</style>
+
+
 <body>
+    <header>
+        <div class="top-header">
+            <div class="logo">
+                <a href="/">
+                <img src="/images/TodoMueble.png" alt="" width="80%">
+                </a>
+            </div>
+            <form action="" class=>
+                <input type="text" placeholder="Buscar productos, marcas...">
+                <button class="boton">
+                    Buscar
+                </button>
+            </form>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Productos</a></li>
+                <li><a href="#">Diseño de Interiores</a></li>
+                <li><a href="#">Contactos</a></li>
+                <li><a href="#">Registrarse</a></li>
+            </ul>
+        </nav>  
+    </header>
+    <div class="Formulario-de-Registro">
+    <h3>Completa el siguiente Formulario de Registro!</h3> 
+    </div>
 
-    <h1>Formulario de Registro</h1>
-    <form action="" method="post"></form>
-
+<main>
+    <form action="/register" method="post" class= "register-form">
+        <h3>Formulario de Registro</h3> 
     <div>
     <label for="name">Nombre*</label>
     <input class= "formularioColor" type="text" name="nombre" id="nombre" placeholder="Ingresa tu nombre">
-</div><div>
+</div>
+<div>
     <label for="Apellido">Apellido*</label>
     <input class= "formularioColor" type="text" name="Apellido" id="Apellido" placeholder="Ingresa tu Apellido">
-</div><div>
+</div>
+<div>
     <label for="email">Email*</label>
     <input class= "formularioColor" type="email" name="Email" id="Email" placeholder="Ingresa tu Email">
-</div><div>
+</div>
+<div>
     <label for="Contraseña"> Contraseña*</label>
-    <input class= "formularioColor" type="password" name="Contraseña" id="Contraseña*" placeholder="Ingresa tu Contraseña">
-</div> <div>
+    <input class= "formularioColor" type="password" name="Contraseña" id="Contraseña" placeholder="Ingresa tu Contraseña">
+</div>
+<div>
     <label for="Confirmar Contraseña"> Confirmar Contraseña*</label>
-    <input class= "formularioColor" type="password" name="Confirmar Contraseña" id="Confirmar Contraseña*" placeholder="Confirmar Contraseña">
-</div> <div>
+    <input class= "formularioColor" type="password" name="Confirmar Contraseña" id="Confirmar-Contraseña" placeholder="Confirmar Contraseña">
+</div>
+<div>
     <label for="Pais de residencia">Pais de residencia*</label>
-    <input class= "formularioColor" type="text" name="Pais de residencia" id="Pais de residencia" placeholder="Pais">
-</div> <div>
+    <input class= "formularioColor" type="text" name="Pais de residencia" id="Pais-de-residencia" placeholder="Pais">
+</div>
+<div>
     <label for="Tipo de documento">Tipo de documento*</label>
-    <input class= "formularioColor" type="motivo" name="id mult" id multiple  value="arbol">
-</div> <div>
+    <input class= "formularioColor" type="text" name="id mult" id= "Tipo-de-documento" >
+</div>
+<div>
     <label for="Nº de documento">Nº de documento*</label>
-    <input class= "formularioColor" type="text" name="Nº de documento" id="Nº de documento" placeholder="Ingresa tu N de documento">
+    <input class= "formularioColor" type="text" name="Nº de documento" id="Nº-de-documento" placeholder="Ingresa tu N de documento">
     
-</div><div>
+</div>
+<div>
     
     <label for="genero">Hombre</label>
     <input type="radio" name="variable1" id="opcion1" value="valor1">
@@ -53,25 +261,38 @@
     <label for="genero">Mujer</label>
     <input type="radio" name="variable1" id="opcion2" value="valor2">
 
-</div><div>
+</div>
+<br>
+<br>
+<div>
     <label for="Fecha de Nacimiento">Fecha de Nacimiento*</label>
-    <input type="date" name="Fecha de Nacimiento" id="Fecha de Nacimiento">
+    <input type="date" name="Fecha de Nacimiento" id="Fecha-de-Nacimiento">
     
-</div><div>
+</div>
+<div>
     <label for="name">Celular*</label>
     <input class= "formularioColor" type="text" name="Celular" id="Celular" placeholder="Ingresa tu Celular">
-</div> <div>
-    <label> Quiero recibir via e-mail ofertas y novedades del sitio web </label>
+</div>
+<div>
+    <label>Quiero recibir via e-mail ofertas y novedades del sitio web </label>
     <input type="checkbox" name="newsletter" value="si">
-</div><div>
+</div>
+<div>
 
 
     <label>Al registrarte estas aceptando Terminos y condiciones</label>
     <input type="checkbox" name="Terminos y condiciones" value="si">
 </div>
 
-    <button type="submit">REGISTRARSE</button>
-    <button type="reset">BORRAR</button>
+    <button type="text" class="submit">REGISTRARSE</button>
+    <button type="reset" class="submit" >BORRAR</button>
+
+</form>
+</main>
     
+<footer>
+    <p>Copyright © 2022 Todo Muebles Inc.</p>
+</footer>
+
 </body>
 </html>
