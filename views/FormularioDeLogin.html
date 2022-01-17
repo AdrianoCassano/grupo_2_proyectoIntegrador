@@ -9,8 +9,15 @@
 <style>
     body{
         background-image: url("https://i.ibb.co/tPyznBz/mueblesfondo.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
         align-items: center;
         font-family: 'Roboto', sans-serif;
+    }
+    .logo{
+        text-align: center;
+        padding: 20px;
     }
     main {
         align-items: center;
@@ -24,8 +31,13 @@
     }
     ul {
         list-style-type: none;
-        margin: 0;
-        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 6px;
         overflow: hidden;
         background: rgba(221, 221, 221, 0.85);
         }
@@ -41,10 +53,10 @@
         padding: 16px;
         text-decoration: none;
 }
-    .Bienvenido {
+    /* .Bienvenido {
         text-align: center;
         color: snow;
-    }
+    } */
     .login-form {
         border-radius: 20px;
         box-sizing: border-box;
@@ -101,31 +113,27 @@
 </style>
 <body>
     <header>
-        <div class="top-header">
             <div class="logo">
-                <a href="/">
+                <a href="/home">
                 <img src="/images/TodoMueble.png" alt="" width="80%">
                 </a>
             </div>
-                <form action="" class=>
-                    <input type="text" placeholder="Buscar productos, marcas...">
-                    <button class="boton">
-                        Buscar
-                    </button>
-                </form>
-        </div>
             <nav>
+                <div class="barra">
                 <ul>
                     <li><a href="#">Productos</a></li>
                     <li><a href="#">Diseño de Interiores</a></li>
                     <li><a href="#">Contactos</a></li>
                     <li><a href="#">Registrarse</a></li>
                 </ul>
+                </div>
             </nav>  
     </header>
-    <div class="Bienvenido">
+    <!-- <div class="Bienvenido">
         <h3>Bienvenido!</h3>
-        </div>
+        </div> -->
+        <br>
+        <br>
     <main>
         <form action="/login" method="post" class="login-form">
             <h3>Login</h3>
