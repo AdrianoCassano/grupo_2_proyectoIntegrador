@@ -81,6 +81,7 @@
         margin-left: 10px;
         margin-right: 10px;
         margin-bottom: 2px;
+        font-weight: 700;
     }
     #art{
         margin-left: 10px;
@@ -132,6 +133,9 @@
         padding-left: 3px;
         background-color: lightslategrey;
     }
+    .eliminar:hover{
+        background-color: lightsteelblue;
+    }
     .total{
         display: flex;
         justify-content: left;
@@ -143,6 +147,7 @@
         margin-left: 10px;
         margin-right: 10px;
         margin-top: 2px;
+        font-weight: 700;
     }
     #total-word {
         margin-left: 500px;
@@ -163,14 +168,30 @@
     }
     .address{
         width: 300px;
-        height: 180px;
-        background-color: darkgreen;
+        height: 160px;
+        background-color: lightgray;
+        border-radius: 6px;
+        padding-left: 10px;
     }
     .pay{
         width: 300px;
-        height: 180px;
-        background-color: darkgreen;
-        margin-top: 20px;
+        height: 160px;
+        background-color: lightgray;
+        border-radius: 6px;
+        padding-left: 10px;
+        
+    }
+    #confirmar-boton{
+        background-color: brown;
+        text-align: center;
+        justify-content: center;
+        margin-left: 80px;
+        color: cornsilk;
+        border-radius: 6px;
+        font-size: 16px;
+    }
+    #confirmar-boton:hover{
+        background-color: rgb(197, 51, 51);
     }
     .interesar{
         display:inline-flex;
@@ -187,6 +208,11 @@
         height: 140px;
         background-color: darkkhaki;
         margin: 5px 50px 5px 50px;
+    }
+    #alter{
+        font-style: italic;
+        text-decoration-line: underline;
+        font-size: 14px;
     }
 </style>
     <body>
@@ -255,8 +281,23 @@
             </div>
         </div>
        <div class="envio">
-           <div class="address">Dirección</div>
-           <div class="pay">Confirmar Pago</div>
+           <div class="address">
+               <p><b>Enviar a:</b></p>
+                <p>Avenida Siempreviva 123
+                    Seattle, WA
+                    95514, USA</p>
+                   <p>Recibe: Cosme Fulanito</p>
+                <p id="alter"><a href="#">Cambiar mi dirección de envio</a></p>
+            </div>
+           <div class="pay">
+               <p><b>Método de pago:</b></p>
+               <p>Tarjeta Visa Terminada en
+                XXXX-8998
+                </p>
+               <p>A nombre de: Cosme Fulanito</p>
+            <p id="alter"><a href="#">Cambiar mi método de pago</a></p>
+            </div>
+           <button id="confirmar-boton">Confirmar compra</button>
        </div>
        <div class="interesar">Interesar
            <div class="article-2"></div>
