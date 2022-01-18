@@ -60,37 +60,75 @@
         text-align: center;
         color: seashell;
     }
-    /* .columnas{
-        box-sizing: border-box;
-        display:block;
-        width: 800px;
-        height: 50px;
-        background-color: cyan;
-    } */
     .carrito { 
         display:flex;
+        flex-wrap: wrap;
         width: 800px;
         height: 400px;
         background-color: rgb(190, 190, 190);
         margin: 20px;
         padding: 20px;
     } 
+    .columnas{
+        display:inline-block;
+        width: 780px;
+        height: 20px;
+        background-color: darkgoldenrod;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    article{
+        display:inline-block;
+        width: 780px;
+        height: 110px;
+        background-color: rgb(71, 63, 41);
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .total{
+        display:inline-block;
+        width: 780px;
+        height: 30px;
+        background-color: rgb(223, 171, 28);
+        margin-left: 10px;
+        margin-right: 10px;
+    }
     .envio{
         display:inline-block;
+        display:flex;
+        flex-wrap: wrap;
         width: 300px;
         height: 400px;
         background-color: rgb(190, 190, 190);
         margin: 20px;
         padding: 20px;
     }
+    .address{
+        width: 300px;
+        height: 180px;
+        background-color: darkgreen;
+    }
+    .pay{
+        width: 300px;
+        height: 180px;
+        background-color: darkgreen;
+        margin-top: 20px;
+    }
     .interesar{
-        display:inline-block;
+        display:inline-flex;
+        flex-wrap: wrap;
         width: 1200px;
         height: 150px;
         background-color: rgb(190, 190, 190);
         margin: 20px;
         padding: 20px;
     } 
+    .article-2{
+        width: 120px;
+        height: 140px;
+        background-color: darkkhaki;
+        margin: 5px 50px 5px 50px;
+    }
 </style>
     <body>
         <header>
@@ -113,11 +151,24 @@
     <br>
     <br>
     <main>
-       <div class="carrito">Carrito
-        <!-- <div class="columnas">Columnas</div> -->
+       <div class="carrito"> 
+        <div class="columnas">Columnas</div>
+        <article>1</article>
+        <article>2</article>
+        <article>3</article>
+        <div class="total">total</div>
        </div>
-       <div class="envio">Envia</div>
-       <div class="interesar">Interesar</div>
+       <div class="envio">
+           <div class="address">Dirección</div>
+           <div class="pay">Confirmar Pago</div>
+       </div>
+       <div class="interesar">Interesar
+           <div class="article-2"></div>
+           <div class="article-2"></div>
+           <div class="article-2"></div>
+           <div class="article-2"></div>
+           <div class="article-2"></div>
+       </div>
     </main>
     <footer>
         <p>Copyright © 2022 Todo Muebles Inc.</p>
