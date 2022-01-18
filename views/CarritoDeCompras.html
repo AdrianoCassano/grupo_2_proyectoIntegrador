@@ -6,79 +6,121 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TODO Muebles - Carrito</title>
 </head>
-<body>
-    <h1>Tu carrito</h1>
+<style>
+    body{
+        background-image: url("https://i.ibb.co/tPyznBz/mueblesfondo.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        align-items: center;
+        font-family: 'Roboto', sans-serif;
+    }
+    .logo{
+        text-align: center;
+        padding: 20px;
+    }
+    main {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: left;
+        font-family: 'Roboto', sans-serif;
+        border-radius: 6px;
+        background: rgba(221, 221, 221, 0.85);
+        margin-left: 100px;
+        margin-right: 100px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    ul {
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 6px;
+        overflow: hidden;
+        background: rgba(221, 221, 221, 0.85);
+        }
+
+    li {
+        float: left;
+}
+
+    li a {
+        display: block;
+        color: rgb(0, 0, 0);
+        text-align: center;
+        padding: 16px;
+        text-decoration: none;
+    }
+    footer {
+        text-align: center;
+        color: seashell;
+    }
+    /* .columnas{
+        box-sizing: border-box;
+        display:block;
+        width: 800px;
+        height: 50px;
+        background-color: cyan;
+    } */
+    .carrito { 
+        display:flex;
+        width: 800px;
+        height: 400px;
+        background-color: rgb(190, 190, 190);
+        margin: 20px;
+        padding: 20px;
+    } 
+    .envio{
+        display:inline-block;
+        width: 300px;
+        height: 400px;
+        background-color: rgb(190, 190, 190);
+        margin: 20px;
+        padding: 20px;
+    }
+    .interesar{
+        display:inline-block;
+        width: 1200px;
+        height: 150px;
+        background-color: rgb(190, 190, 190);
+        margin: 20px;
+        padding: 20px;
+    } 
+</style>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="/home">
+                <img src="/images/TodoMueble.png" alt="" width="80%">
+                </a>
+            </div>
+            <nav>
+                <div class="barra">
+                <ul>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Diseño de Interiores</a></li>
+                    <li><a href="#">Contactos</a></li>
+                    <li><a href="#">Registrarse</a></li>
+                </ul>
+                </div>
+            </nav>  
+    </header>
+    <br>
+    <br>
     <main>
-        <div>
-            <p>Artículos</p>
-            <p>Precio</p>
-            <p>Cantidad</p>
-        </div>
-        <div class= "article">
-            <img src="">
-            <p>Artículo</p>
-            <p>Color</p>
-            <p>Medidas y peso</p>
-            <p>$500.000</p>
-            <p>1</p>
-        </div>
-        <div class= "article">
-            <img src="">
-            <p>Artículo</p>
-            <p>Color</p>
-            <p>Medidas y peso</p>
-            <p>$500.000</p>
-            <p>1</p>
-        </div>
-        <div class= "article">
-            <img src="">
-            <p>Artículo</p>
-            <p>Color</p>
-            <p>Medidas y peso</p>
-            <p>$500.000</p>
-            <p>1</p>
-        </div>
-        <p class="total">
-            Total carrito de compras
-        </p>
-    </main>
-    <main>
-        <div class="direccion">
-            <h2>Enviar a:</h2>
-            <p>Avenida Siempre Viva 123, Seattle WA 95514 USA
-                Recibe: Cosme Fulanito
-            </p>
-            <p>Editar mi dirección</p>
-        </div>
-        <div class="pago">
-            <h2>Pago:</h2>
-            <p>Agregar cupón</p>
-            <p>Subtotal</p>
-            <p>Envío</p>
-            <p>Descuentos</p>
-            <p>Total a pagar</p>
-            <p>Pagar con: VISA XXXX9532</p>
-            <p>Cambiar método de pago</p>
-            <p>Pagar/Confirmar</p>
-        </div>
+       <div class="carrito">Carrito
+        <!-- <div class="columnas">Columnas</div> -->
+       </div>
+       <div class="envio">Envia</div>
+       <div class="interesar">Interesar</div>
     </main>
     <footer>
-        <h2>Te puede interesar:</h2>
-            <div class= "articledos">
-                <img src="">
-                <p>Artículo</p>
-                <p>$500.000</p>
-            </div>
-            <div class= "articledos">
-                <img src="">
-                <p>Artículo</p>
-                <p>$500.000</p>
-            </div>
-            <div class= "articledos">
-                <img src="">
-                <p>Artículo</p>
-                <p>$500.000</p>
-            </div>
+        <p>Copyright © 2022 Todo Muebles Inc.</p>
     </footer>
 </body>
 </html>
