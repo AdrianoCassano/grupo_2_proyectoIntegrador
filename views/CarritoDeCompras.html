@@ -66,32 +66,89 @@
         width: 800px;
         height: 400px;
         background-color: rgb(190, 190, 190);
+        border-radius: 6px;
         margin: 20px;
         padding: 20px;
     } 
     .columnas{
-        display:inline-block;
-        width: 780px;
-        height: 20px;
-        background-color: darkgoldenrod;
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-    article{
-        display:inline-block;
-        width: 780px;
-        height: 110px;
-        background-color: rgb(71, 63, 41);
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-    .total{
-        display:inline-block;
+        display: flex;
+        justify-content: left;
+        align-items: center;
         width: 780px;
         height: 30px;
-        background-color: rgb(223, 171, 28);
+        background-color: lightgray;
+        border-radius: 6px;
         margin-left: 10px;
         margin-right: 10px;
+        margin-bottom: 2px;
+    }
+    #art{
+        margin-left: 10px;
+    }
+    #prec{
+        margin-left: 450px;
+    }
+    #cant{
+        margin-left: 100px;
+    }
+    article{
+        display:inline-flex;
+        flex-wrap: wrap;
+        width: 780px;
+        height: 110px;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }
+    .imagen {
+        width: 100px;
+        height: 110px;
+    }
+    #imagen-art {
+        width: 100px;
+        height: 110px;
+    }
+    .description {
+        width: 400px;
+        height: 110px;
+        margin-left: 10px;
+        padding: 0px;
+    }
+    #precio-art {
+        margin-left: 10px;
+        margin-top: 45px;
+    }
+    #cant-art {
+        margin-left: 120px;
+        margin-top: 45px;
+    }
+    .eliminar{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        margin-left: 50px;
+        margin-top: 45px;
+        padding-left: 3px;
+        background-color: lightslategrey;
+    }
+    .total{
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        width: 780px;
+        height: 30px;
+        background-color: lightgray;
+        border-radius: 6px;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 2px;
+    }
+    #total-word {
+        margin-left: 500px;
+    }
+    #total-monto {
+        margin-left: 100px;
     }
     .envio{
         display:inline-block;
@@ -100,6 +157,7 @@
         width: 300px;
         height: 400px;
         background-color: rgb(190, 190, 190);
+        border-radius: 6px;
         margin: 20px;
         padding: 20px;
     }
@@ -120,6 +178,7 @@
         width: 1200px;
         height: 150px;
         background-color: rgb(190, 190, 190);
+        border-radius: 6px;
         margin: 20px;
         padding: 20px;
     } 
@@ -152,12 +211,49 @@
     <br>
     <main>
        <div class="carrito"> 
-        <div class="columnas">Columnas</div>
-        <article>1</article>
-        <article>2</article>
-        <article>3</article>
-        <div class="total">total</div>
-       </div>
+            <div class="columnas">
+                <p id="art">Artículos</p>
+                <p id="prec">Precio</p>
+                <p id="cant">Cantidad</p>
+            </div>
+                <article>
+                    <div class="imagen"><img src="https://i.ebayimg.com/images/g/bi4AAOSwEPtfNsil/s-l400.jpg" id="imagen-art"></div>
+                    <div class="description">
+                        <p>Artículo: Estante Helsinki</p>
+                        <p>Color: Roble Gris</p>
+                        <p>Medidas: 120x80x30cm</p>
+                    </div>
+                    <p id="precio-art">$50.000</p>
+                    <p id="cant-art">1</p>
+                    <button class="eliminar">X</button>
+                </article>
+                <article>
+                    <div class="imagen"><img src="https://i.ebayimg.com/images/g/bi4AAOSwEPtfNsil/s-l400.jpg" id="imagen-art"></div>
+                    <div class="description">
+                        <p>Artículo: Escritorio Mónaco</p>
+                        <p>Color: Caoba</p>
+                        <p>Medidas: 100x70x35cm</p>
+                    </div>
+                    <p id="precio-art">$80.000</p>
+                    <p id="cant-art">1</p>
+                    <button class="eliminar">X</button>
+                </article>
+                <article>
+                    <div class="imagen"><img src="https://i.ebayimg.com/images/g/bi4AAOSwEPtfNsil/s-l400.jpg" id="imagen-art"></div>
+                    <div class="description">
+                        <p>Artículo: Mesa de noche</p>
+                        <p>Color: Humo</p>
+                        <p>Medidas: 70x70x50cm</p>
+                    </div>
+                    <p id="precio-art">$30.000</p>
+                    <p id="cant-art">2</p>
+                    <button class="eliminar">X</button>
+                </article>
+            <div class="total">
+                <p id="total-word">Total carrito:</p>
+                <p id="total-monto">$190.000</p>
+            </div>
+        </div>
        <div class="envio">
            <div class="address">Dirección</div>
            <div class="pay">Confirmar Pago</div>
