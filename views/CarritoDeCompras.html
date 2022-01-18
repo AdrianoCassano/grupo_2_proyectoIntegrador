@@ -196,6 +196,7 @@
     .interesar{
         display:inline-flex;
         flex-wrap: wrap;
+        align-items: center;
         width: 1200px;
         height: 150px;
         background-color: rgb(190, 190, 190);
@@ -204,10 +205,37 @@
         padding: 20px;
     } 
     .article-2{
+        position: relative;
         width: 120px;
         height: 140px;
         background-color: darkkhaki;
-        margin: 5px 50px 5px 50px;
+        margin: 5px 50px 5px 80px;
+    }
+    #imagen-art2 {
+        display: block;
+        width: 120px;
+        height: 140px;
+    }
+    #overlay{
+        position: absolute;
+        top:0;
+        left:0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.6);
+        color: blanchedalmond;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.25s;
+    }
+    #overlay:hover{
+            opacity: 1;
+         }
+    #overlay-title{
+        font-weight: 700;
     }
     #alter{
         font-style: italic;
@@ -243,33 +271,33 @@
                 <p id="cant">Cantidad</p>
             </div>
                 <article>
-                    <div class="imagen"><img src="https://i.ebayimg.com/images/g/bi4AAOSwEPtfNsil/s-l400.jpg" id="imagen-art"></div>
+                    <div class="imagen"><img src="/images/Estante.JPG" id="imagen-art"></div>
                     <div class="description">
-                        <p>Artículo: Estante Helsinki</p>
-                        <p>Color: Roble Gris</p>
-                        <p>Medidas: 120x80x30cm</p>
+                        <p><u>Artículo:</u> Estante Helsinki</p>
+                        <p><u>Color:</u> Roble Gris</p>
+                        <p><u>Medidas:</u> 120x80x30cm</p>
                     </div>
                     <p id="precio-art">$50.000</p>
                     <p id="cant-art">1</p>
                     <button class="eliminar">X</button>
                 </article>
                 <article>
-                    <div class="imagen"><img src="https://i.ebayimg.com/images/g/bi4AAOSwEPtfNsil/s-l400.jpg" id="imagen-art"></div>
+                    <div class="imagen"><img src="/images/Escritorio.JPG" id="imagen-art"></div>
                     <div class="description">
-                        <p>Artículo: Escritorio Mónaco</p>
-                        <p>Color: Caoba</p>
-                        <p>Medidas: 100x70x35cm</p>
+                        <p><u>Artículo:</u> Escritorio Mónaco</p>
+                        <p><u>Color:</u> Caoba</p>
+                        <p><u>Medidas:</u> 100x70x35cm</p>
                     </div>
                     <p id="precio-art">$80.000</p>
                     <p id="cant-art">1</p>
                     <button class="eliminar">X</button>
                 </article>
                 <article>
-                    <div class="imagen"><img src="https://i.ebayimg.com/images/g/bi4AAOSwEPtfNsil/s-l400.jpg" id="imagen-art"></div>
+                    <div class="imagen"><img src="/images/MesaNoche.JPG" id="imagen-art"></div>
                     <div class="description">
-                        <p>Artículo: Mesa de noche</p>
-                        <p>Color: Humo</p>
-                        <p>Medidas: 70x70x50cm</p>
+                        <p><u>Artículo:</u> Mesa de noche</p>
+                        <p><u>Color:</u> Humo</p>
+                        <p><u>Medidas:</u> 70x70x50cm</p>
                     </div>
                     <p id="precio-art">$30.000</p>
                     <p id="cant-art">2</p>
@@ -299,14 +327,42 @@
             </div>
            <button id="confirmar-boton">Confirmar compra</button>
        </div>
-       <div class="interesar">Interesar
-           <div class="article-2"></div>
-           <div class="article-2"></div>
-           <div class="article-2"></div>
-           <div class="article-2"></div>
-           <div class="article-2"></div>
+       <div class="interesar">
+           <p><b>Productos similares:</b></p>
+           <div class="article-2">
+               <a href="#"><img src="/images/Banca.JPG" id="imagen-art2" alt="Banca Tokyo"></a>
+               <a href="#"><div id="overlay">
+                   <div id="overlay-title">Banca Tokyo</div>
+                   <p id="interesar-desc">$60.000</p>
+               </div>
+               </a>
+            </div>
+            <div class="article-2">
+                <a href="#"><img src="/images/EstanteGrande.JPG" id="imagen-art2" alt="Estante Grande"></a>
+                <a href="#"><div id="overlay">
+                    <div id="overlay-title">Estante</div>
+                    <p id="interesar-desc">$50.000</p>
+                </div>
+                </a>
+             </div>
+             <div class="article-2">
+                <a href="#"><img src="/images/Mesa.JPG" id="imagen-art2" alt="MEsa"></a>
+                <a href="#"><div id="overlay">
+                    <div id="overlay-title">Mesa Cali</div>
+                    <p id="interesar-desc">$99.000</p>
+                </div>
+                </a>
+             </div>
+             <div class="article-2">
+                <img src="/images/MuebleTV.JPG" id="imagen-art2" alt="Mueble TV"></a>
+                <a href="#"><div id="overlay">
+                    <div id="overlay-title">Mueble TV</div>
+                    <p id="interesar-desc">$23.000</p>
+                </div>
+                </a>
+             </div>
        </div>
-    </main>
+    </main> 
     <footer>
         <p>Copyright © 2022 Todo Muebles Inc.</p>
     </footer>
