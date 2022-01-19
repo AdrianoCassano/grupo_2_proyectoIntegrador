@@ -87,10 +87,10 @@
         margin-left: 10px;
     }
     #prec{
-        margin-left: 450px;
+        margin-left: 445px;
     }
     #cant{
-        margin-left: 100px;
+        margin-left: 70px;
     }
     article{
         display:inline-flex;
@@ -121,13 +121,32 @@
         margin-top: 45px;
     }
     #cant-art {
-        margin-left: 120px;
+        margin-left: 80px;
         margin-top: 45px;
     }
-    .eliminar{
+    #value-cant {
         width: 20px;
         height: 20px;
+        text-align: center;
+        border-radius: 6px;
+        border: 0;
+        background-color: rgb(231, 231, 231);
+    }
+    .qty {
+        width: 15px;
+        height: 15px;
         border-radius: 50%;
+        font-size: 14px;
+        font-weight: bold;
+        text-align: center; 
+        color: rgb(206, 87, 87);
+    }
+    .eliminar{
+        font-size: 10px;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        border: 0;
         margin-left: 50px;
         margin-top: 45px;
         padding-left: 3px;
@@ -278,7 +297,11 @@
                         <p><u>Medidas:</u> 120x80x30cm</p>
                     </div>
                     <p id="precio-art">$50.000</p>
-                    <p id="cant-art">1</p>
+                    <div id="cant-art">
+                        <a href="#" class="qty">-</a>
+                        <input type="numeric" value="1" id="value-cant" />
+                        <a href="#" class="qty">+</a>
+                    </div>
                     <button class="eliminar">X</button>
                 </article>
                 <article>
@@ -289,7 +312,11 @@
                         <p><u>Medidas:</u> 100x70x35cm</p>
                     </div>
                     <p id="precio-art">$80.000</p>
-                    <p id="cant-art">1</p>
+                    <div id="cant-art">
+                        <a href="#" class="qty">-</a>
+                        <input type="numeric" value="1" id="value-cant" />
+                        <a href="#" class="qty">+</a>
+                    </div>
                     <button class="eliminar">X</button>
                 </article>
                 <article>
@@ -300,7 +327,11 @@
                         <p><u>Medidas:</u> 70x70x50cm</p>
                     </div>
                     <p id="precio-art">$30.000</p>
-                    <p id="cant-art">2</p>
+                    <div id="cant-art">
+                        <a href="#" class="qty">-</a>
+                        <input type="numeric" value="2" id="value-cant" />
+                        <a href="#" class="qty">+</a>
+                    </div>
                     <button class="eliminar">X</button>
                 </article>
             <div class="total">
