@@ -6,79 +6,396 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TODO Muebles - Carrito</title>
 </head>
-<body>
-    <h1>Tu carrito</h1>
+<style>
+    body{
+        background-image: url("https://i.ibb.co/tPyznBz/mueblesfondo.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        align-items: center;
+        font-family: 'Roboto', sans-serif;
+    }
+    .logo{
+        text-align: center;
+        padding: 20px;
+    }
+    main {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: left;
+        font-family: 'Roboto', sans-serif;
+        border-radius: 6px;
+        background: rgba(221, 221, 221, 0.85);
+        margin-left: 100px;
+        margin-right: 100px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    ul {
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 6px;
+        overflow: hidden;
+        background: rgba(221, 221, 221, 0.85);
+        }
+
+    li {
+        float: left;
+}
+
+    li a {
+        display: block;
+        color: rgb(0, 0, 0);
+        text-align: center;
+        padding: 16px;
+        text-decoration: none;
+    }
+    footer {
+        text-align: center;
+        color: seashell;
+    }
+    .carrito { 
+        display:flex;
+        flex-wrap: wrap;
+        width: 800px;
+        height: 400px;
+        background-color: rgb(190, 190, 190);
+        border-radius: 6px;
+        margin: 20px;
+        padding: 20px;
+    } 
+    .columnas{
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        width: 780px;
+        height: 30px;
+        background-color: lightgray;
+        border-radius: 6px;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 2px;
+        font-weight: 700;
+    }
+    #art{
+        margin-left: 10px;
+    }
+    #prec{
+        margin-left: 445px;
+    }
+    #cant{
+        margin-left: 70px;
+    }
+    article{
+        display:inline-flex;
+        flex-wrap: wrap;
+        width: 780px;
+        height: 110px;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }
+    .imagen {
+        width: 100px;
+        height: 110px;
+    }
+    #imagen-art {
+        width: 100px;
+        height: 110px;
+    }
+    .description {
+        width: 400px;
+        height: 110px;
+        margin-left: 10px;
+        padding: 0px;
+    }
+    #precio-art {
+        margin-left: 10px;
+        margin-top: 45px;
+    }
+    #cant-art {
+        margin-left: 80px;
+        margin-top: 45px;
+    }
+    #value-cant {
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        border-radius: 6px;
+        border: 0;
+        background-color: rgb(231, 231, 231);
+    }
+    .qty {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        font-size: 14px;
+        font-weight: bold;
+        text-align: center; 
+        color: rgb(206, 87, 87);
+    }
+    .eliminar{
+        font-size: 10px;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        border: 0;
+        margin-left: 50px;
+        margin-top: 45px;
+        padding-left: 3px;
+        background-color: lightslategrey;
+    }
+    .eliminar:hover{
+        background-color: lightsteelblue;
+    }
+    .total{
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        width: 780px;
+        height: 30px;
+        background-color: lightgray;
+        border-radius: 6px;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 2px;
+        font-weight: 700;
+    }
+    #total-word {
+        margin-left: 500px;
+    }
+    #total-monto {
+        margin-left: 100px;
+    }
+    .envio{
+        display:inline-block;
+        display:flex;
+        flex-wrap: wrap;
+        width: 300px;
+        height: 400px;
+        background-color: rgb(190, 190, 190);
+        border-radius: 6px;
+        margin: 20px;
+        padding: 20px;
+    }
+    .address{
+        width: 300px;
+        height: 160px;
+        background-color: lightgray;
+        border-radius: 6px;
+        padding-left: 10px;
+    }
+    .pay{
+        width: 300px;
+        height: 160px;
+        background-color: lightgray;
+        border-radius: 6px;
+        padding-left: 10px;
+        
+    }
+    #confirmar-boton{
+        background-color: brown;
+        text-align: center;
+        justify-content: center;
+        margin-left: 80px;
+        color: cornsilk;
+        border-radius: 6px;
+        font-size: 16px;
+    }
+    #confirmar-boton:hover{
+        background-color: rgb(197, 51, 51);
+    }
+    .interesar{
+        display:inline-flex;
+        flex-wrap: wrap;
+        align-items: center;
+        width: 1200px;
+        height: 150px;
+        background-color: rgb(190, 190, 190);
+        border-radius: 6px;
+        margin: 20px;
+        padding: 20px;
+    } 
+    .article-2{
+        position: relative;
+        width: 120px;
+        height: 140px;
+        background-color: darkkhaki;
+        margin: 5px 50px 5px 80px;
+    }
+    #imagen-art2 {
+        display: block;
+        width: 120px;
+        height: 140px;
+    }
+    #overlay{
+        position: absolute;
+        top:0;
+        left:0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.6);
+        color: blanchedalmond;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.25s;
+    }
+    #overlay:hover{
+            opacity: 1;
+         }
+    #overlay-title{
+        font-weight: 700;
+    }
+    #alter{
+        font-style: italic;
+        text-decoration-line: underline;
+        font-size: 14px;
+    }
+</style>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="/home">
+                <img src="/images/TodoMueble.png" alt="" width="80%">
+                </a>
+            </div>
+            <nav>
+                <div class="barra">
+                <ul>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Diseño de Interiores</a></li>
+                    <li><a href="#">Contactos</a></li>
+                    <li><a href="#">Registrarse</a></li>
+                </ul>
+                </div>
+            </nav>  
+    </header>
+    <br>
+    <br>
     <main>
-        <div>
-            <p>Artículos</p>
-            <p>Precio</p>
-            <p>Cantidad</p>
+       <div class="carrito"> 
+            <div class="columnas">
+                <p id="art">Artículos</p>
+                <p id="prec">Precio</p>
+                <p id="cant">Cantidad</p>
+            </div>
+                <article>
+                    <div class="imagen"><img src="/images/Estante.JPG" id="imagen-art"></div>
+                    <div class="description">
+                        <p><u>Artículo:</u> Estante Helsinki</p>
+                        <p><u>Color:</u> Roble Gris</p>
+                        <p><u>Medidas:</u> 120x80x30cm</p>
+                    </div>
+                    <p id="precio-art">$50.000</p>
+                    <div id="cant-art">
+                        <a href="#" class="qty">-</a>
+                        <input type="numeric" value="1" id="value-cant" />
+                        <a href="#" class="qty">+</a>
+                    </div>
+                    <button class="eliminar">X</button>
+                </article>
+                <article>
+                    <div class="imagen"><img src="/images/Escritorio.JPG" id="imagen-art"></div>
+                    <div class="description">
+                        <p><u>Artículo:</u> Escritorio Mónaco</p>
+                        <p><u>Color:</u> Caoba</p>
+                        <p><u>Medidas:</u> 100x70x35cm</p>
+                    </div>
+                    <p id="precio-art">$80.000</p>
+                    <div id="cant-art">
+                        <a href="#" class="qty">-</a>
+                        <input type="numeric" value="1" id="value-cant" />
+                        <a href="#" class="qty">+</a>
+                    </div>
+                    <button class="eliminar">X</button>
+                </article>
+                <article>
+                    <div class="imagen"><img src="/images/MesaNoche.JPG" id="imagen-art"></div>
+                    <div class="description">
+                        <p><u>Artículo:</u> Mesa de noche</p>
+                        <p><u>Color:</u> Humo</p>
+                        <p><u>Medidas:</u> 70x70x50cm</p>
+                    </div>
+                    <p id="precio-art">$30.000</p>
+                    <div id="cant-art">
+                        <a href="#" class="qty">-</a>
+                        <input type="numeric" value="2" id="value-cant" />
+                        <a href="#" class="qty">+</a>
+                    </div>
+                    <button class="eliminar">X</button>
+                </article>
+            <div class="total">
+                <p id="total-word">Total carrito:</p>
+                <p id="total-monto">$190.000</p>
+            </div>
         </div>
-        <div class= "article">
-            <img src="">
-            <p>Artículo</p>
-            <p>Color</p>
-            <p>Medidas y peso</p>
-            <p>$500.000</p>
-            <p>1</p>
-        </div>
-        <div class= "article">
-            <img src="">
-            <p>Artículo</p>
-            <p>Color</p>
-            <p>Medidas y peso</p>
-            <p>$500.000</p>
-            <p>1</p>
-        </div>
-        <div class= "article">
-            <img src="">
-            <p>Artículo</p>
-            <p>Color</p>
-            <p>Medidas y peso</p>
-            <p>$500.000</p>
-            <p>1</p>
-        </div>
-        <p class="total">
-            Total carrito de compras
-        </p>
-    </main>
-    <main>
-        <div class="direccion">
-            <h2>Enviar a:</h2>
-            <p>Avenida Siempre Viva 123, Seattle WA 95514 USA
-                Recibe: Cosme Fulanito
-            </p>
-            <p>Editar mi dirección</p>
-        </div>
-        <div class="pago">
-            <h2>Pago:</h2>
-            <p>Agregar cupón</p>
-            <p>Subtotal</p>
-            <p>Envío</p>
-            <p>Descuentos</p>
-            <p>Total a pagar</p>
-            <p>Pagar con: VISA XXXX9532</p>
-            <p>Cambiar método de pago</p>
-            <p>Pagar/Confirmar</p>
-        </div>
-    </main>
+       <div class="envio">
+           <div class="address">
+               <p><b>Enviar a:</b></p>
+                <p>Avenida Siempreviva 123
+                    Seattle, WA
+                    95514, USA</p>
+                   <p>Recibe: Cosme Fulanito</p>
+                <p id="alter"><a href="#">Cambiar mi dirección de envio</a></p>
+            </div>
+           <div class="pay">
+               <p><b>Método de pago:</b></p>
+               <p>Tarjeta Visa Terminada en
+                XXXX-8998
+                </p>
+               <p>A nombre de: Cosme Fulanito</p>
+            <p id="alter"><a href="#">Cambiar mi método de pago</a></p>
+            </div>
+           <button id="confirmar-boton">Confirmar compra</button>
+       </div>
+       <div class="interesar">
+           <p><b>Productos similares:</b></p>
+           <div class="article-2">
+               <a href="#"><img src="/images/Banca.JPG" id="imagen-art2" alt="Banca Tokyo"></a>
+               <a href="#"><div id="overlay">
+                   <div id="overlay-title">Banca Tokyo</div>
+                   <p id="interesar-desc">$60.000</p>
+               </div>
+               </a>
+            </div>
+            <div class="article-2">
+                <a href="#"><img src="/images/EstanteGrande.JPG" id="imagen-art2" alt="Estante Grande"></a>
+                <a href="#"><div id="overlay">
+                    <div id="overlay-title">Estante</div>
+                    <p id="interesar-desc">$50.000</p>
+                </div>
+                </a>
+             </div>
+             <div class="article-2">
+                <a href="#"><img src="/images/Mesa.JPG" id="imagen-art2" alt="MEsa"></a>
+                <a href="#"><div id="overlay">
+                    <div id="overlay-title">Mesa Cali</div>
+                    <p id="interesar-desc">$99.000</p>
+                </div>
+                </a>
+             </div>
+             <div class="article-2">
+                <img src="/images/MuebleTV.JPG" id="imagen-art2" alt="Mueble TV"></a>
+                <a href="#"><div id="overlay">
+                    <div id="overlay-title">Mueble TV</div>
+                    <p id="interesar-desc">$23.000</p>
+                </div>
+                </a>
+             </div>
+       </div>
+    </main> 
     <footer>
-        <h2>Te puede interesar:</h2>
-            <div class= "articledos">
-                <img src="">
-                <p>Artículo</p>
-                <p>$500.000</p>
-            </div>
-            <div class= "articledos">
-                <img src="">
-                <p>Artículo</p>
-                <p>$500.000</p>
-            </div>
-            <div class= "articledos">
-                <img src="">
-                <p>Artículo</p>
-                <p>$500.000</p>
-            </div>
+        <p>Copyright © 2022 Todo Muebles Inc.</p>
     </footer>
 </body>
 </html>
