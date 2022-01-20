@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TODO Muebles - Carrito</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
 </head>
 <style>
     body{
@@ -45,6 +46,12 @@
         background: rgba(221, 221, 221, 0.85);
         }
 
+    .nav-carrito-login {
+        display: flex;
+        margin-left: 580px;
+        
+    }
+
     li {
         float: left;
 }
@@ -58,7 +65,8 @@
     }
     footer {
         text-align: center;
-        color: seashell;
+        color: rgb(165, 42, 42);
+        font-weight: 700;
     }
     .carrito { 
         display:flex;
@@ -201,12 +209,14 @@
         
     }
     #confirmar-boton{
-        background-color: brown;
+        background-color: rgb(165, 42, 42);
+        border-radius: 6px;
+        border: 0;
+        width: 250px;
         text-align: center;
         justify-content: center;
-        margin-left: 80px;
+        margin-left: 25px;
         color: cornsilk;
-        border-radius: 6px;
         font-size: 16px;
     }
     #confirmar-boton:hover{
@@ -276,6 +286,11 @@
                     <li><a href="#">Diseño de Interiores</a></li>
                     <li><a href="#">Contactos</a></li>
                     <li><a href="#">Registrarse</a></li>
+                    <div class="nav-carrito-login">
+                        <li id="mi-carrito"><a href="/carritoDeCompras">Mi Carrito <i class="fas fa-shopping-cart"></i></a></li>
+                        <p>|</p>
+                        <li id="acesso-login"><a href="formularioDeLogin">Mi Cuenta <i class="fas fa-user-circle"></i></a></li>
+                    </div>
                 </ul>
                 </div>
             </nav>  
