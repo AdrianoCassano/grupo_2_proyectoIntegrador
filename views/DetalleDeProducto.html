@@ -6,20 +6,230 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    body{
+        background-image: url("https://i.ibb.co/tPyznBz/mueblesfondo.jpg");
+        align-items: center;
+        font-family: 'Roboto', sans-serif;
+    }
+    .logo{
+        text-align: center;
+        padding: 20px;
+    }
+    main {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        font-family: 'Roboto', sans-serif;
+        border-radius: 6px;
+        background: rgba(221, 221, 221, 0.85);
+        margin-left: 100px;
+        margin-right: 100px;
+        flex-wrap: wrap;
+    }
+    header nav ul {
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 6px;
+        overflow: hidden;
+        background: #ddddddd9;
+        }
+
+    header nav li {
+        float: left;
+    }
+
+    header nav li a {
+        display: block;
+        color: rgb(0, 0, 0);
+        text-align: center;
+        padding: 16px;
+        text-decoration: none;
+    }
+    .submit {
+        background-color: #a52a2a;
+        border-radius: 6px;
+        border: 0;
+        color: #eee;
+        cursor: pointer;
+        font-size: 14px;
+        height: 38px;
+        margin: 1% 5%;
+        outline: 0;
+        text-align: center;
+        width: 10%;
+    }
+    main div{
+        width: 100%;
+    }
+    .principal{
+        display: flex;
+        flex-wrap: nowrap;
+        padding: 4% 4% 1% 4%;
+        width:100%
+    }
+
+    .imagen-principal{
+        border-radius: 0.5%;
+        box-shadow: 50px #a52a2a;        
+        padding: 1%;
+    }
+    .detalle{
+        padding: 1%       
+    }
+    
+    .detalle li{
+        padding:3% ;
+        width:100%;
+        list-style-type: none; 
+    }
+    .detalle .nombre-producto{
+        font-size:large;
+        font-weight: bold;
+        color:#a52a2a;
+        text-align: center;
+    }
+    .detalle .cantidad{
+        font-size:large;
+        font-weight: bold;
+        color:#a52a2a;
+        text-align: center; 
+     }
+     #qty{
+         width: 10%;
+     }   
+    .detalle .precio{
+        font-size:large;
+        font-weight: bold;
+        color:#a52a2a;
+        text-align: center;
+    }
+    .detalle .submit{
+        background-color: #a52a2a;
+        border-radius: 6px;
+        border: 0;
+        color: #eee;
+        cursor: pointer;
+        font-size: 14px;
+        height: 38px;
+        margin: 1% 5%;
+        outline: 0;
+        text-align: center;
+        width: 80%;
+    }
+
+    .secundaria{
+        display: flex;
+        flex-wrap: nowrap;
+        padding: 2% 3%;
+        width:100%;
+        justify-content: space-between;
+    }
+    .imagenes{
+        display:flex;
+        flex-grow: 50%;
+        justify-content: space-between;
+
+    }
+    .secundaria div img{
+        width: 25%;
+        padding: 0px 2%;
+        border:#a52a2a solid;
+    }
+    .secundaria div .medios-pago{
+        display:flex;
+        flex-grow: 50%;
+        justify-content: space-between;
+    }
+    .medios-pago li{
+        display: inline-block;
+        padding:3% ;
+        list-style-type: none;
+    }
+    
+    .tercera{
+        display:flex;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        width: 100%;
+        display:inline-block;
+        padding: 5%;
+    }
+
+    
+    footer {
+        text-align: center;
+        color: seashell;
+    }
+</style>
 <body>
     <header>
-            <div class="logo"> 
-                <img src="" alt="">
+        <div class="logo">
+            <a href="/home">
+            <img src="/images/TodoMueble.png" alt="" width="80%">
+            </a>
+        </div>
+        <nav>
+            <div class="barra">
+            <ul>
+                <li><a href="#">Productos</a></li>
+                <li><a href="#">Diseño de Interiores</a></li>
+                <li><a href="#">Contactos</a></li>
+                <li><a href="#">Registrarse</a></li>
+            </ul>
             </div>
+        </nav>  
     </header>
-    <section>
-        <div class=imagenesDeProducto></div>
-        <p>Nombre de producto</p>
-        <p>Precio</p>
-        <p>Cantidad</p>
-        <p>Agregar al carrito</p>
-        <p>Medios de pago</p>
-        <p>Descripcion, materiales, peso y medidas</p>
-    </section>
+    <main>
+        <div>
+        <button type="text" class="submit">Volver</button>
+        </div>
+        <section class= principal>
+            <div class= imagen-principal>
+                <img src="/images/TodoMueble.png" alt="imagen1">
+            </div>
+            <div class="detalle">
+                <ul>
+                    <li class="nombre-producto">Nombre de producto</li>
+                    <li class="cantidad">Cantidad <input type="number" id="qty" value="1"></li>                    
+                    <li class="precio">$75.000</li>
+                    <li><button type="text" class="submit">Agregar al Carrito</button></li>
+                </ul>
+            </div>
+        </section>
+        <section class="secundaria">
+            <div class="imagenes">
+                <img src="" alt="imagen2">
+                <img src="" alt="imagen3">
+                <img src="" alt="imagen4">
+                <img src="" alt="imagen5">
+            </div>
+            <div class="medios-pago">
+                <ul>                    
+                    <li><img src="" alt="Mercadopago"></li>
+                    <li><img src="" alt="Visa"></li>
+                    <li><img src="" alt="Amex"></li>
+                    <li><img src="" alt="Mastercard"></li>
+                </ul>
+
+            </div>
+
+        </section>
+        <section class="tercera">
+            Descripcion, materiales, peso y dimensiones
+        </section>
+    </main>
+    <footer>
+        <p>Copyright © 2022 Todo Muebles Inc.</p>
+    </footer>
 </body>
 </html>
+
+
+
+
