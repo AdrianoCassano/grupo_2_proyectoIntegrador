@@ -27,3 +27,11 @@ app.get("/formularioDeLogin", (req,res) => {
     res.sendFile(__dirname + "/views/users/formularioDeLogin.html")
 })
 
+
+app.get("/creacion", (req,res) => {
+    res.sendFile(__dirname + "/views/products/creacion.html")
+})
+
+app.get("/edicion", (req,res) => {
+    res.sendFile(__dirname + "/views/products/edicion.html")
+})

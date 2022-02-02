@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO Muebles - Registro</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+
+</head>
+
+<style>
+h3 {
+    color: rgb(165, 42, 42)
+}
+
+    .formularioColor:focus{
+        background-color: rgb(165, 42, 42);
+    }
+    body{
+        background-image: url("https://i.ibb.co/tPyznBz/mueblesfondo.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        align-items: center;
+        font-family: 'Roboto', sans-serif;
+    }
+    .logo{
+        text-align: center;
+        padding: 20px;
+    }
+    main {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        font-family: 'Roboto', sans-serif;
+        border-radius: 6px;
+        background: rgba(221, 221, 221, 0.85);
+       margin-left: 100px;
+       margin-right: 100px;
+    }
+
+    ul {
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 6px;
+        overflow: hidden;
+        background: rgba(221, 221, 221, 0.85);
+        }
+
+        li {
+        float: left;
+}
+
+li a {
+        display: block;
+        color: rgb(0, 0, 0);
+        text-align: center;
+        padding: 16px;
+        text-decoration: none;
+}
+
+
+    .Formulario-de-Registro {
+        text-align: center;
+        color: snow;
+    }
+
+
+    .register-form {
+        border-radius: 20px;
+        box-sizing: border-box;
+        margin-top: 15px;
+        height: auto;
+        padding: 15px;
+        text-align: center
+    }
+    #nombre-de-producto {
+        height: 30px;
+        position: relative;
+        box-sizing: border-box;
+        width: 100%;
+        border: 0;
+        border-radius: 6px;
+        margin: 10px 0px 30px
+    }
+
+    #Descripcion {
+        height: 30px;
+        position: relative;
+        box-sizing: border-box;
+        width: 100%;
+        border: 0;
+        border-radius: 6px;
+        margin: 10px 0px 30px
+    }
+
+  
+    #Cantidad-de-Mueble {
+        height: 30px;
+        position: relative;
+        box-sizing: border-box;
+        width: 100%;
+        border: 0;
+        border-radius: 6px;
+        margin: 10px 0px 30px
+    }
+
+    #Colores {
+        height: 30px;
+        position: relative;
+        box-sizing: border-box;
+        width: 100%;
+        border: 0;
+        border-radius: 6px;
+        margin: 10px 0px 30px
+    }
+  
+
+    #Precio {
+        height: 30px;
+        position: relative;
+        box-sizing: border-box;
+        width: 100%;
+        border: 0;
+        border-radius: 6px;
+        margin: 10px 0px 30px
+    }
+
+    #Foto {
+        height: 30px;
+        position: relative;
+        box-sizing: border-box;
+        width: 100%;
+        border: 0;
+        border-radius: 6px;
+        margin: 10px 0px 30px
+    }
+
+
+    .submit {
+        background-color: rgb(165, 42, 42);
+        border-radius: 6px;
+        border: 0;
+        box-sizing: border-box;
+        color: #eee;
+        cursor: pointer;
+        font-size: 14px;
+        height: 38px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        outline: 0;
+        text-align: center;
+        width: 100%;
+    }
+    .submit:hover{
+        background-color: #c9200a;
+    }
+    footer {
+        text-align: center;
+        color: rgb(165, 42, 42);
+    }
+</style>
+
+
+<body>
+    <header>
+            <div class="logo">
+                <a href="/home">
+                <img src="/images/TodoMueble.png" alt="" width="80%">
+                </a>
+            </div>
+           <!-- <form action="" class=>
+                <input type="text" placeholder="Buscar productos, marcas...">
+                <button class="boton">
+                    Buscar
+                </button>
+            </form> -->
+        <nav>
+            <div class="barra">
+                <marquee> <b>Acceso solo para Administradores</b></marquee>
+            <ul>
+                <li><a href="#">Productos</a></li>
+                <li><a href="#">Diseño de Interiores</a></li>
+                <li><a href="#">Contactos</a></li>
+                <li><a href="#">Registrarse</a></li>
+                <div class="nav-carrito-login">
+                    <li id="mi-carrito"><a href="/carritoDeCompras">Mi Carrito <i class="fas fa-shopping-cart"></i></a></li>
+                    <p>|</p>
+                    <li id="acesso-login"><a href="formularioDeLogin">Mi Cuenta <i class="fas fa-user-circle"></i></a></li>
+                    </div>
+            </ul>
+        </div>
+        </nav>  
+    </header>
+    <div class="Formulario-de-Registro">
+   <br>
+   <br>
+    </div>
+
+<main>
+    <form action="/register" method="post" class= "register-form">
+        <h3>Ingreso de Nuevo Producto</h3> 
+    <div>
+    <label for="Product Name"></label>
+    <input class= "formularioColor" type="text" name="nombre de producto" id="nombre-de-producto" placeholder="Ingrese nombre de producto*" required>
+</div>
+<div>
+    <label for="Descripcion"></label>
+    <input class= "formularioColor" type="text" name="Descripcion" id="Descripcion" placeholder="Descripcion del producto*" required>
+</div>
+
+<div>
+    <label for="Colores"></label>
+    <select name="id mult" id= "Colores" required><option value="  " selected>Selecciona el color</option>
+<option value="Rojo">ROJO</option>
+<option value="Azul">AZUL</option>
+<option value="Verde">VERDE</option>
+<option value="Negro">NEGRO</option>
+<option value="Blanco">BLANCO</option>
+</select>
+</div>
+<div>
+    <label for="Cantidad"></label>
+    <select name="id mult" id= "Cantidad-de-Mueble" required><option value="  " selected>Selecciona la cantidad de Muebles</option>
+<option value="1">1 unidad</option>
+<option value="2">2 unidades</option>
+<option value="3">3 unidades</option>
+<option value="4">4 unidades</option>
+<option value="5">5 unidades</option>
+
+
+</select>
+</div>
+
+
+<div>
+   <h4>Seleccione el tipo de mueble</h4>
+
+    <label for="genero">Silla</label>
+    <input type="radio" name="variable1" id="opcion1" value="valor1">
+
+    <label for="genero">Sillon</label>
+    <input type="radio" name="variable1" id="opcion2" value="valor2">
+
+    <label for="genero">Mesada</label>
+    <input type="radio" name="variable1" id="opcion3" value="valor3">
+
+    <label for="genero">Armario</label>
+    <input type="radio" name="variable1" id="opcion3" value="valor3">
+
+</div>
+<br>
+<br>
+<div>
+    <label for="Precio"></label>
+    <input class= "formularioColor" type="text" name="Precio" id="Precio" placeholder="Ingresa el precio" required>
+</div>
+
+<div>
+    <label>Producto Embalable </label>
+    <input type="checkbox" name="newsletter" value="si">
+</div>
+
+<br>
+<br>
+
+<div>
+    <label for="Foto"></label>
+    <input class= "Foto" type="file" name="Precio" id="Precio" placeholder="Carga una foto" required>
+</div>
+
+
+
+    <button type="text" class="submit">CARGAR</button>
+    <button type="reset" class="submit" >BORRAR</button>
+
+</form>
+</main>
+    
+<footer>
+                <p><b><a href="#">Terminos y Condiciones</a></b></p>
+                <p><b><a href="#">Información Legal></a></b></p>
+                <p><b>Copyright © 2022 Todo Muebles Inc.</b></p>
+</footer>
+
+</body>
+</html>
