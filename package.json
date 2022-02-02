@@ -4,6 +4,7 @@
   "description": "Link al Trello https://trello.com/b/y2RbfqBP/proyectointegrador",
   "main": "app.js",
   "scripts": {
+    "start": "node ./src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

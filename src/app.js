@@ -12,7 +12,7 @@ app.get("/home", (req,res) => {
 })
 
 app.get("/detalleDeProducto", (req,res) => {
-    res.sendFile(__dirname + "/views/detalleDeProducto.html")
+    res.sendFile(__dirname + "/views/products/detalleDeProducto.html")
 })
 
 app.get("/carritoDeCompras", (req,res) => {
@@ -20,10 +20,10 @@ app.get("/carritoDeCompras", (req,res) => {
 })
 
 app.get("/formularioDeRegistro", (req,res) => {
-    res.sendFile(__dirname + "/views/formularioDeRegistro.html")
+    res.sendFile(__dirname + "/views/users/formularioDeRegistro.html")
 })
 
 app.get("/formularioDeLogin", (req,res) => {
-    res.sendFile(__dirname + "/views/formularioDeLogin.html")
+    res.sendFile(__dirname + "/views/users/formularioDeLogin.html")
 })
 
