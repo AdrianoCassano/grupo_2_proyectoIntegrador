@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/AdrianoCassano/grupo_2_proyectoIntegrador#readme",
   "dependencies": {
+    "ejs": "^3.1.6",
     "express": "^4.17.2"
   }
 }
