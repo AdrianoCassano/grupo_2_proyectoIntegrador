@@ -1,40 +1,25 @@
-const path = require("path");
-
 const mainController = {
     home: (req,res) => {
-        res.sendFile(path.resolve("src/views/home.html"))
+        res.render("home")
     },
     detalle: (req,res) => {
-        res.sendFile(path.resolve("src/views/products/detalle.html"))
+        res.render("detalle")
     },
     creacion: (req,res) => {
-        res.sendFile(path.resolve("src/views/products/creacion.html"))
+        res.render("creacion")
     },
     edicion: (req,res) => {
-        res.sendFile(path.resolve("src/views/products/edicion.html"))
+        res.render("edicion")
     },
     carrito: (req,res) => {
-        res.sendFile(path.resolve("src/views/carrito.html"))
+        res.render("carrito")
     },
     register: (req,res) => {
-        res.sendFile(path.resolve("src/views/users/register.html"))
+        res.render("users/register")
     },
     login: (req,res) => {
-        res.sendFile(path.resolve("src/views/users/login.html"))
-    },
-
-
-
-
-
-
-
-
-
-
-
-
-
+        res.render("users/login")
+    }
 
 }
 
