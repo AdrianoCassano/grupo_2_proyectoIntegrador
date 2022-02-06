@@ -1,12 +1,12 @@
 const productsController = {
     detalle: (req,res) => {
-        res.render("detalle")
+        res.render("products/detalle")
     },
     creacion: (req,res) => {
-        res.render("creacion")
+        res.render("products/creacion")
     },
     edicion: (req,res) => {
-        res.render("edicion")
+        res.render("products/edicion")
     }
 }
 

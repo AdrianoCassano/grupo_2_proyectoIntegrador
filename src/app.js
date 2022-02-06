@@ -8,18 +8,16 @@ const userRoutes = require("./routes/userRoutes");
 
 app.use (express.static("public"));
 
-app.set ("views", [path.join(__dirname, "views"),path.join(__dirname, "/views/products")]);
+app.set ("views", path.join(__dirname, "views"));
 
 app.set ("view engine", "ejs");
 
 
 app.use("/", mainRoutes);
-app.use("/detalle", productsRoutes);
-app.use("/creacion", productsRoutes);
-app.use("/edicion", productsRoutes);
+app.use("/products", productsRoutes);
 app.use("/carrito", checkoutRoutes);
-app.use("/register", userRoutes);
-app.use("/login", userRoutes);
+app.use("/", userRoutes);
+app.use("/", userRoutes);
 
 
 app.listen (3030, () =>{console.log("server up")});
