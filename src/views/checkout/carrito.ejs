@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TODO Muebles - Carrito</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-</head>
+    <%- include("../partials/head.ejs") %>
 <style>
     body{
         background-image: url("https://i.ibb.co/tPyznBz/mueblesfondo.jpg");
@@ -15,10 +9,6 @@
         background-size: cover;
         align-items: center;
         font-family: 'Roboto', sans-serif;
-    }
-    .logo{
-        text-align: center;
-        padding: 20px;
     }
     main {
         align-items: center;
@@ -32,41 +22,6 @@
         margin-right: 100px;
         padding-left: 20px;
         padding-right: 20px;
-    }
-    ul {
-        list-style-type: none;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 10px;
-        padding-left: 20px;
-        padding-right: 20px;
-        border-radius: 6px;
-        overflow: hidden;
-        background: rgba(221, 221, 221, 0.85);
-        }
-
-    .nav-carrito-login {
-        display: flex;
-        margin-left: 580px;
-        
-    }
-
-    li {
-        float: left;
-}
-
-    li a {
-        display: block;
-        color: rgb(0, 0, 0);
-        text-align: center;
-        padding: 16px;
-        text-decoration: none;
-    }
-    footer {
-        text-align: center;
-        color: rgb(165, 42, 42);
-        font-weight: 700;
     }
     .carrito { 
         display:flex;
@@ -273,28 +228,7 @@
     }
 </style>
     <body>
-        <header>
-            <div class="logo">
-                <a href="/home">
-                <img src="/images/TodoMueble.png" alt="" width="80%">
-                </a>
-            </div>
-            <nav>
-                <div class="barra">
-                <ul>
-                    <li><a href="#">Productos</a></li>
-                    <li><a href="#">Diseño de Interiores</a></li>
-                    <li><a href="#">Contactos</a></li>
-                    <li><a href="#">Registrarse</a></li>
-                    <div class="nav-carrito-login">
-                        <li id="mi-carrito"><a href="/carritoDeCompras">Mi Carrito <i class="fas fa-shopping-cart"></i></a></li>
-                        <p>|</p>
-                        <li id="acesso-login"><a href="formularioDeLogin">Mi Cuenta <i class="fas fa-user-circle"></i></a></li>
-                    </div>
-                </ul>
-                </div>
-            </nav>  
-    </header>
+        <%- include("../partials/header.ejs") %>
     <br>
     <br>
     <main>
@@ -409,9 +343,7 @@
              </div>
        </div>
     </main> 
-    <footer>
-        <p>Copyright © 2022 Todo Muebles Inc.</p>
-    </footer>
+    <%- include("../partials/footer") %>
 </body>
 </html>
 

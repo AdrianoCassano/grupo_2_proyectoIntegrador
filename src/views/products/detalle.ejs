@@ -1,20 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TODO Muebles - Detalle</title>
-</head>
+    <%- include("../partials/head") %>
 <style>
     body{
         background-image: url("https://i.ibb.co/tPyznBz/mueblesfondo.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
         align-items: center;
         font-family: 'Roboto', sans-serif;
-    }
-    .logo{
-        text-align: center;
-        padding: 20px;
     }
     main {
         align-items: center;
@@ -26,30 +20,6 @@
         margin-left: 100px;
         margin-right: 100px;
         flex-wrap: wrap;
-    }
-    header nav ul {
-        list-style-type: none;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 10px;
-        padding-left: 20px;
-        padding-right: 20px;
-        border-radius: 6px;
-        overflow: hidden;
-        background: #ddddddd9;
-        }
-
-    header nav li {
-        float: left;
-    }
-
-    header nav li a {
-        display: block;
-        color: rgb(0, 0, 0);
-        text-align: center;
-        padding: 16px;
-        text-decoration: none;
     }
     .submit {
         background-color: #a52a2a;
@@ -160,31 +130,9 @@
         display:inline-block;
         padding: 5%;
     }
-
-    
-    footer {
-        text-align: center;
-        color: seashell;
-    }
 </style>
 <body>
-    <header>
-        <div class="logo">
-            <a href="/home">
-            <img src="/images/TodoMueble.png" alt="" width="80%">
-            </a>
-        </div>
-        <nav>
-            <div class="barra">
-            <ul>
-                <li><a href="#">Productos</a></li>
-                <li><a href="#">Diseño de Interiores</a></li>
-                <li><a href="#">Contactos</a></li>
-                <li><a href="#">Registrarse</a></li>
-            </ul>
-            </div>
-        </nav>  
-    </header>
+    <%- include("../partials/header.ejs") %>
     <main>
         <div>
         <button type="text" class="submit">Volver</button>
@@ -224,9 +172,7 @@
             Descripcion, materiales, peso y dimensiones
         </section>
     </main>
-    <footer>
-        <p>Copyright © 2022 Todo Muebles Inc.</p>
-    </footer>
+    <%- include("../partials/footer") %>
 </body>
 </html>
 

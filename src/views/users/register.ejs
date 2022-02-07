@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TODO Muebles - Registro</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-
-</head>
-
+    <%- include("../partials/head") %>
 <style>
 h3 {
     color: rgb(165, 42, 42)
@@ -25,10 +17,6 @@ h3 {
         align-items: center;
         font-family: 'Roboto', sans-serif;
     }
-    .logo{
-        text-align: center;
-        padding: 20px;
-    }
     main {
         align-items: center;
         display: flex;
@@ -39,39 +27,10 @@ h3 {
        margin-left: 100px;
        margin-right: 100px;
     }
-
-    ul {
-        list-style-type: none;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 10px;
-        padding-left: 20px;
-        padding-right: 20px;
-        border-radius: 6px;
-        overflow: hidden;
-        background: rgba(221, 221, 221, 0.85);
-        }
-
-        li {
-        float: left;
-}
-
-li a {
-        display: block;
-        color: rgb(0, 0, 0);
-        text-align: center;
-        padding: 16px;
-        text-decoration: none;
-}
-
-
     .Formulario-de-Registro {
         text-align: center;
         color: snow;
     }
-
-
     .register-form {
         border-radius: 20px;
         box-sizing: border-box;
@@ -198,43 +157,11 @@ li a {
     .submit:hover{
         background-color: #c9200a;
     }
-    footer {
-        text-align: center;
-        color: rgb(165, 42, 42);
-    }
 </style>
 
 
 <body>
-    <header>
-            <div class="logo">
-                <a href="/home">
-                <img src="/images/TodoMueble.png" alt="" width="80%">
-                </a>
-            </div>
-           <!-- <form action="" class=>
-                <input type="text" placeholder="Buscar productos, marcas...">
-                <button class="boton">
-                    Buscar
-                </button>
-            </form> -->
-        <nav>
-            <div class="barra">
-                <marquee> <b>¡No olvides registrarte para recibir las mejores ofertas!</b></marquee>
-            <ul>
-                <li><a href="#">Productos</a></li>
-                <li><a href="#">Diseño de Interiores</a></li>
-                <li><a href="#">Contactos</a></li>
-                <li><a href="#">Registrarse</a></li>
-                <div class="nav-carrito-login">
-                    <li id="mi-carrito"><a href="/carritoDeCompras">Mi Carrito <i class="fas fa-shopping-cart"></i></a></li>
-                    <p>|</p>
-                    <li id="acesso-login"><a href="formularioDeLogin">Mi Cuenta <i class="fas fa-user-circle"></i></a></li>
-                    </div>
-            </ul>
-        </div>
-        </nav>  
-    </header>
+    <%- include("../partials/header.ejs") %>
     <div class="Formulario-de-Registro">
    <br>
    <br>
@@ -561,11 +488,7 @@ li a {
 </form>
 </main>
     
-<footer>
-                <p><b><a href="#">Terminos y Condiciones</a></b></p>
-                <p><b><a href="#">Información Legal></a></b></p>
-                <p><b>Copyright © 2022 Todo Muebles Inc.</b></p>
-</footer>
+<%- include("../partials/footer") %>
 
 </body>
 </html>

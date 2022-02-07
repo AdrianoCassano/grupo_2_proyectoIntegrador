@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TODO Muebles - Home</title>
-</head>
+    <%- include("./partials/head") %>
 <style>
      body{
         background-image: url("https://i.ibb.co/tPyznBz/mueblesfondo.jpg");
@@ -15,61 +10,13 @@
         align-items: center;
         font-family: 'Roboto', sans-serif;
     }
-    .logo{
-        text-align: center;
-        padding: 20px;
-    }
-    ul {
-        list-style-type: none;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 10px;
-        padding-left: 20px;
-        padding-right: 20px;
-        border-radius: 6px;
-        overflow: hidden;
-        background: rgba(221, 221, 221, 0.85);
-        }
-
-    li {
-        float: left;
-}
-
-    li a {
-        display: block;
-        color: rgb(0, 0, 0);
-        text-align: center;
-        padding: 16px;
-        text-decoration: none;
-    }
-    footer {
-        text-align: center;
-        color: seashell;
-    }
     h2{
         color:rgb(206, 87, 87);
     }
 
 </style>
 <body>
-    <header>
-        <div class="logo">
-            <a href="/home">
-            <img src="/images/TodoMueble.png" alt="" width="80%">
-            </a>
-        </div>
-        <nav>
-            <div class="barra">
-            <ul>
-                <li><a href="#">Productos</a></li>
-                <li><a href="#">Diseño de Interiores</a></li>
-                <li><a href="#">Contactos</a></li>
-                <li><a href="#">Registrarse</a></li>
-            </ul>
-            </div>
-        </nav>  
-</header>
+    <%- include("./partials/header.ejs") %>
 <br>
 <br>
 <section>
@@ -99,9 +46,7 @@
 
 
 
-<footer>
-    <p>Copyright © 2022 Todo Muebles Inc.</p>
-</footer>
+<%- include("./partials/footer") %>
 
     
 </body>
