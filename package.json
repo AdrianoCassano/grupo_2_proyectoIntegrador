@@ -19,6 +19,7 @@
   "homepage": "https://github.com/AdrianoCassano/grupo_2_proyectoIntegrador#readme",
   "dependencies": {
     "ejs": "^3.1.6",
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "multer": "^1.4.4"
   }
 }

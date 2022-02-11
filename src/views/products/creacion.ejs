@@ -133,7 +133,8 @@ h3 {
     </div>
 
 <main>
-    <form action="/register" method="post" class= "register-form">
+    <form action="/register" method="post" class= "register-form" enctype="multipart/form-data">
+      <input type="file" name="productImg" id="file" multiple>
         <h3>Ingreso de Nuevo Producto</h3> 
     <div>
     <label for="Product Name"></label>
