@@ -41,7 +41,7 @@ h3 {
         padding: 15px;
         text-align: center
     }
-    #nombre-de-producto {
+    #name {
         height: 30px;
         position: relative;
         box-sizing: border-box;
@@ -51,7 +51,7 @@ h3 {
         margin: 10px 0px 30px
     }
 
-    #Descripcion {
+    #descripcion {
         height: 30px;
         position: relative;
         box-sizing: border-box;
@@ -62,7 +62,7 @@ h3 {
     }
 
   
-    #Cantidad-de-Mueble {
+    #cantidad {
         height: 30px;
         position: relative;
         box-sizing: border-box;
@@ -83,7 +83,7 @@ h3 {
     }
   
 
-    #Precio {
+    #precio {
         height: 30px;
         position: relative;
         box-sizing: border-box;
@@ -93,7 +93,7 @@ h3 {
         margin: 10px 0px 30px
     }
 
-    #Foto {
+    #productImg {
         height: 30px;
         position: relative;
         box-sizing: border-box;
@@ -134,81 +134,68 @@ h3 {
 
 <main>
     <form action="/register" method="post" class= "register-form" enctype="multipart/form-data">
-      <input type="file" name="productImg" id="file" multiple>
         <h3>Ingreso de Nuevo Producto</h3> 
     <div>
-    <label for="Product Name"></label>
-    <input class= "formularioColor" type="text" name="nombre de producto" id="nombre-de-producto" placeholder="Ingrese nombre de producto*" required>
+    <label for="name"></label>
+    <input class= "formularioColor" type="text" name="nombre" id="name" placeholder="Ingrese nombre de producto*" required>
 </div>
 <div>
-    <label for="Descripcion"></label>
-    <input class= "formularioColor" type="text" name="Descripcion" id="Descripcion" placeholder="Descripcion del producto*" required>
+    <label for="descripcion"></label>
+    <input class= "formularioColor" type="text" name="descripcion" id="descripcion" placeholder="Descripcion del producto*" required>
 </div>
 
 <div>
-    <label for="Colores"></label>
-    <select name="id mult" id= "Colores" required><option value="  " selected>Selecciona el color</option>
-<option value="Rojo">ROJO</option>
-<option value="Azul">AZUL</option>
-<option value="Verde">VERDE</option>
-<option value="Negro">NEGRO</option>
-<option value="Blanco">BLANCO</option>
-</select>
+    <label for="materiales"></label>
+    <input class= "formularioColor" type="text" name="materiales" id="descripcion" placeholder="Materiales del producto*" required>
 </div>
+
 <div>
-    <label for="Cantidad"></label>
-    <select name="id mult" id= "Cantidad-de-Mueble" required><option value="  " selected>Selecciona la cantidad de Muebles</option>
+    <label for="cantidad"></label>
+    <select name="id mult" id= "cantidad" required><option value="  " selected>Selecciona la cantidad de Muebles</option>
 <option value="1">1 unidad</option>
 <option value="2">2 unidades</option>
 <option value="3">3 unidades</option>
 <option value="4">4 unidades</option>
 <option value="5">5 unidades</option>
-
-
 </select>
 </div>
 
 
-<div>
+<!-- <div>
    <h4>Seleccione el tipo de mueble</h4>
 
     <label for="genero">Silla</label>
     <input type="radio" name="variable1" id="opcion1" value="valor1">
-
     <label for="genero">Sillon</label>
     <input type="radio" name="variable1" id="opcion2" value="valor2">
-
     <label for="genero">Mesada</label>
     <input type="radio" name="variable1" id="opcion3" value="valor3">
-
     <label for="genero">Armario</label>
     <input type="radio" name="variable1" id="opcion3" value="valor3">
 
-</div>
+</div> -->
 <br>
 <br>
 <div>
-    <label for="Precio"></label>
-    <input class= "formularioColor" type="text" name="Precio" id="Precio" placeholder="Ingresa el precio" required>
+    <label for="precio"></label>
+    <input class= "formularioColor" type="text" name="precio" id="precio" placeholder="Ingresa el precio" required>
 </div>
 
-<div>
+<!-- <div>
     <label>Producto Embalable </label>
     <input type="checkbox" name="newsletter" value="si">
-</div>
+</div> -->
 
 <br>
 <br>
 
 <div>
-    <label for="Foto"></label>
-    <input class= "Foto" type="file" name="Precio" id="Precio" placeholder="Carga una foto" required>
+    <label for="productImg"></label>
+    <input class= "productImg" type="file" name="productImg" id="productImg" placeholder="Foto de producto" required>
 </div>
 
-
-
-    <button type="text" class="submit">CARGAR</button>
-    <button type="reset" class="submit" >BORRAR</button>
+    <button type="submit" class="submit">CARGAR</button>
+    <button type="submit" class="submit" >BORRAR</button>
 
 </form>
 </main>

@@ -17,7 +17,19 @@ const productsController = {
         res.render("products/creacion")
     },
     creado: (req,res) => {
-        res.render("products/creacion")
+        let productoCreado = {
+            // id: hay que definir como hacemos,
+            nombre: req.body.nombre,
+            descripcion: req.body.descripcion,
+            materiales: req.body.materiales,
+            precio: req.body.precio,
+            // dimensiones: req.body.dimensiones,
+            // peso: req.body.peso,
+            imagen: req.file.filename,
+        }
+        // products.push (productoCreado);
+
+        res.redirect("/products")
     },
     edicion: (req,res) => {
         res.render("products/edicion")
