@@ -21,9 +21,10 @@ router.post('/products/create', upload.single('productImg'), (req, res) => {
 
 router.get("/", productsController.products);
 router.get("/creacion", productsController.creacion);
+router.post("/",upload.single("productImg"), productsController.creado);
+
 router.get("/:id", productsController.detalle);
 
-router.post("/",upload.single("productImg"), productsController.creado);
 
 router.get("/:id/edicion", productsController.edicion);
 router.put("/:id",upload.single("productImg"), productsController.editado);
