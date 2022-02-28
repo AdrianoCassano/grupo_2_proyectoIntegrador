@@ -1,73 +1,13 @@
-[{
-    "id": 1,
-    "nombreproducto": "Estante Helsinki",
-    "descripcion": "orci eget orci vehicula condimentum curabitur in libero ut massa volutpat convallis morbi odio odio elementum eu interdum eu",
-    "precio": 163542,
-    "imagen": "public\\images\\Estante.JPG",
-    "color": "Crimson",
-    "dimensiones": "eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec",
-    "peso": 34
-  }, {
-    "id": 2,
-    "nombreproducto": "Escritorio Mónaco",
-    "descripcion": "montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et",
-    "precio": 727755,
-    "imagen": "public\\images\\Escritorio.JPG",
-    "color": "Purple",
-    "dimensiones": "velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat",
-    "peso": 13
-  }, {
-    "id": 3,
-    "nombreproducto": "Mesa de noche",
-    "descripcion": "at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet diam",
-    "precio": 653688,
-    "imagen": "public\\images\\MesaNoche.JPG",
-    "color": "Green",
-    "dimensiones": "pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget",
-    "peso": 58
-  }, {
-    "id": 4,
-    "nombreproducto": "Banca Tokyo",
-    "descripcion": "congue eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien a libero nam dui proin leo",
-    "precio": 228359,
-    "imagen": "public\\images\\Banca.JPG",
-    "color": "Orange",
-    "dimensiones": "cursus urna ut tellus nulla ut erat id mauris vulputate elementum",
-    "peso": 62
-  }, {
-    "id": 5,
-    "nombreproducto": "Estante",
-    "descripcion": "venenatis tristique fusce congue diam id ornare imperdiet sapien urna",
-    "precio": 836137,
-    "imagen": "public\\images\\EstanteGrande.JPG",
-    "color": "Blue",
-    "dimensiones": "consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris",
-    "peso": 64
-  }, {
-    "id": 6,
-    "nombreproducto": "Mesa Cali",
-    "descripcion": "integer ac leo pellentesque ultrices mattis odio donec vitae nisi nam",
-    "precio": 317073,
-    "imagen": "public\\images\\Mesa.JPG",
-    "color": "Khaki",
-    "dimensiones": "nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien",
-    "peso": 53
-  }, {
-    "id": 7,
-    "nombreproducto": "Mueble TV",
-    "descripcion": "lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium",
-    "precio": 686636,
-    "imagen": "public\\images\\MuebleTV.JPG",
-    "color": "Fuscia",
-    "dimensiones": "aliquet at feugiat non pretium quis lectus suspendisse potenti in",
-    "peso": 45
-  }, {
-    "id": 8,
-    "nombreproducto": "Repisa",
-    "descripcion": "dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis",
-    "precio": 364586,
-    "imagen": "public\\images\\Repisa.JPG",
-    "color": "Indigo",
-    "dimensiones": "porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc",
-    "peso": 80
-  }]
+[
+    {
+        "id": 1,
+        "nombre": "prueba1",
+        "descripcion": "prueba1",
+        "materiales": "prueba1",
+        "cantidad": 1,
+        "precio": 163542,
+        "dimensiones": "prueba1",
+        "peso": 34,
+        "imagen": "public\\images\\Estante.JPG"
+    }
+]
