@@ -36,7 +36,7 @@ const productsController = {
         res.redirect("/products")
     },
     edicion: (req,res) => {
-        let idProducto = req.params.id
+        let idProducto = req.params.id-1
         let productoEditar = products[idProducto]
         
        res.render("products/edicion",{productoEditar:productoEditar}) 
