@@ -41,8 +41,8 @@ const productsController = {
     editado: (req,res) => {
         res.render("products/edicion")
     },
-    destroy: (req,res) => {
-        res.render("products/edicion")
+    delete: (req,res) => {
+        res.send ("products/delete")
     }
 }
 

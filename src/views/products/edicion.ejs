@@ -207,7 +207,11 @@ h3 {
 
 
     <button type="text" class="submit">CARGAR</button>
-    <button type="reset" class="submit" >BORRAR</button>
+
+    <form action="/products/:id/delete?_method=delete" method="POST" >
+    <button type="submit">BORRAR</button>
+    </form>
+
 
 </form>
 </main>
