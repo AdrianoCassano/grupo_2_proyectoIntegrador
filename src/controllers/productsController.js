@@ -37,9 +37,10 @@ const productsController = {
     },
     edicion: (req,res) => {
         let idProducto = req.params.id
-
-        /* res.render("products/edicion") */
-        res.send(idProducto)
+        let productoEditar = products[idProducto]
+        
+       res.render("products/edicion",productoEditar) 
+    
     },
     editado: (req,res) => {
         let productoEditado = {
