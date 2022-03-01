@@ -36,10 +36,24 @@ const productsController = {
         res.redirect("/products")
     },
     edicion: (req,res) => {
-        res.render("products/edicion")
+        let idProducto = req.params.id
+        let productoEditar = products[idProducto]
+        
+       res.render("products/edicion",productoEditar) 
+    
     },
     editado: (req,res) => {
-        res.render("products/edicion")
+        let productoEditado = {
+            // id: hay que definir como hacemos,
+            nombre: req.body.nombre,
+            descripcion: req.body.descripcion,
+            // materiales: req.body.materiales,
+            precio: req.body.precio,
+            // dimensiones: req.body.dimensiones,
+            // peso: req.body.peso,
+            //imagen: req.file.imagen,
+        }
+        res.redirect("products/edicion")
     },
     delete: (req,res) => {
         res.send ("products/delete")
