@@ -79,17 +79,16 @@ h3 {
    <br>
     </div>
 <main>
-    <form action="/products/edicion_method=PUT" method="POST" class= "register-form">
+    <form action="/products/:idProducto/edicion?_method=PUT" method="POST" class= "register-form">
         <h3>Edicion de Producto</h3> 
         <div>
-            <!-- value="<%=productoEditar.nombre%>"  -->
-            <input class="form-contenedor" type="text" name="nombre" value="<%=productoEditar.nombre%>"" placeholder="Ingrese nombre de producto*">
+            <input class="form-contenedor" type="text" name="nombre" value="<%=productoEditar.nombre%>" placeholder="Ingrese nombre de producto*">
         </div>
         <div>
-            <input class="form-contenedor" type="text" name="descripcion"placeholder="Descripcion del producto*" required>
+            <input class="form-contenedor" type="text" name="descripcion" value="<%=productoEditar.descripcion%>" placeholder="Descripcion del producto*" >
         </div>
         <div>
-            <input class="form-contenedor" type="text" name="materiales"placeholder="Materiales del producto*" required>
+            <input class="form-contenedor" type="text" name="materiales" value="<%=productoEditar.materiales%>" placeholder="Materiales del producto*">
         </div>
         <div>
             <select class="form-contenedor" name="cantidad" required><option value="  " selected>Selecciona la cantidad de Muebles</option>
@@ -117,19 +116,19 @@ h3 {
 
 </div> -->
         <div>
-            <input class="form-contenedor" type="text" name="precio" placeholder="Ingresa el precio" required>
+            <input class="form-contenedor" type="text" name="precio" value="<%=productoEditar.precio%>" placeholder="Ingresa el precio" >
         </div>
         <div>
-            <input class="form-contenedor" type="text" name="dimensiones" placeholder="Ingresa las dimensiones" required>
+            <input class="form-contenedor" type="text" name="dimensiones" value="<%=productoEditar.dimensiones%>" placeholder="Ingresa las dimensiones" >
         </div>
         <div>
-            <input class="form-contenedor" type="text" name="peso" placeholder="Ingresa el peso" required>
+            <input class="form-contenedor" type="text" name="peso" value="<%=productoEditar.peso%>" placeholder="Ingresa el peso" >
         </div>
         <div>
-            <input class= "form-contenedor" type="file" name="productImg" placeholder="Foto de producto" required>
+            <input class= "form-contenedor" type="file" name="productImg" placeholder="Foto de producto" >
         </div>
         <button type="submit" class="submit">ACTUALIZAR</button>
-        <form action="/products/:id/delete?_method=delete" method="POST" >
+        <form action="/products/<%= productoEditar.id %>/delete?_method=DELETE" method="POST" >
         <button type="submit" class="submit">BORRAR</button>
         </form>
     </form>
