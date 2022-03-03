@@ -79,7 +79,7 @@ h3 {
    <br>
     </div>
 <main>
-    <form action="/products/:idProducto/edicion?_method=PUT" method="POST" class= "register-form">
+    <form action="/products/<%=productoEditar.id%>/?_method=PUT/edicion" method="POST" class= "register-form">
         <h3>Edicion de Producto</h3> 
         <div>
             <input class="form-contenedor" type="text" name="nombre" value="<%=productoEditar.nombre%>" placeholder="Ingrese nombre de producto*">
