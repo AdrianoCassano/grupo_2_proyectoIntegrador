@@ -21,5 +21,6 @@ router.post("/register", upload.single('userAvatar'), (req, res) => {
 
 router.get("/register", upload.single(""), userController.register);
 router.get("/login", userController.login);
+router.post("/login", userController.authenticate);
 
 module.exports = router
