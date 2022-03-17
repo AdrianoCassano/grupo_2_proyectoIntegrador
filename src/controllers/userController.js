@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const bcrypt = require("bcryptjs")
 
 const usersPath = path.join(__dirname, "../database/users.json");
 const users = JSON.parse(fs.readFileSync(usersPath, 'utf-8'))
@@ -18,7 +19,7 @@ const userController = {
             first_name: req.body.first_name,
             last_name: req.body.last_name,
             email: req.body.email,
-            password:req.body.password,
+            password:bcrypt.hashSync(req.body.password, 10),
             passwordconf: req.body.passwordconf,
             country: req.body.country,
             id_type: req.body.id_type,
@@ -40,12 +41,12 @@ const userController = {
     authenticate: (req,res) => {
         const {email, password} = req.body
 
-        const user = users.find( user => user.email == email)
-        if(user) {
-            if(bcrypt.compareSync(password, user.password)){
-                delete user.password
+        const userLogged = users.find( user => user.email == email)
+        if(userLogged) {
+            if(bcrypt.compareSync(password, userLogged.password)){                
+                delete userLogged.password
 
-                req.session.user = user
+                req.session.userLogged = userLogged
 
                 return res.redirect("/")
                 
@@ -57,8 +58,8 @@ const userController = {
                     }
                 });                
             }
-        }else{
-            return res.render ("users/login",{
+            }else{
+                return res.render ("users/login",{
                 old: req.body,
                 errors:{
                     email: "El email es inválido"
