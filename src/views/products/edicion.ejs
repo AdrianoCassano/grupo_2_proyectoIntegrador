@@ -79,7 +79,7 @@ h3 {
    <br>
     </div>
 <main>
-    <form action="/products/<%=productoEditar.id%>/actualizado/?_method=PUT" method="POST" class= "register-form">
+    <form action="/products/edicion/<%=productoEditar.id%>/?_method=PUT" method="POST" class= "register-form">
         <h3>Edicion de Producto</h3> 
         <div>
             <input class="form-contenedor" type="text" name="nombre" value="<%=productoEditar.nombre%>" placeholder="Ingrese nombre de producto*">
@@ -129,10 +129,10 @@ h3 {
         </div>
         <button type="submit" class="submit">ACTUALIZAR</button>
         <form action="/products/<%= productoEditar.id %>/delete?_method=DELETE" method="POST" >
-        <button type="submit" class="submit">BORRAR</button>
+            <button type="submit" class="submit">BORRAR</button>
         </form>
     </form>
-</main> 
+    </main> 
 <%- include("../partials/footer") %>
 </body>
 </html>

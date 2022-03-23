@@ -1,13 +1,24 @@
 [
-    {
-        "id": 1,
-        "nombre": "prueba1",
-        "descripcion": "prueba1",
-        "materiales": "prueba1",
-        "cantidad": "1",
-        "precio": 163542,
-        "dimensiones": "prueba1",
-        "peso": 34,
-        "imagen": "public\\images\\Estante.JPG"
-    }
+ {
+  "id": 1,
+  "nombre": "prueba1",
+  "descripcion": "prueba1",
+  "materiales": "prueba1",
+  "cantidad": "1",
+  "precio": 163542,
+  "dimensiones": "prueba1",
+  "peso": 34,
+  "imagen": "public\\images\\Estante.JPG"
+ },
+ {
+  "id": 2,
+  "nombre": "prueba2",
+  "descripcion": "prueba2",
+  "materiales": "prueba2",
+  "cantidad": "1",
+  "precio": "prueba2",
+  "dimensiones": "prueba2",
+  "peso": "999",
+  "productImg": "default-productImg.png"
+ }
 ]

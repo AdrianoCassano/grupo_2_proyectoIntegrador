@@ -14,10 +14,10 @@ const storage = multer.diskStorage({
 })
 
 const upload = multer({storage});
-router.post('/products', upload.single('productImg'), (req, res) => {
-    console.log(req.file) 
-    res.send('Archivo subido correctamente')
-  })
+// router.post('/products', upload.single('productImg'), (req, res) => {
+//     console.log(req.file) 
+//     res.send('Archivo subido correctamente')
+//   })
 
 router.get("/", productsController.products);
 router.get("/creacion", productsController.creacion);
@@ -25,8 +25,8 @@ router.post("/",upload.single("productImg"), productsController.creado);
 router.get("/:id", productsController.detalle);
 
 
-router.get("/:id/edicion", productsController.edicion);
-router.put("/:id/actualizado",upload.single("productImg"), productsController.editado);
+router.get("/edicion/:id", productsController.edicion);
+router.put("/edicion/:id",upload.single("productImg"), productsController.editado);
 
 router.delete("/:id/delete", productsController.delete);
 

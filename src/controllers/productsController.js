@@ -18,6 +18,13 @@ const productsController = {
         res.render("products/creacion")
     },
     creado: (req,res) => {
+        let productImg 
+        if(req.file != undefined){
+            productImg = req.file.filename
+        } else {
+              productImg = "default-productImg.png"
+        }
+
         let productoCreado = {
             id: products[products.length-1].id+1,
             nombre: req.body.nombre,
@@ -27,7 +34,7 @@ const productsController = {
             precio: req.body.precio,
             dimensiones: req.body.dimensiones,
             peso: req.body.peso,
-            imagen: req.file.filename,
+            productImg
         }
         products.push (productoCreado);
         productsJSON = JSON.stringify(products)
@@ -36,15 +43,16 @@ const productsController = {
         res.redirect("/products")
     },
     edicion: (req,res) => {
-        let idProducto = req.params.id-1
-        let productoEditar = products[idProducto]
+        let idProducto = req.params.id
+        let productoEditar = products.find(product => product.id == idProducto)
         
        res.render("products/edicion",{productoEditar:productoEditar}) 
     
     },
     editado: (req,res) => {
-        let idProducto = req.params.id-1     
-        let productoEditar = products[idProducto]   
+        let idProducto = req.params.id
+        let productoEditar = products.find(product => product.id == idProducto) 
+        
         productoEditar = {
             id: productoEditar.id,
             nombre: req.body.nombre,
@@ -54,13 +62,24 @@ const productsController = {
             precio: req.body.precio,
             dimensiones: req.body.dimensiones,
             peso: req.body.peso,
-            imagen: req.file.filename,
+            productImg: productoEditar.productImg
         }
-     
-        res.redirect("products/edicion")
+        let productoEditado = products.map(product => {
+            if (product.id == productoEditar.id) {
+                return product = {...productoEditar};
+            }
+            return product
+        })
+        fs.writeFileSync(productsPath, JSON.stringify(productoEditado, null, " "));
+
+        res.redirect("products/edicion",{productoEditar:productoEditar})
     },
     delete: (req,res) => {
-        res.send ("products/delete")
+        let idProducto = req.params.id
+        let productoEditar = products.find(product => product.id != idProducto)         
+        fs.writeFileSync(productsPath, JSON.stringify(productoEditar, null, " "));
+
+        res.redirect ("/products")
     }
 }
 

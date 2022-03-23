@@ -2,6 +2,7 @@ const express = require ("express");
 const router = express.Router();
 const path = require("path");
 const userController = require("../controllers/userController");
+const guestValidation = require("../middlewares/guestValidation");
 
 const multer = require ("multer");
 const storage = multer.diskStorage({
@@ -20,9 +21,14 @@ const upload = multer({ storage: storage });
 //     res.send("Archivo subido correctamente")
 //   })
 
-router.get("/register", upload.single(""), userController.register);
+router.get("/register", guestValidation, userController.register);
 router.post("/register", upload.single("userAvatar"), userController.registrado);
 router.get("/login", userController.login);
 router.post("/login", userController.authenticate);
+
+router.get("/edicion/:id", userController.edit);
+router.put("/edicion/:id",upload.single("userAvatar"), userController.updated);
+
+router.delete("/:id/delete", userController.delete);
 
 module.exports = router
