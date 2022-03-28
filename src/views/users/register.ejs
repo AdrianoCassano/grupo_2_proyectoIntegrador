@@ -168,8 +168,7 @@ h3 {
     </div>
 
 <main>
-    <form action="/register" method="post" class= "register-form" enctype="multipart/form-data">
-    <input type="file" name="userAvatar" id="file">
+    <form action="/register" method="post" class= "register-form" enctype="multipart/form-data"> 
         <h3>Formulario de Registro</h3> 
     <div>
     <label for="name"></label>
@@ -193,8 +192,8 @@ h3 {
 </div>
 <div>
     <label for="Pais de residencia"></label>
-    <select  name="country" id="Pais-de-residencia" required><option value="  " selected>Selecciona tu pais de residencia*</option>
-        <option value="--">Not Specified</option>
+    <select  name="country" id="Pais-de-residencia" required>
+        <option value="" selected>Selecciona tu pais de residencia</option>
         <option value="AF">Afghanistan</option>
         <option value="AL">Albania</option>
         <option value="DZ">Algeria</option>
@@ -440,10 +439,11 @@ h3 {
 </div>
 <div>
     <label for="Tipo de documento"></label>
-    <select name="id_type" id= "Tipo-de-documento" required><option value="  " selected>Selecciona el tipo de documento*</option>
-<option value="DNI">DNI</option>
-<option value="Pasaporte">Pasaporte</option>
-<option value="Cedula">Cedula</option>
+    <select name="id_type" id= "Tipo-de-documento" required>
+        <option value="" selected>Selecciona el tipo de documento</option>
+        <option value="DNI">DNI</option>
+        <option value="Pasaporte">Pasaporte</option>
+        <option value="Cedula">Cedula</option>
 </select>
 
 </div>
@@ -455,13 +455,14 @@ h3 {
 <div>
    
     <label for="genero">Hombre</label>
-    <input type="radio" name="gender" id="opcion1" value="valor1">
+    <input type="radio" name="gender" id="opcion1" value="hombre">
 
     <label for="genero">Mujer</label>
-    <input type="radio" name="gender" id="opcion2" value="valor2">
+    <input type="radio" name="gender" id="opcion2" value="mujer">
 
 </div>
 <br>
+<input type="file" name="userAvatar" id="file">
 <br>
 <div>
     <label for="Fecha de Nacimiento"></label>

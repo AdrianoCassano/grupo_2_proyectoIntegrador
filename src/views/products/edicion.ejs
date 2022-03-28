@@ -91,15 +91,28 @@ h3 {
             <input class="form-contenedor" type="text" name="materiales" value="<%=productoEditar.materiales%>" placeholder="Materiales del producto*">
         </div>
         <div>
-            <select class="form-contenedor" name="cantidad" required><option value="<%=productoEditar.cantidad%>" selected>Selecciona la cantidad de Muebles</option>
-                <option value="1">1 unidad</option>
-                <option value="2">2 unidades</option>
-                <option value="3">3 unidades</option>
-                <option value="4">4 unidades</option>
-                <option value="5">5 unidades</option>
+            <select class="form-contenedor" name="cantidad" required>
+                <% for( let i = 1; i<=10; i++) {%>
+                    <option value="<%=i%>"<%= productoEditar.cantidad === "" ? "selected" : "" %>>Selecciona la cantidad de Muebles</option>
+                    <option value="<%=i%>"<%= productoEditar.cantidad === "1" ? "selected" : "" %>><%=i%> unidad</option> 
+                    <option value="<%=i%>"<%= productoEditar.cantidad >= "2" ? "selected" : "" %>><%=i%> unidades</option>
+                    
+                    
+                    <option value="<%=i%>"<% if (productoEditar.cantidad = i) { %><%= 'selected' %><% }; %>><%= i %> unidades</option>
+                    
+                    
+                    <% } %>
+                
+<!--                 
+                <option value="3"<%= productoEditar.cantidad === "3" ? "selected" : "" %>>3 unidades</option>
+                <option value="4"<%= productoEditar.cantidad === "4" ? "selected" : "" %>>4 unidades</option>
+                <option value="5"<%= productoEditar.cantidad === "5" ? "selected" : "" %>>5 unidades</option> -->
             </select>
         </div>
-<!-- <div>
+
+
+
+        <!-- <div>
    <h4>Seleccione el tipo de mueble</h4>
 
     <label for="genero">Silla</label>

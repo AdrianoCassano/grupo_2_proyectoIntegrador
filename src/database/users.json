@@ -128,8 +128,10 @@
         "passwordconf": "ww",
         "country": "AF",
         "id_type": "DNI",
-        "gender": "valor1",
-        "date": "2022-03-16"
+        "id_doc": "3333333",
+        "gender": "hombre",
+        "date": "2022-03-16",
+        "phonenumber": "3333333"
     },
     {
         "id": 10,
@@ -140,8 +142,10 @@
         "passwordconf": "test",
         "country": "AF",
         "id_type": "DNI",
-        "gender": "valor1",
-        "date": "2022-03-17"
+        "id_doc": "3333333",
+        "gender": "hombre",
+        "date": "2022-03-17",
+        "phonenumber": "3333333"
     },
     {
         "id": 11,
@@ -152,8 +156,10 @@
         "passwordconf": "d",
         "country": "AL",
         "id_type": "DNI",
-        "gender": "valor1",
-        "date": "2022-03-14"
+        "id_doc": "3333333",
+        "gender": "hombre",
+        "date": "2022-03-14",
+        "phonenumber": "3333333"
     },
     {
         "id": 12,
@@ -162,9 +168,11 @@
         "email": "Adriano@Adriano.com",
         "password": "$2a$10$6GaFuoVHInQ7QCno0CIhkeqVmY0DYSFPIC8rkOrHa.wQGDLRoji7e",
         "passwordconf": "Adriano",
-        "country": "AF",
+        "country": "AR",
         "id_type": "DNI",
-        "gender": "valor1",
-        "date": "2022-02-28"
+        "id_doc": "3333333",
+        "gender": "hombre",
+        "date": "2022-02-28",
+        "phonenumber": "3333333"
     }
 ]

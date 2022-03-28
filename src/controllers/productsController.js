@@ -52,7 +52,7 @@ const productsController = {
     editado: (req,res) => {
         let idProducto = req.params.id
         let productoEditar = products.find(product => product.id == idProducto) 
-        
+
         productoEditar = {
             id: productoEditar.id,
             nombre: req.body.nombre,
@@ -71,8 +71,8 @@ const productsController = {
             return product
         })
         fs.writeFileSync(productsPath, JSON.stringify(productoEditado, null, " "));
-
-        res.redirect("products/edicion",{productoEditar:productoEditar})
+ 
+        res.render("products/edicion",{productoEditar:productoEditar})
     },
     delete: (req,res) => {
         let idProducto = req.params.id

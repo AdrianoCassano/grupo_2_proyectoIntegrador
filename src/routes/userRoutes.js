@@ -22,7 +22,7 @@ const upload = multer({ storage: storage });
 //   })
 
 router.get("/register", guestValidation, userController.register);
-router.post("/register", upload.single("userAvatar"), userController.registrado);
+router.post("/register", upload.single("userAvatar"), userController.registered);
 router.get("/login", userController.login);
 router.post("/login", userController.authenticate);
 
