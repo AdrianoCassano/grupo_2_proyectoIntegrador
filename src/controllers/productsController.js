@@ -1,9 +1,21 @@
 const fs = require('fs');
 const path = require('path');
 
-const productsPath = path.join(__dirname, "../database/products.json");
-const products = JSON.parse(fs.readFileSync(productsPath, 'utf-8'))
-// const products = (products.json == "") ? [] :JSON.parse(fs.readFileSync(productsPath, 'utf-8'));
+
+let products
+let productsPath
+if(fs.existsSync("products.json") === false){
+    products = []
+    fs.writeFileSync(path.join(__dirname, "../database/products.json"),"[]")
+} else{
+    productsPath = path.join(__dirname, "../database/products.json")
+    products = JSON.parse(fs.readFileSync(productsPath, 'utf-8'))
+}
+productsPath = path.join(__dirname, "../database/products.json")
+products = JSON.parse(fs.readFileSync(productsPath, 'utf-8'))
+
+// const productsPath = path.join(__dirname, "../database/products.json");
+// const products = JSON.parse(fs.readFileSync(productsPath, 'utf-8'))
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -24,9 +36,9 @@ const productsController = {
         } else {
               productImg = "default-productImg.png"
         }
-
+        console.log(products.length)
         let productoCreado = {
-            id: products[products.length-1].id+1,
+            id: products.length === 0 ? 1 : products[products.length-1].id+1,
             nombre: req.body.nombre,
             descripcion: req.body.descripcion,
             materiales: req.body.materiales,

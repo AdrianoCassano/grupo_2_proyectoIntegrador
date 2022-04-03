@@ -2,9 +2,22 @@ const fs = require('fs');
 const path = require('path');
 const bcrypt = require("bcryptjs")
 const crypto = require("crypto");
-const usersPath = path.join(__dirname, "../database/users.json");
-const users = JSON.parse(fs.readFileSync(usersPath, 'utf-8'))
-// const products = (products.json == "") ? [] :JSON.parse(fs.readFileSync(productsPath, 'utf-8'));
+
+let users
+let usersPath
+if(fs.existsSync("users.json") === false){
+    products = []
+    fs.writeFileSync(path.join(__dirname, "../database/users.json"),"[]")
+} else{
+    productsPath = path.join(__dirname, "../database/users.json")
+    products = JSON.parse(fs.readFileSync(usersPath, 'utf-8'))
+}
+usersPath = path.join(__dirname, "../database/users.json");
+users = JSON.parse(fs.readFileSync(usersPath, 'utf-8'))
+
+// const usersPath = path.join(__dirname, "../database/users.json");
+// const users = JSON.parse(fs.readFileSync(usersPath, 'utf-8'))
+
 const userFilePath = path.join(__dirname, "../database/userLogin.json");
 const userLoginPath = JSON.parse(fs.readFileSync(userFilePath, "utf-8"));
 
@@ -22,7 +35,7 @@ const userController = {
             userAvatar = "default-userAvatar.png"
         }
         let usuarioRegistrado = {
-            id: users[users.length-1].id+1,
+            id: users.length === 0 ? 1 : users[users.length-1].id+1,
             first_name: req.body.first_name,
             last_name: req.body.last_name,
             email: req.body.email,
