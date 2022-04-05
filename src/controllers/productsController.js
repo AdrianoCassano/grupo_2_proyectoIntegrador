@@ -2,15 +2,13 @@ const fs = require('fs');
 const path = require('path');
 
 
+
 let products
 let productsPath
-if(fs.existsSync("products.json") === false){
+if(fs.existsSync(path.join(__dirname, "../database/products.json")) === false){
     products = []
     fs.writeFileSync(path.join(__dirname, "../database/products.json"),"[]")
-} else{
-    productsPath = path.join(__dirname, "../database/products.json")
-    products = JSON.parse(fs.readFileSync(productsPath, 'utf-8'))
-}
+} 
 productsPath = path.join(__dirname, "../database/products.json")
 products = JSON.parse(fs.readFileSync(productsPath, 'utf-8'))
 

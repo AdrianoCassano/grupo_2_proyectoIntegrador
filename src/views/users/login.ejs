@@ -99,22 +99,34 @@
         <form action="/login" method="POST" class="login-form">
             <h3>Login</h3>
             <div class = "control-login">
-            <label for="email">Email</label>
-            <input type="text" name="email" id="username" placeholder="">
+                <label for="email">Email</label>
+                <input type="text" name="email" id="username" placeholder="">
+                <% if (locals.errors && errors.email) { %>
+                    <div class="text-danger">
+                        <%= errors.email%>
+                    </div>
+                <% } %>
             </div>
             <div class="control-login">
-            <label for="password">Contraseña:</label>
-            <input type="password" name="password" id="password" placeholder="">
+                <label for="password">Contraseña:</label>
+                <input type="password" name="password" id="password" placeholder="">
+                <% if (locals.errors && errors.password) { %>
+                    <div class="text-danger">
+                        <%= errors.password%>
+                    </div>
+                <% } %>
             </div>
             <div class="remember-login">
-            <label for="remember">Recordar usuario</label>
-            <input type="checkbox" name="remember" id="remember" placeholder="">
-            <button type="submit" class="submit">Enviar</button>
+                <label for="remember">Recordar usuario</label>
+                <input type="checkbox" name="remember" id="remember" placeholder="">
+                <button type="submit" class="submit">Enviar</button>
             </div>
-            <p id="alter"><a href="#">Olvidé mi contraseña</a></p>
+            <div>
+                <p id="alter"><a href="#">Olvidé mi contraseña</a></p>
             </div>
-            <p id="alter"><a href="#">Registrarme como usuario nuevo</a></p>
-        </div>
+            <div>
+                <p id="alter"><a href="#">Registrarme como usuario nuevo</a></p>
+            </div>
         </form>
     </main>
     <%- include("../partials/footer") %>

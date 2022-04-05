@@ -5,21 +5,15 @@ const crypto = require("crypto");
 
 let users
 let usersPath
-if(fs.existsSync("users.json") === false){
-    products = []
+if(fs.existsSync(path.join(__dirname, "../database/users.json")) === false){
+    users = []
     fs.writeFileSync(path.join(__dirname, "../database/users.json"),"[]")
-} else{
-    productsPath = path.join(__dirname, "../database/users.json")
-    products = JSON.parse(fs.readFileSync(usersPath, 'utf-8'))
 }
 usersPath = path.join(__dirname, "../database/users.json");
 users = JSON.parse(fs.readFileSync(usersPath, 'utf-8'))
 
 // const usersPath = path.join(__dirname, "../database/users.json");
 // const users = JSON.parse(fs.readFileSync(usersPath, 'utf-8'))
-
-const userFilePath = path.join(__dirname, "../database/userLogin.json");
-const userLoginPath = JSON.parse(fs.readFileSync(userFilePath, "utf-8"));
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -40,7 +34,6 @@ const userController = {
             last_name: req.body.last_name,
             email: req.body.email,
             password: bcrypt.hashSync(req.body.password, 10),
-            passwordconf: req.body.passwordconf,
             country: req.body.country,
             id_type: req.body.id_type,
             id_doc: req.body.id_doc,
@@ -82,7 +75,7 @@ const userController = {
                 return res.render ("users/login",{
                     old: req.body,
                     errors:{
-                        pass: "La Contraseña es inválida"
+                        password: "La Contraseña es inválida"
                     }
                 });                
             }
