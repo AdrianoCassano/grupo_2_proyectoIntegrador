@@ -1,9 +1,19 @@
 const fs = require('fs');
 const path = require('path');
 
-const productsPath = path.join(__dirname, "../database/products.json");
-const products = JSON.parse(fs.readFileSync(productsPath, 'utf-8'))
-// const products = (products.json == "") ? [] :JSON.parse(fs.readFileSync(productsPath, 'utf-8'));
+
+
+let products
+let productsPath
+if(fs.existsSync(path.join(__dirname, "../database/products.json")) === false){
+    products = []
+    fs.writeFileSync(path.join(__dirname, "../database/products.json"),"[]")
+} 
+productsPath = path.join(__dirname, "../database/products.json")
+products = JSON.parse(fs.readFileSync(productsPath, 'utf-8'))
+
+// const productsPath = path.join(__dirname, "../database/products.json");
+// const products = JSON.parse(fs.readFileSync(productsPath, 'utf-8'))
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -24,9 +34,9 @@ const productsController = {
         } else {
               productImg = "default-productImg.png"
         }
-
+        console.log(products.length)
         let productoCreado = {
-            id: products[products.length-1].id+1,
+            id: products.length === 0 ? 1 : products[products.length-1].id+1,
             nombre: req.body.nombre,
             descripcion: req.body.descripcion,
             materiales: req.body.materiales,
@@ -52,7 +62,7 @@ const productsController = {
     editado: (req,res) => {
         let idProducto = req.params.id
         let productoEditar = products.find(product => product.id == idProducto) 
-        
+
         productoEditar = {
             id: productoEditar.id,
             nombre: req.body.nombre,
@@ -71,8 +81,8 @@ const productsController = {
             return product
         })
         fs.writeFileSync(productsPath, JSON.stringify(productoEditado, null, " "));
-
-        res.redirect("products/edicion",{productoEditar:productoEditar})
+ 
+        res.render("products/edicion",{productoEditar:productoEditar})
     },
     delete: (req,res) => {
         let idProducto = req.params.id

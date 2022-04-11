@@ -91,12 +91,12 @@ h3 {
             <input class="form-contenedor" type="text" name="materiales"placeholder="Materiales del producto*" required>
         </div>
         <div>
-            <select class="form-contenedor" name="cantidad" required><option value="  " selected>Selecciona la cantidad de Muebles</option>
+            <select class="form-contenedor" name="cantidad" required>
+                <option value="  " selected>Selecciona la cantidad de Muebles</option>              
                 <option value="1">1 unidad</option>
-                <option value="2">2 unidades</option>
-                <option value="3">3 unidades</option>
-                <option value="4">4 unidades</option>
-                <option value="5">5 unidades</option>
+                <% for( let i = 2; i<=10; i++) {%>
+                    <option value="<%=i%>"><%=i%> unidades</option>                                
+                    <% } %>
             </select>
         </div>
 <!-- <div>

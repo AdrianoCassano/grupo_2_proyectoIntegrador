@@ -168,8 +168,7 @@ h3 {
     </div>
 
 <main>
-    <form action="/register" method="post" class= "register-form" enctype="multipart/form-data">
-    <input type="file" name="userAvatar" id="file">
+    <form action="/register" method="post" class= "register-form" enctype="multipart/form-data"> 
         <h3>Formulario de Registro</h3> 
     <div>
     <label for="name"></label>
@@ -193,8 +192,8 @@ h3 {
 </div>
 <div>
     <label for="Pais de residencia"></label>
-    <select  name="country" id="Pais-de-residencia" required><option value="  " selected>Selecciona tu pais de residencia*</option>
-        <option value="--">Not Specified</option>
+    <select  name="country" id="Pais-de-residencia" required>
+        <option value="" selected>Selecciona tu pais de residencia</option>
         <option value="AF">Afghanistan</option>
         <option value="AL">Albania</option>
         <option value="DZ">Algeria</option>
@@ -440,10 +439,11 @@ h3 {
 </div>
 <div>
     <label for="Tipo de documento"></label>
-    <select name="id_type" id= "Tipo-de-documento" required><option value="  " selected>Selecciona el tipo de documento*</option>
-<option value="DNI">DNI</option>
-<option value="Pasaporte">Pasaporte</option>
-<option value="Cedula">Cedula</option>
+    <select name="id_type" id= "Tipo-de-documento" required>
+        <option value="" selected>Selecciona el tipo de documento</option>
+        <option value="DNI">DNI</option>
+        <option value="Pasaporte">Pasaporte</option>
+        <option value="Cedula">Cedula</option>
 </select>
 
 </div>
@@ -455,14 +455,12 @@ h3 {
 <div>
    
     <label for="genero">Hombre</label>
-    <input type="radio" name="gender" id="opcion1" value="valor1">
+    <input type="radio" name="gender" id="opcion1" value="hombre">
 
     <label for="genero">Mujer</label>
-    <input type="radio" name="gender" id="opcion2" value="valor2">
+    <input type="radio" name="gender" id="opcion2" value="mujer">
 
 </div>
-<br>
-<br>
 <div>
     <label for="Fecha de Nacimiento"></label>
     <input type="date" name="date" id="Fecha-de-Nacimiento" required>
@@ -473,6 +471,10 @@ h3 {
     <input class= "formularioColor" type="text" name="phonenumber" id="Celular" placeholder="Ingresa tu Celular" required>
 </div>
 <div>
+    <label for="file">Imagen de perfil</label>
+    <input type="file" name="userAvatar" id="file">
+<div>
+<div>
     <label>Quiero recibir via e-mail ofertas y novedades del sitio web </label>
     <input type="checkbox" name="newsletter" value="si">
 </div>
@@ -480,7 +482,7 @@ h3 {
 
 
     <label>Al registrarte estas aceptando Terminos y condiciones</label>
-    <input type="checkbox" name="Terminos y condiciones" value="si">
+    <input type="checkbox" name="terms" value="si">
 </div>
 
     <button type="text" class="submit">REGISTRARSE</button>

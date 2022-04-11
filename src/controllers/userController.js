@@ -2,11 +2,18 @@ const fs = require('fs');
 const path = require('path');
 const bcrypt = require("bcryptjs")
 const crypto = require("crypto");
-const usersPath = path.join(__dirname, "../database/users.json");
-const users = JSON.parse(fs.readFileSync(usersPath, 'utf-8'))
-// const products = (products.json == "") ? [] :JSON.parse(fs.readFileSync(productsPath, 'utf-8'));
-const userFilePath = path.join(__dirname, "../database/userLogin.json");
-const userLogin = JSON.parse(fs.readFileSync(userFilePath, "utf-8"));
+
+let users
+let usersPath
+if(fs.existsSync(path.join(__dirname, "../database/users.json")) === false){
+    users = []
+    fs.writeFileSync(path.join(__dirname, "../database/users.json"),"[]")
+}
+usersPath = path.join(__dirname, "../database/users.json");
+users = JSON.parse(fs.readFileSync(usersPath, 'utf-8'))
+
+// const usersPath = path.join(__dirname, "../database/users.json");
+// const users = JSON.parse(fs.readFileSync(usersPath, 'utf-8'))
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -14,7 +21,7 @@ const userController = {
     register: (req,res) => {
         res.render("users/register")
     },
-    registrado: (req,res) => {
+    registered: (req,res) => {
         let userAvatar 
         if(req.file != undefined){
             userAvatar = req.file.filename
@@ -22,18 +29,17 @@ const userController = {
             userAvatar = "default-userAvatar.png"
         }
         let usuarioRegistrado = {
-            id: users[users.length-1].id+1,
+            id: users.length === 0 ? 1 : users[users.length-1].id+1,
             first_name: req.body.first_name,
             last_name: req.body.last_name,
             email: req.body.email,
             password: bcrypt.hashSync(req.body.password, 10),
-            passwordconf: req.body.passwordconf,
             country: req.body.country,
             id_type: req.body.id_type,
-            id_doc: req.file.id_doc,
+            id_doc: req.body.id_doc,
             gender: req.body.gender,
             date: req.body.date,
-            phonenumber: req.file.phonenumber,
+            phonenumber: req.body.phonenumber,
             userAvatar
         }
         users.push (usuarioRegistrado);
@@ -41,7 +47,6 @@ const userController = {
         fs.writeFileSync(usersPath,usersJSON)
 
         res.redirect("/register")
-        // res.send("Usuario creado")
         },
     login: (req,res) => {
         res.render("users/login")
@@ -60,7 +65,7 @@ const userController = {
                     user.token=token
                     
                     const userLogin = [...userLogin, userLogged]
-                    fs.writeFileSync(userPath, JSON.stringify(userLogin,null,""));
+                    fs.writeFileSync(userLoginPath, JSON.stringify(userLogin,null,""));
 
                     res.cookie ("recordarToken", {maxAge: 1000*60*60*24*120});
                 }
@@ -70,7 +75,7 @@ const userController = {
                 return res.render ("users/login",{
                     old: req.body,
                     errors:{
-                        pass: "La Contraseña es inválida"
+                        password: "La Contraseña es inválida"
                     }
                 });                
             }
@@ -87,13 +92,14 @@ const userController = {
         let idUser = req.params.id
         let userToEdit = users.find(user => user.id == idUser)
         
-       res.render("users/edit",{userToEdit:userToEdit}) 
+        res.render("users/edit",{userToEdit:userToEdit}) 
     
     },
     updated: (req,res) => {
         let idUser = req.params.id
         let userToEdit = users.find(user => user.id == idUser)
         
+
         userToEdit = {
             id: userToEdit.id,
             first_name: req.body.first_name,

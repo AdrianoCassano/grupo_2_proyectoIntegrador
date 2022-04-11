@@ -128,8 +128,10 @@
         "passwordconf": "ww",
         "country": "AF",
         "id_type": "DNI",
-        "gender": "valor1",
-        "date": "2022-03-16"
+        "id_doc": "3333333",
+        "gender": "hombre",
+        "date": "2022-03-16",
+        "phonenumber": "3333333"
     },
     {
         "id": 10,
@@ -140,8 +142,10 @@
         "passwordconf": "test",
         "country": "AF",
         "id_type": "DNI",
-        "gender": "valor1",
-        "date": "2022-03-17"
+        "id_doc": "3333333",
+        "gender": "hombre",
+        "date": "2022-03-17",
+        "phonenumber": "3333333"
     },
     {
         "id": 11,
