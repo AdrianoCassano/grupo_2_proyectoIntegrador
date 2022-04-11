@@ -154,17 +154,5 @@
         "id_type": "DNI",
         "gender": "valor1",
         "date": "2022-03-14"
-    },
-    {
-        "id": 12,
-        "first_name": "Adriano",
-        "last_name": "Adriano",
-        "email": "Adriano@Adriano.com",
-        "password": "$2a$10$6GaFuoVHInQ7QCno0CIhkeqVmY0DYSFPIC8rkOrHa.wQGDLRoji7e",
-        "passwordconf": "Adriano",
-        "country": "AF",
-        "id_type": "DNI",
-        "gender": "valor1",
-        "date": "2022-02-28"
     }
 ]
