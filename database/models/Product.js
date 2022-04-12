@@ -38,8 +38,8 @@ module.exports = function(sequelize, dataTypes){
             type: dataTypes.INTEGER
         },
 
-        categoria:{
-            type: dataTypes.STRING
+        categoriaId:{
+            type: dataTypes.INTEGER
         },
 
         productImg:{
@@ -61,13 +61,13 @@ module.exports = function(sequelize, dataTypes){
     Product.associate = function(models){
         Product.belongsTo(models.Categoria, {
             as: "categoria",
-            foreignKey: "categoriaid"
+            foreignKey: "categoriaId"
         });
         Product.belongsToMany(models.User, {
             as: "users",
-            through:"userproducts",
-            foreignKey: "productid",
-            otherKey:"userid",
+            through:"userProducts",
+            foreignKey: "productId",
+            otherKey:"userId",
             timestamps: false
         });
     }

@@ -25,7 +25,7 @@ module.exports = function(sequelize, dataTypes){
             type: dataTypes.STRING
 
         },
-        passwordconf:{
+        passwordConf:{
             type: dataTypes.STRING
 
         },
@@ -50,7 +50,7 @@ module.exports = function(sequelize, dataTypes){
             type: dataTypes.DATE
         },
 
-        phonenumber:{
+        phoneNumber:{
             type: dataTypes.INTEGER
         }
         
@@ -69,9 +69,9 @@ module.exports = function(sequelize, dataTypes){
     User.associate = function(models){
         User.belongsToMany(models.Product, {
             as: "products",
-            through:"userproducts",
-            foreignKey: "userid",
-            otherKey:"productid",
+            through:"userProducts",
+            foreignKey: "userId",
+            otherKey:"productId",
             timestamps: false
 
         });

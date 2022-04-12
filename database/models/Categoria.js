@@ -28,7 +28,25 @@ module.exports = function(sequelize, dataTypes){
         sillas:{
             type: dataTypes.STRING
 
+        },
+        bibliotecas:{
+            type: dataTypes.STRING
+
+        },
+        mueblesTV:{
+            type: dataTypes.STRING
+
+        },
+        roperos:{
+            type: dataTypes.STRING
+
+        },
+        mesas:{
+            type: dataTypes.STRING
+
         }
+
+
 
     }
 
@@ -43,7 +61,7 @@ module.exports = function(sequelize, dataTypes){
     Categoria.associate = function(models){
         Categoria.hasMany(models.Product, {
             as: "products",
-            foreignKey: "categoriaid"
+            foreignKey: "categoriaId"
         });
     }
 
