@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("../partials/head") %>    
+    <style>
+        body{
+            background-image: url("https://i.ibb.co/tHLXfxJ/mueblesfondo.jpg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            align-items: center;
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+    <body>
+        <%- include("../partials/header.ejs") %>
+
+        <h2>Hola! <%= userLogged.first_name %></h2>
+        
+        <main>
+            <div> <%= userLogged.email %> </div>
+            <img src="/images/users/<%= userLogged.userAvatar %>" >
+
+        </main>
+        
+        <%- include("../partials/footer") %>    
+    </body>
+</html>

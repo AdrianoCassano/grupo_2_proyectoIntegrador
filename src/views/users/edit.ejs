@@ -168,7 +168,7 @@ h3 {
     </div>
 
 <main>
-    <form action="/edit/<%=userToEdit.id%>/?_method=PUT" method="post" class= "register-form" enctype="multipart/form-data">
+    <form action="/edicion/<%=userToEdit.id%>/?_method=PUT" method="post" class= "register-form" enctype="multipart/form-data">
 
         <h3>Formulario de Edición</h3> 
     <div>
@@ -478,9 +478,9 @@ h3 {
 </div>
 
     <button type="submit" class="submit">ACTUALIZAR</button>
-    <form action="/edit/<%= userToEdit.id %>/delete?_method=DELETE" method="POST" >
-        <button type="reset" class="submit" >BORRAR</button>
-    </form>
+</form>
+<form action="/<%= userToEdit.id %>/delete?_method=DELETE" method="POST" >
+    <button type="submit" class="submit" >BORRAR</button>
 </form>
 </main>
     

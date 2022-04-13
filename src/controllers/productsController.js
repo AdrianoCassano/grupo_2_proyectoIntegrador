@@ -86,7 +86,7 @@ const productsController = {
     },
     delete: (req,res) => {
         let idProducto = req.params.id
-        let productoEditar = products.find(product => product.id != idProducto)         
+        let productoEditar = products.filter(product => product.id != idProducto)         
         fs.writeFileSync(productsPath, JSON.stringify(productoEditar, null, " "));
 
         res.redirect ("/products")

@@ -2,6 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const bcrypt = require("bcryptjs")
 const crypto = require("crypto");
+const res = require('express/lib/response');
+const bcryptjs = require('bcryptjs');
 
 let users
 let usersPath
@@ -14,6 +16,11 @@ users = JSON.parse(fs.readFileSync(usersPath, 'utf-8'))
 
 // const usersPath = path.join(__dirname, "../database/users.json");
 // const users = JSON.parse(fs.readFileSync(usersPath, 'utf-8'))
+
+const userLoginPath = path.join(__dirname, "../database/userLogin.json");
+const usersLogin = JSON.parse(fs.readFileSync(userLoginPath, 'utf-8'))
+
+
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -53,24 +60,23 @@ const userController = {
     },
     authenticate: (req,res) => {
         const {email, password} = req.body
-
-        const userLogged = users.find( user => user.email == email)
+        
+        const userLogged = users.find( user => user.email === email)
         if(userLogged) {
-            if(bcrypt.compareSync(password, userLogged.password)){                
-                delete userLogged.password
 
+            if(bcrypt.compareSync(password, userLogged.password)){                
+                // delete userLogged.password
                 req.session.userLogged = userLogged
                 if(req.body.remember){
                     const token = crypto.randomBytes(64).toString("base64");
-                    user.token=token
+                    userLogged.token = token
                     
-                    const userLogin = [...userLogin, userLogged]
-                    fs.writeFileSync(userLoginPath, JSON.stringify(userLogin,null,""));
+                    let userLogin = [...usersLogin, userLogged]
+                    fs.writeFileSync(userLoginPath, JSON.stringify(userLogin, null,""));
 
-                    res.cookie ("recordarToken", {maxAge: 1000*60*60*24*120});
+                    res.cookie("rememberToken", {maxAge: 1000*60*60*24*120});
                 }
-                return res.redirect("/")
-                
+                return res.redirect("/perfil")              
             }else{
                 return res.render ("users/login",{
                     old: req.body,
@@ -105,14 +111,12 @@ const userController = {
             first_name: req.body.first_name,
             last_name: req.body.last_name,
             email: req.body.email,
-            password: bcrypt.hashSync(req.body.password, 10),
-            passwordconf: req.body.passwordconf,
             country: req.body.country,
             id_type: req.body.id_type,
-            id_doc: req.file.id_doc,
+            id_doc: req.body.id_doc,
             gender: req.body.gender,
             date: req.body.date,
-            phonenumber: req.file.phonenumber,
+            phonenumber: req.body.phonenumber,
             userAvatar: userToEdit.userAvatar
         }
         let userUpdated = users.map(user => {
@@ -123,15 +127,25 @@ const userController = {
         })
         fs.writeFileSync(usersPath, JSON.stringify(userUpdated, null, " "));
 
-        res.redirect("users/edit",{userToEdit:userToEdit})
+        res.render("users/edit",{userToEdit:userToEdit})
     },
     delete: (req,res) => {
         let idUser = req.params.id
-        let userToEdit = users.find(product => user.id != idUser)         
+        let userToEdit = users.filter(user => user.id != idUser)         
         fs.writeFileSync(usersPath, JSON.stringify(userToEdit, null, " "));
 
-        res.redirect ("/users")
-    }    
+        res.redirect ("/")
+    },
+    profile: (req,res) => {
+        res.render("users/userProfile",{
+            userLogged: req.session.userLogged
+        })
+    },
+    logout: (req,res) => {
+        res.clearCookie("recordarToken")
+        req.session.destroy();
+        return res.redirect("/")
+    }
 }
 
 module.exports = userController

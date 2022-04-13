@@ -3,6 +3,7 @@ const app = express();
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
+const loginValidation = require("./middlewares/loginValidation")
 const mainRoutes = require("./routes/mainRoutes");
 const productsRoutes = require("./routes/productsRoutes");
 const checkoutRoutes = require("./routes/checkoutRoutes");
@@ -18,6 +19,7 @@ app.use(session({
     resave: false,
     saveUninitialized:true,
 }));
+app.use(loginValidation)
 app.use(cookieParser());
 app.use(methodOverride("_method"));
 app.set("views", path.join(__dirname, "views"));

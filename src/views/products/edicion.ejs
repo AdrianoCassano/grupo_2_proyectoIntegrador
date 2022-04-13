@@ -141,9 +141,9 @@ h3 {
             <input class= "form-contenedor" type="file" name="productImg" placeholder="Foto de producto" >
         </div>
         <button type="submit" class="submit">ACTUALIZAR</button>
-        <form action="/products/<%= productoEditar.id %>/delete?_method=DELETE" method="POST" >
-            <button type="submit" class="submit">BORRAR</button>
-        </form>
+    </form>
+    <form action="/products/<%= productoEditar.id %>/delete?_method=DELETE" method="POST" >
+        <button type="submit" class="submit">BORRAR</button>
     </form>
     </main> 
 <%- include("../partials/footer") %>
