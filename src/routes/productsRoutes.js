@@ -25,8 +25,8 @@ router.post("/",upload.single("productImg"), productsController.creado);
 router.get("/:id", productsController.detalle);
 
 
-router.get("/edicion/:id", productsController.edicion);
-router.put("/edicion/:id",upload.single("productImg"), productsController.editado);
+router.get("/edicion/:id", productsController.edit);
+router.put("/edicion/:id",upload.single("productImg"), productsController.update);
 
 router.delete("/:id/delete", productsController.delete);
 

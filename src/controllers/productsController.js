@@ -1,31 +1,35 @@
 const fs = require('fs');
 const path = require('path');
-
-
-
-let products
-let productsPath
-if(fs.existsSync(path.join(__dirname, "../database/products.json")) === false){
-    products = []
-    fs.writeFileSync(path.join(__dirname, "../database/products.json"),"[]")
-} 
-productsPath = path.join(__dirname, "../database/products.json")
-products = JSON.parse(fs.readFileSync(productsPath, 'utf-8'))
-
-// const productsPath = path.join(__dirname, "../database/products.json");
-// const products = JSON.parse(fs.readFileSync(productsPath, 'utf-8'))
+const db = require ("../database/models")
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const productsController = {
     products: (req,res) => {
-        res.render("products/products")
+        db.Product.findAll()
+        .then(products => {
+            res.render("products", {products})
+        }).catch((error)=>{
+            console.log(error)
+        })
     },
     detalle: (req,res) => {
-        res.render("products/detalle")
+        db.Product.findByPk(req.params.id, {
+            include: [{association:"categorias"},{association:"users"}]
+        })
+        .then(product => {
+            res.render("detail", {product})
+        }).catch((error)=>{
+            console.log(error)
+        })
     },
     creacion: (req,res) => {
-        res.render("products/creacion")
+        db.Categoria.findAll()
+        .then(function(categorias){
+            return res.render("create",{categorias:categorias})
+        }).catch((error)=>{
+            console.log(error)
+        })
     },
     creado: (req,res) => {
         let productImg 
@@ -34,61 +38,42 @@ const productsController = {
         } else {
               productImg = "default-productImg.png"
         }
-        console.log(products.length)
-        let productoCreado = {
-            id: products.length === 0 ? 1 : products[products.length-1].id+1,
-            nombre: req.body.nombre,
-            descripcion: req.body.descripcion,
-            materiales: req.body.materiales,
-            cantidad:req.body.cantidad,
-            precio: req.body.precio,
-            dimensiones: req.body.dimensiones,
-            peso: req.body.peso,
+        db.Product.create({
+            ...req.body,
             productImg
-        }
-        products.push (productoCreado);
-        productsJSON = JSON.stringify(products)
-        fs.writeFileSync(productsPath,productsJSON)
-
+        }).catch((error)=>{
+            console.log(error)
+        })
         res.redirect("/products")
     },
-    edicion: (req,res) => {
-        let idProducto = req.params.id
-        let productoEditar = products.find(product => product.id == idProducto)
-        
-       res.render("products/edicion",{productoEditar:productoEditar}) 
-    
+    edit: (req,res) => {
+        db.Product.findByPk(req.param.id)
+            .then(function(product){
+                res.render("products/edit",{product:product}) 
+            }).catch((error)=>{
+                console.log(error)
+            })      
     },
-    editado: (req,res) => {
-        let idProducto = req.params.id
-        let productoEditar = products.find(product => product.id == idProducto) 
-
-        productoEditar = {
-            id: productoEditar.id,
-            nombre: req.body.nombre,
-            descripcion: req.body.descripcion,
-            materiales: req.body.materiales,
-            cantidad:req.body.cantidad,
-            precio: req.body.precio,
-            dimensiones: req.body.dimensiones,
-            peso: req.body.peso,
-            productImg: productoEditar.productImg
-        }
-        let productoEditado = products.map(product => {
-            if (product.id == productoEditar.id) {
-                return product = {...productoEditar};
+    update: (req,res) => {
+        db.Product.update({
+            ...req.body
+        }, {
+            where: {
+                id: req.params.id
             }
-            return product
+        }).catch((error)=>{
+            console.log(error)
         })
-        fs.writeFileSync(productsPath, JSON.stringify(productoEditado, null, " "));
- 
-        res.render("products/edicion",{productoEditar:productoEditar})
+        res.redirect("products/edit"+ req.param.id)
     },
     delete: (req,res) => {
-        let idProducto = req.params.id
-        let productoEditar = products.filter(product => product.id != idProducto)         
-        fs.writeFileSync(productsPath, JSON.stringify(productoEditar, null, " "));
-
+        db.Product.destroy({
+            where:{
+                id: req.params.id
+            }
+        }).catch((error)=>{
+            console.log(error)
+        })
         res.redirect ("/products")
     }
 }

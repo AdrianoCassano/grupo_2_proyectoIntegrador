@@ -1,26 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 const bcrypt = require("bcryptjs")
+const {validationResult} = require("express-validator")
 const crypto = require("crypto");
 const res = require('express/lib/response');
-const bcryptjs = require('bcryptjs');
-
-let users
-let usersPath
-if(fs.existsSync(path.join(__dirname, "../database/users.json")) === false){
-    users = []
-    fs.writeFileSync(path.join(__dirname, "../database/users.json"),"[]")
-}
-usersPath = path.join(__dirname, "../database/users.json");
-users = JSON.parse(fs.readFileSync(usersPath, 'utf-8'))
-
-// const usersPath = path.join(__dirname, "../database/users.json");
-// const users = JSON.parse(fs.readFileSync(usersPath, 'utf-8'))
-
-const userLoginPath = path.join(__dirname, "../database/userLogin.json");
-const usersLogin = JSON.parse(fs.readFileSync(userLoginPath, 'utf-8'))
-
-
+const db = require ("../database/models")
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -29,45 +13,52 @@ const userController = {
         res.render("users/register")
     },
     registered: (req,res) => {
-        let userAvatar 
-        if(req.file != undefined){
-            userAvatar = req.file.filename
+        let errors = validationResult(req)
+        if (!errors.isEmpty()){
+            return res.render("users/register",{errors: errors.mapped(), old: req.body})
+        }
+        
+        let userCheck = db.User.findOne({
+            where:{
+                email: req.body.email
+            }
+        })
+        if (userCheck == undefined || userCheck == null) {
+            let userAvatar 
+            if(req.file != undefined){
+                userAvatar = req.file.filename
+            } else {
+                userAvatar = "default-userAvatar.png"
+            }
+            db.User.create({
+                ...req.body,
+                password: bcrypt.hashSync(req.body.password, 10),
+                userAvatar
+            })
+            return res.redirect("/register")
         } else {
-            userAvatar = "default-userAvatar.png"
+            return res.render("users/register",{errors: { email: "El email ya existe" }, old: req.body})
         }
-        let usuarioRegistrado = {
-            id: users.length === 0 ? 1 : users[users.length-1].id+1,
-            first_name: req.body.first_name,
-            last_name: req.body.last_name,
-            email: req.body.email,
-            password: bcrypt.hashSync(req.body.password, 10),
-            country: req.body.country,
-            id_type: req.body.id_type,
-            id_doc: req.body.id_doc,
-            gender: req.body.gender,
-            date: req.body.date,
-            phonenumber: req.body.phonenumber,
-            userAvatar
-        }
-        users.push (usuarioRegistrado);
-        usersJSON = JSON.stringify(users)
-        fs.writeFileSync(usersPath,usersJSON)
-
-        res.redirect("/register")
-        },
+    },
     login: (req,res) => {
         res.render("users/login")
     },
     authenticate: (req,res) => {
         const {email, password} = req.body
         
-        const userLogged = users.find( user => user.email === email)
+        const userLogged = db.User.findOne({
+            where:{
+                email: req.body.email
+            }
+        })
         if(userLogged) {
 
             if(bcrypt.compareSync(password, userLogged.password)){                
                 // delete userLogged.password
                 req.session.userLogged = userLogged
                 if(req.body.remember){
+                    const userLoginPath = path.join(__dirname, "../olddatabase/userLogin.json");
+                    const usersLogin = JSON.parse(fs.readFileSync(userLoginPath, 'utf-8'))
                     const token = crypto.randomBytes(64).toString("base64");
                     userLogged.token = token
                     
@@ -75,6 +66,7 @@ const userController = {
                     fs.writeFileSync(userLoginPath, JSON.stringify(userLogin, null,""));
 
                     res.cookie("rememberToken", {maxAge: 1000*60*60*24*120});
+                    // res.cookie("rememberToken", req.body.email, { maxAge: 1000*60*60*24*120 })                   
                 }
                 return res.redirect("/perfil")              
             }else{
@@ -95,39 +87,26 @@ const userController = {
         }
     },
     edit: (req,res) => {
-        let idUser = req.params.id
-        let userToEdit = users.find(user => user.id == idUser)
-        
-        res.render("users/edit",{userToEdit:userToEdit}) 
-    
+        db.User.findByPk(req.params.id, {
+            include: [{association:"products"}]
+        })
+        .then(userToEdit => {
+            res.render("users/edit", {userToEdit})
+        }).catch((error)=>{
+            console.log(error)
+        })
     },
     updated: (req,res) => {
-        let idUser = req.params.id
-        let userToEdit = users.find(user => user.id == idUser)
-        
-
-        userToEdit = {
-            id: userToEdit.id,
-            first_name: req.body.first_name,
-            last_name: req.body.last_name,
-            email: req.body.email,
-            country: req.body.country,
-            id_type: req.body.id_type,
-            id_doc: req.body.id_doc,
-            gender: req.body.gender,
-            date: req.body.date,
-            phonenumber: req.body.phonenumber,
-            userAvatar: userToEdit.userAvatar
-        }
-        let userUpdated = users.map(user => {
-            if (user.id == userToEdit.id) {
-                return user = {...userToEdit};
+        db.User.update({
+            ...req.body
+        }, {
+            where: {
+                id: req.params.id
             }
-            return user
+        }).catch((error)=>{
+            console.log(error)
         })
-        fs.writeFileSync(usersPath, JSON.stringify(userUpdated, null, " "));
-
-        res.render("users/edit",{userToEdit:userToEdit})
+        res.redirect("userProfile")
     },
     delete: (req,res) => {
         let idUser = req.params.id
