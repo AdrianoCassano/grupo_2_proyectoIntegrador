@@ -1,10 +1,9 @@
 const path = require("path")
 const fs = require("fs")
+const db = require ("../database/models")
 
-const usersPath = path.join(__dirname, "../database/users.json");
-const users = JSON.parse(fs.readFileSync(usersPath, 'utf-8'))
 
-const userLoginPath = path.join(__dirname, "../database/userLogin.json");
+const userLoginPath = path.join(__dirname, "../olddatabase/userLogin.json");
 const usersLogin = JSON.parse(fs.readFileSync(userLoginPath, 'utf-8'))
 
 module.exports = (req,res,next) => {
