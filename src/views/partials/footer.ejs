@@ -1,13 +1,118 @@
 <style>
-footer {
+/* footer {
     text-align: center;
     color: rgb(165, 42, 42);
     font-weight: 700;
+} */
+
+.footer {
+    background:black;
+    color: #8a8a8a;
+    font-size: 14px;
+    padding: 60px 0 20px;
 }
+
+.footer p {
+    color: #8a8a8a;
+}
+
+.footer h3 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.footer-col-1, .footer-col-2, .footer-col-3, .footer-col-4 {
+    min-width: 250px;
+    margin-bottom: 20px;
+}
+
+.footer-col-1 {
+    flex-basis: 30%;
+}
+
+.footer-col-2 {
+    flex: 1;
+    text-align: center;
+}
+
+.footer-col-2 img {
+   width: 200px;
+   margin-bottom: 20px;
+}
+
+.footer-col-3, .footer-col-4 {
+    flex-basis: 12%;
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.app-logo {
+    margin-top: 20px;
+}
+
+.app-logo img {
+    width: 130px;
+}
+
+.footer hr {
+    border: none;
+    background: #b5b5b5;
+    height: 1px;
+    margin: 20px 0;
+}
+ .copyright {
+     text-align: center;
+ }
+
+ .row {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
 </style>
 
 <footer>
-    <p><b><a href="#">Terminos y Condiciones</a></b></p>
-    <p><b><a href="#">Información Legal></a></b></p>
-    <p><b>Copyright © 2022 Todo Muebles Inc.</b></p>
+    <div class="footer">
+        <div class="row">
+            <div class="footer-col-1">
+               <h3>Nuestra app</h3>
+               <p>Descarga nuestra app para Android o iOS</p>
+               <div class="app-logo">
+                   <img src="/images/appstore.jpg" alt="">
+                   <img src="/images/playstore.png" alt="">
+               </div>
+            </div>
+            <div class="footer-col-2">
+                <img src="/images/TodoMueble.png" alt="">
+            </div>
+            <div class="footer-col-3">
+               <h3>Links</h3>
+               <ul>
+                   <li>Contacto</li>
+                   <li>Blogpost</li>
+                   <li>Servicio al ciente</li>
+                   <li>Ayuda con sitio</li>
+               </ul>
+            </div>
+            <div class="footer-col-4">
+                <h3>Síguenos</h3>
+                <ul>
+                    <li>Facebook</li>
+                    <li>Instagram</li>
+                    <li>Twitter</li>
+                    <li>Pinterest</li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <p class="copyright">Términos y condiciones - Copyright © 2022 Todo Muebles Inc.</p>
+    </div>
 </footer>
+
+<!-- <p><b><a href="#">Terminos y Condiciones</a></b></p>
+<p><b><a href="#">Información Legal></a></b></p>
+<p><b>Copyright © 2022 Todo Muebles Inc.</b></p> -->

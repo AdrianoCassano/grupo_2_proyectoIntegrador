@@ -9,17 +9,272 @@
         background-size: cover;
         align-items: center;
         font-family: 'Roboto', sans-serif;
+        
     }
     h2{
-        color:rgb(206, 87, 87);
+        color:rgb(220, 220, 220);
     }
 
+    .row-1 {
+        align-items: center;
+        justify-content: space-around;
+        
+    }
+    .row {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        
+    }
+    .col-2 {
+        align-items: center;
+        text-align: center;
+    }
+
+    .titles {
+        text-align: center;
+        margin: 0 auto 80px;
+        position: relative;
+        padding-top: 40px;
+    }
+
+    .titles::after {
+        content: "";
+        background: #ff523b;
+        width: 80%;
+        height: 5px;
+        border-radius: 5px;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%)
+        }
+     /* empieza slider */
+    .slider {
+        width: 90%;
+        height: 500px;
+        margin: auto;
+        overflow: hidden;
+        border-radius: 10px;
+    }
+    .slider ul {
+        display: flex;
+        padding: 0;
+        margin: 0;
+        width: 400%;
+
+        animation: cambio 20s infinite;
+        animation-direction: alternate;
+    }
+    .slider li {
+        width: 100%;
+        height: 100%;
+        list-style: none;
+    }
+    .slider img {
+        width: 100%;
+        height: 100%;
+        margin: auto;
+    }
+    @keyframes cambio {
+        0% {margin-left: 0;}
+        20% {margin-left: 0;}
+
+        25% {margin-left: -100%;}
+        45% {margin-left: -100%;}
+
+        50% {margin-left: -200%;}
+        70% {margin-left: -200%;}
+
+        75% {margin-left: -300%;}
+        100% {margin-left: -300%;}
+    }
+     /* termina slider */
+
+     /* empieza categorías */
+     .categories {
+        background-color: rgba(0, 0, 0, 0.6)
+     }
+     .col-3 {
+        position: relative;
+     }
+     .image__img {
+         display: block;
+     }
+     .image__overlay {
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background: rgba(0,0,0,0.6);
+         color: whitesmoke;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+         opacity: 0;
+         transition: opacity 0.25s;
+     }
+     .image__overlay--blur {
+        backdrop-filter: blur(5px);
+     }
+     .image__overlay > * { 
+        transform: translateY(20px);
+        transition: transform 0.25s;
+     }
+     .image__overlay:hover {
+         opacity: 1;
+     }
+     .image__overlay:hover > *{
+         transform: translateY(0);
+     }
+     .image__title {
+         font-size: 2em;
+         font-weight: bold;
+     }
+     .image__description {
+         font-size: 1.25em;
+         margin-top: 0.25em;
+     }
+    .small-container {
+        max-width: 1080px;
+        margin: auto;
+        padding-left: 25px;
+        padding-right: 25px;
+        padding-top: 0px;
+        padding-bottom: 50px;
+
+    }
+    /* termina categorías */
+
+    /* empieza productos sugeridos */
+    .col-4 {
+        flex-basis: 20%;
+        padding: 5px;
+        min-width: 200px;
+        margin-bottom: 50px;
+        transition: transform 0.5s;
+        background-color: rgba(253, 253, 253, 0.6)
+    }
+    .col-4 img {
+        width: 100%;
+    }
+    .col-4:hover {
+       transform: translateY(-6px)
+    }
+    /* termina productos sugeridos */
 </style>
 <body>
     <%- include("./partials/header.ejs") %>
 <br>
+    <div class="row-1">
+        <div class="col-2">
+            <h1>Tu solución en mueblería a un click!</h1>
+        </div>
+        <div class="col-2">
+            
+        </div>
+    </div>
 <br>
-<section>
+<main>
+<!-- abre slider  -->
+    <div class="slider">
+        <ul>
+            <li><img src="/images/sli1.jpg" width="500px" height="500px" alt=""></li>
+            <li><img src="/images/sli2.jpg" alt=""></li>
+            <li><img src="/images/sli3.jpg" alt=""></li>
+            <li><img src="/images/sli4.jpg" alt=""></li>
+        </ul>
+    </div>
+<!-- cierra slider -->
+<br>
+<!-- abre categorías  -->
+    <div class="categories">
+        <h2 class="titles">Categorías</h2>
+        <div class="small-container">
+            <div class="row">
+                <div class="col-3"><a href="/products">
+                    <img class ="image__img" src="/images/Mesa.JPG" width="350px" height="400px" href="#">
+                        <div class="image__overlay image__overlay--blur">
+                            <div class="image__title">Interior</div>
+                            <p class="image__description">Ideal para el hogar</p>
+                        </div></a>
+                </div>
+                <div class="col-3"><a href="/products">
+                    <img class ="image__img" src="/images/ext.jpg" width="350px" height="400px" href="#">
+                        <div class="image__overlay image__overlay--blur">
+                            <div class="image__title">Exterior</div>
+                            <p class="image__description">Ambientes abiertos</p>
+                        </div>
+                </div></a>
+                <div class="col-3"><a href="/products">
+                    <img class ="image__img" src="/images/emp.jpg" width="350px" height="400px" href="#">
+                        <div class="image__overlay image__overlay--blur">
+                            <div class="image__title">Empresarial</div>
+                            <p class="image__description">Oficinas e industria</p>
+                        </div>
+                </div></a>
+            </div>
+        </div>
+    </div>
+<!-- cierra categorías  -->
+
+<!-- abre productos sugeridos  -->
+<div class="categories">
+    <h2 class="titles">Productos Sugeridos</h2>
+        <div class="row">
+            <div class="col-4">
+                <img src="/images/Escritorio.JPG" width="250px" height="300px" href="">
+                <h3>Mesa Roble</h3>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half"></i>
+                </div>
+                <p>$ 160.00</p>
+            </div>
+            <div class="col-4">
+                <img src="/images/EstanteGrande.JPG" width="250px" height="300px" href="">
+                <h3>Estante Helsinki</h3>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </div>
+                <p>$ 240.00</p>
+            </div>
+            <div class="col-4">
+                <img src="/images/MesaNoche.JPG" width="250px" height="300px" href="">
+                <h3>Nochero Avellana</h3>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half"></i>
+                </div>
+                <p>$ 49.00</p>
+            </div>
+            <div class="col-4">
+                <img src="/images/MuebleTV.JPG" width="250px" height="300px" href="">
+                <h3>Mueble TV Zurich</h3>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </div>
+                <p>$ 450.00</p>
+            </div>
+        </div>
+</div>
+<!-- cierra productos sugeridos  -->
+
+<!-- <section>
     <article>
          <header>
               <h2>¡OFERTAS ESPECIALES!</h2>
@@ -42,8 +297,10 @@
     <footer>
         <a href="#">Más Información De Las OFERTAS</a>
     </footer>
-</section>
-
+</section> -->
+</main>
+<br>
+<br>
 
 
 <%- include("./partials/footer") %>
