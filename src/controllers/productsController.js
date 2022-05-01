@@ -4,11 +4,11 @@ const db = require ("../database/models")
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
-const productsController = {
+const productsController = { 
     products: (req,res) => {
         db.Product.findAll()
         .then(products => {
-            res.render("products", {products})
+            res.render("products/products", {products})
         }).catch((error)=>{
             console.log(error)
         })
@@ -18,7 +18,7 @@ const productsController = {
             include: [{association:"categorias"},{association:"users"}]
         })
         .then(product => {
-            res.render("detail", {product})
+            res.render("products/detail", {product})
         }).catch((error)=>{
             console.log(error)
         })
@@ -26,7 +26,7 @@ const productsController = {
     creacion: (req,res) => {
         db.Categoria.findAll()
         .then(function(categorias){
-            return res.render("create",{categorias:categorias})
+            return res.render("products/create",{categorias:categorias})
         }).catch((error)=>{
             console.log(error)
         })
@@ -41,15 +41,17 @@ const productsController = {
         db.Product.create({
             ...req.body,
             productImg
+        })
+        .then(()=>{
+            res.redirect("/products")
         }).catch((error)=>{
             console.log(error)
         })
-        res.redirect("/products")
     },
     edit: (req,res) => {
-        db.Product.findByPk(req.param.id)
-            .then(function(product){
-                res.render("products/edit",{product:product}) 
+        db.Product.findByPk(req.params.id)
+            .then(function(Product){
+                res.render("products/edit",{Product:Product}) 
             }).catch((error)=>{
                 console.log(error)
             })      
@@ -61,20 +63,24 @@ const productsController = {
             where: {
                 id: req.params.id
             }
+        }).then(() => {          
+            res.redirect("/products/edicion/"+ req.params.id)
         }).catch((error)=>{
             console.log(error)
         })
-        res.redirect("products/edit"+ req.param.id)
     },
     delete: (req,res) => {
         db.Product.destroy({
             where:{
                 id: req.params.id
             }
-        }).catch((error)=>{
+        })
+        .then(() => {
+            res.redirect ("/products")
+        })
+        .catch((error)=>{
             console.log(error)
         })
-        res.redirect ("/products")
     }
 }
 

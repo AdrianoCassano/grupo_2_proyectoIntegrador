@@ -4,6 +4,7 @@ const path = require("path");
 const userController = require("../controllers/userController");
 const guestValidation = require("../middlewares/guestValidation");
 const authValidation = require("../middlewares/authValidation");
+const registerValidation = require("../middlewares/registerValidation")
 
 
 const multer = require ("multer");
@@ -24,7 +25,7 @@ const upload = multer({ storage: storage });
 //   })
 
 router.get("/register", guestValidation, userController.register);
-router.post("/register", upload.single("userAvatar"), userController.registered);
+router.post("/register", upload.single("userAvatar"),  userController.registered);
 router.get("/login", guestValidation, userController.login);
 router.post("/login", userController.authenticate);
 

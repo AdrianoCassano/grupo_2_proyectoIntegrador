@@ -1,10 +1,11 @@
 const fs = require('fs');
 const path = require('path');
-const bcrypt = require("bcryptjs")
+const bcryptjs = require("bcryptjs")
 const {validationResult} = require("express-validator")
 const crypto = require("crypto");
 const res = require('express/lib/response');
-const db = require ("../database/models")
+const db = require ("../database/models");
+const { Console } = require('console');
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -12,78 +13,86 @@ const userController = {
     register: (req,res) => {
         res.render("users/register")
     },
-    registered: (req,res) => {
-        let errors = validationResult(req)
-        if (!errors.isEmpty()){
-            return res.render("users/register",{errors: errors.mapped(), old: req.body})
-        }
-        
-        let userCheck = db.User.findOne({
-            where:{
-                email: req.body.email
+    registered: async function (req,res){
+        try {
+            let errors = validationResult(req)
+            if (!errors.isEmpty()){
+                return res.render("users/register",{errors: errors.mapped(), old: req.body})
             }
-        })
-        if (userCheck == undefined || userCheck == null) {
-            let userAvatar 
-            if(req.file != undefined){
-                userAvatar = req.file.filename
-            } else {
-                userAvatar = "default-userAvatar.png"
-            }
-            db.User.create({
-                ...req.body,
-                password: bcrypt.hashSync(req.body.password, 10),
-                userAvatar
+            
+            let userCheck = await db.User.findOne({
+                where:{
+                    email: req.body.email
+                }
             })
-            return res.redirect("/register")
-        } else {
-            return res.render("users/register",{errors: { email: "El email ya existe" }, old: req.body})
+            if (userCheck == undefined || userCheck == null) {
+                let userAvatar 
+                if(req.file != undefined){
+                    userAvatar = req.file.filename
+                } else {
+                    userAvatar = "default-userAvatar.png"
+                }
+                await db.User.create({
+                    ...req.body,
+                    password: bcryptjs.hashSync(req.body.password, 10),
+                    userAvatar
+                })
+                return res.redirect("/register")
+            } else {
+                return res.render("users/register",{errors: { email: "El email ya existe" }, old: req.body})
+            }           
+        } catch (error) {
+            console.log(error)
         }
     },
     login: (req,res) => {
         res.render("users/login")
     },
-    authenticate: (req,res) => {
-        const {email, password} = req.body
-        
-        const userLogged = db.User.findOne({
-            where:{
-                email: req.body.email
-            }
-        })
-        if(userLogged) {
-
-            if(bcrypt.compareSync(password, userLogged.password)){                
-                // delete userLogged.password
-                req.session.userLogged = userLogged
-                if(req.body.remember){
-                    const userLoginPath = path.join(__dirname, "../olddatabase/userLogin.json");
-                    const usersLogin = JSON.parse(fs.readFileSync(userLoginPath, 'utf-8'))
-                    const token = crypto.randomBytes(64).toString("base64");
-                    userLogged.token = token
-                    
-                    let userLogin = [...usersLogin, userLogged]
-                    fs.writeFileSync(userLoginPath, JSON.stringify(userLogin, null,""));
-
-                    res.cookie("rememberToken", {maxAge: 1000*60*60*24*120});
-                    // res.cookie("rememberToken", req.body.email, { maxAge: 1000*60*60*24*120 })                   
+    authenticate: async (req,res) => {
+        try {
+            const {email, password} = req.body
+            
+            let userLogged = await db.User.findOne({
+                where:{
+                    email: email
                 }
-                return res.redirect("/perfil")              
+            })
+
+            if(userLogged) {
+                if(bcryptjs.compareSync(password, userLogged.password)){                
+                    delete userLogged.password
+                    req.session.userLogged = userLogged
+                    if(req.body.remember){
+                        const userLoginPath = path.join(__dirname, "../olddatabase/userLogin.json");
+                        const usersLogin = JSON.parse(fs.readFileSync(userLoginPath, 'utf-8'))
+                        const token = crypto.randomBytes(64).toString("base64");
+                        userLogged.token = token
+                        
+                        let userLogin = [...usersLogin, userLogged]
+                        fs.writeFileSync(userLoginPath, JSON.stringify(userLogin, null,""));
+    
+                        res.cookie("rememberToken", {maxAge: 1000*60*60*24*120});
+                        // res.cookie("rememberToken", req.body.email, { maxAge: 1000*60*60*24*120 })                   
+                    }
+                    return res.redirect("/perfil")              
+                }else{
+                    return res.render ("users/login",{
+                        old: req.body,
+                        errors:{
+                            password: "La Contraseña es inválida"
+                        }
+                    });                
+                }
             }else{
                 return res.render ("users/login",{
-                    old: req.body,
-                    errors:{
-                        password: "La Contraseña es inválida"
-                    }
-                });                
-            }
-        }else{
-            return res.render ("users/login",{
-            old: req.body,
-            errors:{
-                email: "El email es inválido"
-            }
-        });
+                old: req.body,
+                errors:{
+                    email: "El email es inválido"
+                }
+            });
+            }     
+        } catch (error) {
+            console.log(error)
         }
     },
     edit: (req,res) => {
@@ -103,17 +112,29 @@ const userController = {
             where: {
                 id: req.params.id
             }
-        }).catch((error)=>{
+        })
+        .then(() => {          
+            res.redirect("/perfil")
+        })
+        .catch((error)=>{
             console.log(error)
         })
-        res.redirect("userProfile")
     },
     delete: (req,res) => {
-        let idUser = req.params.id
-        let userToEdit = users.filter(user => user.id != idUser)         
-        fs.writeFileSync(usersPath, JSON.stringify(userToEdit, null, " "));
-
-        res.redirect ("/")
+        // let idUser = req.params.id
+        // let userToEdit = users.filter(user => user.id != idUser)         
+        // fs.writeFileSync(usersPath, JSON.stringify(userToEdit, null, " "));
+        db.User.destroy({
+            where:{
+                id: req.params.id
+            }
+        })
+        .then(() => {
+            res.redirect ("/")
+        })
+        .catch((error)=>{
+            console.log(error)
+        })
     },
     profile: (req,res) => {
         res.render("users/userProfile",{

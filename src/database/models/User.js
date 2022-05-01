@@ -16,7 +16,6 @@ module.exports = function(sequelize, dataTypes){
             type: dataTypes.STRING
 
         },
-
         email:{
             type: dataTypes.STRING
         },
@@ -25,36 +24,27 @@ module.exports = function(sequelize, dataTypes){
             type: dataTypes.STRING
 
         },
-        passwordConf:{
-            type: dataTypes.STRING
-
-        },
-
         country:{
             type: dataTypes.STRING
         },
-
         idType:{
             type: dataTypes.STRING
         },
-
         idDoc:{
             type: dataTypes.INTEGER
         },
-
         gender:{
             type: dataTypes.STRING
         },
-
         date:{
             type: dataTypes.DATE
         },
-
         phoneNumber:{
             type: dataTypes.INTEGER
+        },
+        userAvatar:{
+            type: dataTypes.STRING
         }
-        
-
     }
 
     let config = {

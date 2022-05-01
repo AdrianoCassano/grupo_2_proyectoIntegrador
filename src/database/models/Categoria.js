@@ -8,46 +8,9 @@ module.exports = function(sequelize, dataTypes){
             primaryKey: true,
             autoIncrement: true
         },
-        sillones:{
-            type: dataTypes.STRING
-
-        },
-        sofas:{
-            type: dataTypes.STRING
-
-        },
-
-        camas:{
+        name:{
             type: dataTypes.STRING
         },
-
-        escritorios:{
-            type: dataTypes.STRING
-
-        },
-        sillas:{
-            type: dataTypes.STRING
-
-        },
-        bibliotecas:{
-            type: dataTypes.STRING
-
-        },
-        mueblesTV:{
-            type: dataTypes.STRING
-
-        },
-        roperos:{
-            type: dataTypes.STRING
-
-        },
-        mesas:{
-            type: dataTypes.STRING
-
-        }
-
-
-
     }
 
     let config = {

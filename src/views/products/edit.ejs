@@ -79,38 +79,26 @@ h3 {
    <br>
     </div>
 <main>
-    <form action="/products/edicion/<%=product.id%>/?_method=PUT" method="POST" class= "register-form">
+    <form action="/products/edicion/<%= Product.id %>/?_method=PUT" method="POST" class= "register-form">
         <h3>Edicion de Producto</h3> 
         <div>
-            <input class="form-contenedor" type="text" name="nombre" value="<%=product.nombre%>" placeholder="Ingrese nombre de producto*">
+            <input class="form-contenedor" type="text" name="nombre" value="<%=Product.nombre%>" placeholder="Ingrese nombre de producto*">
         </div>
         <div>
-            <input class="form-contenedor" type="text" name="descripcion" value="<%=product.descripcion%>" placeholder="Descripcion del producto*" >
+            <input class="form-contenedor" type="text" name="descripcion" value="<%=Product.descripcion%>" placeholder="Descripcion del producto*" >
         </div>
         <div>
-            <input class="form-contenedor" type="text" name="materiales" value="<%=product.materiales%>" placeholder="Materiales del producto*">
+            <input class="form-contenedor" type="text" name="materiales" value="<%=Product.materiales%>" placeholder="Materiales del producto*">
         </div>
         <div>
             <select class="form-contenedor" name="cantidad" required>
-                <% for( let i = 1; i<=10; i++) {%>
-                    <option value="<%=i%>"<%= product.cantidad === "" ? "selected" : "" %>>Selecciona la cantidad de Muebles</option>
-                    <option value="<%=i%>"<%= product.cantidad === "1" ? "selected" : "" %>><%=i%> unidad</option> 
-                    <option value="<%=i%>"<%= product.cantidad >= "2" ? "selected" : "" %>><%=i%> unidades</option>
-                    
-                    
-                    <option value="<%=i%>"<% if (product.cantidad = i) { %><%= 'selected' %><% }; %>><%= i %> unidades</option>
-                    
-                    
-                    <% } %>
-                
-<!--                 
-                <option value="3"<%= productoEditar.cantidad === "3" ? "selected" : "" %>>3 unidades</option>
-                <option value="4"<%= productoEditar.cantidad === "4" ? "selected" : "" %>>4 unidades</option>
-                <option value="5"<%= productoEditar.cantidad === "5" ? "selected" : "" %>>5 unidades</option> -->
+                <option value="" <%= Product.cantidad == "" ? "selected" : "" %>>Selecciona la cantidad de Muebles</option>              
+                <option value="1" <%= Product.cantidad == "1" ? "selected" : "" %>>1 unidad</option>
+                <% for( let i = 2; i<=20; i++) {%>
+                    <option value="<%=i%>" <%= Product.cantidad == i ? "selected" : "" %>><%=i%> unidades</option>                                
+                <% } %>             
             </select>
         </div>
-
-
 
         <!-- <div>
    <h4>Seleccione el tipo de mueble</h4>
@@ -129,20 +117,20 @@ h3 {
 
 </div> -->
         <div>
-            <input class="form-contenedor" type="text" name="precio" value="<%=product.precio%>" placeholder="Ingresa el precio" >
+            <input class="form-contenedor" type="text" name="precio" value="<%=Product.precio%>" placeholder="Ingresa el precio" >
         </div>
         <div>
-            <input class="form-contenedor" type="text" name="dimensiones" value="<%=product.dimensiones%>" placeholder="Ingresa las dimensiones" >
+            <input class="form-contenedor" type="text" name="dimensiones" value="<%=Product.dimensiones%>" placeholder="Ingresa las dimensiones" >
         </div>
         <div>
-            <input class="form-contenedor" type="text" name="peso" value="<%=product.peso%>" placeholder="Ingresa el peso" >
+            <input class="form-contenedor" type="text" name="peso" value="<%=Product.peso%>" placeholder="Ingresa el peso" >
         </div>
         <div>
             <input class= "form-contenedor" type="file" name="productImg" placeholder="Foto de producto" >
         </div>
         <button type="submit" class="submit">ACTUALIZAR</button>
     </form>
-    <form action="/products/<%= product.id %>/delete?_method=DELETE" method="POST" >
+    <form action="/products/<%= Product.id %>/delete?_method=DELETE" method="POST" >
         <button type="submit" class="submit">BORRAR</button>
     </form>
     </main> 
