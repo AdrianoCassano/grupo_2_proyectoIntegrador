@@ -1,35 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include("../partials/head") %>
+<style>
+    body{
+       background-image: url("https://i.ibb.co/tHLXfxJ/mueblesfondo.jpg");
+       background-repeat: no-repeat;
+       background-attachment: fixed;
+       background-size: cover;
+       align-items: center;
+       font-family: 'Roboto', sans-serif;
+       
+   }
+   h2{
+        color:rgb(220, 220, 220);
+    }
+   .categories {
+        background-color: rgba(0, 0, 0, 0.6)
+     }
+
+     .row {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        
+    }
+
+   .col-4 {
+        flex-basis: 20%;
+        padding: 5px;
+        min-width: 200px;
+        margin-bottom: 50px;
+        transition: transform 0.5s;
+        background-color: rgba(253, 253, 253, 0.6)
+    }
+    .col-4 img {
+        width: 100%;
+    }
+    .col-4:hover {
+       transform: translateY(-6px)
+    }
+</style>
 <body>
     <%- include("../partials/header.ejs") %>    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<main>
+    <div class="categories">
+        <h2 class="titles">Todos los productos</h2>
+            <div class="row">
+                <div class="col-4">
+                    <img src="/images/Escritorio.JPG" width="250px" height="300px" href="">
+                    <h3>Mesa Roble</h3>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half"></i>
+                    </div>
+                    <p>$ 160.00</p>
+                </div>
+                <div class="col-4">
+                    <img src="/images/EstanteGrande.JPG" width="250px" height="300px" href="">
+                    <h3>Estante Helsinki</h3>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <p>$ 240.00</p>
+                </div>
+                <div class="col-4">
+                    <img src="/images/MesaNoche.JPG" width="250px" height="300px" href="">
+                    <h3>Nochero Avellana</h3>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half"></i>
+                    </div>
+                    <p>$ 49.00</p>
+                </div>
+                <div class="col-4">
+                    <img src="/images/MuebleTV.JPG" width="250px" height="300px" href="">
+                    <h3>Mueble TV Zurich</h3>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <p>$ 450.00</p>
+                </div>
+                <div class="col-4">
+                    <img src="/images/MuebleTV.JPG" width="250px" height="300px" href="">
+                    <h3>Mueble TV Zurich</h3>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <p>$ 450.00</p>
+                </div>
+                <div class="col-4">
+                    <img src="/images/MuebleTV.JPG" width="250px" height="300px" href="">
+                    <h3>Mueble TV Zurich</h3>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <p>$ 450.00</p>
+                </div>
+                <div class="col-4">
+                    <img src="/images/MuebleTV.JPG" width="250px" height="300px" href="">
+                    <h3>Mueble TV Zurich</h3>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <p>$ 450.00</p>
+                </div>
+                <div class="col-4">
+                    <img src="/images/MuebleTV.JPG" width="250px" height="300px" href="">
+                    <h3>Mueble TV Zurich</h3>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <p>$ 450.00</p>
+                </div>
+                <div class="col-4">
+                    <img src="/images/MuebleTV.JPG" width="250px" height="300px" href="">
+                    <h3>Mueble TV Zurich</h3>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <p>$ 450.00</p>
+                </div>
+                <div class="col-4">
+                    <img src="/images/MuebleTV.JPG" width="250px" height="300px" href="">
+                    <h3>Mueble TV Zurich</h3>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <p>$ 450.00</p>
+                </div>
+                <div class="col-4">
+                    <img src="/images/MuebleTV.JPG" width="250px" height="300px" href="">
+                    <h3>Mueble TV Zurich</h3>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <p>$ 450.00</p>
+                </div>
+                <div class="col-4">
+                    <img src="/images/MuebleTV.JPG" width="250px" height="300px" href="">
+                    <h3>Mueble TV Zurich</h3>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <p>$ 450.00</p>
+                </div>
+            </div>
+    </div>
+</main>
+<br>
     <%- include("../partials/footer") %>
 </body>
 </html>
