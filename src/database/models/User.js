@@ -55,8 +55,13 @@ module.exports = function(sequelize, dataTypes){
     }
     let User = sequelize.define(alias, cols, config);
 
-    
-    User.associate = function(models){
+   
+         User.associate = function(models){
+             User.belongsTo(models.UserCategory, {
+                    as: "usercategory",
+                    foreignKey: "categoryId"
+                });
+
         User.belongsToMany(models.Product, {
             as: "products",
             through:"userProducts",
@@ -65,7 +70,13 @@ module.exports = function(sequelize, dataTypes){
             timestamps: false
 
         });
+        
+        User.hasMany(models.UserLog, {
+            as: "UserLog",
+            foreignKey: "userId"
+        })
+     
     }
 
     return User
-}
+    }
