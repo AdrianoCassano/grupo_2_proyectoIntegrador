@@ -25,12 +25,12 @@ const upload = multer({ storage: storage });
 //   })
 
 router.get("/register", guestValidation, userController.register);
-router.post("/register", upload.single("userAvatar"),  userController.registered);
+router.post("/register", upload.single("userAvatar"), registerValidation, userController.registered);
 router.get("/login", guestValidation, userController.login);
 router.post("/login", userController.authenticate);
 
 router.get("/edicion/:id", userController.edit);
-router.put("/edicion/:id",upload.single("userAvatar"), userController.updated);
+router.put("/edicion/:id",upload.single("userAvatar"), registerValidation, userController.updated);
 
 router.delete("/:id/delete", userController.delete);
 

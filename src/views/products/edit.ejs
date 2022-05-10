@@ -82,55 +82,73 @@ h3 {
     <form action="/products/edicion/<%= Product.id %>/?_method=PUT" method="POST" class= "register-form">
         <h3>Edicion de Producto</h3> 
         <div>
-            <input class="form-contenedor" type="text" name="nombre" value="<%=Product.nombre%>" placeholder="Ingrese nombre de producto*">
+            <input class="form-contenedor" type="text" name="nombre" value="<%=Product.nombre%>" placeholder="Ingrese nombre de producto">
+            <% if (locals.errors && errors.nombre) { %>
+                <p><%= errors.nombre.msg %></p>
+            <% } %>
         </div>
         <div>
-            <input class="form-contenedor" type="text" name="descripcion" value="<%=Product.descripcion%>" placeholder="Descripcion del producto*" >
+            <input class="form-contenedor" type="text" name="descripcion" value="<%=Product.descripcion%>" placeholder="Descripcion del producto" >
+            <% if (locals.errors && errors.descripcion) { %>
+                <p><%= errors.descripcion.msg %></p>
+            <% } %>
         </div>
         <div>
-            <input class="form-contenedor" type="text" name="materiales" value="<%=Product.materiales%>" placeholder="Materiales del producto*">
+            <input class="form-contenedor" type="text" name="materiales" value="<%=Product.materiales%>" placeholder="Materiales del producto">
+            <% if (locals.errors && errors.materiales) { %>
+                <p><%= errors.materiales.msg %></p>
+            <% } %>
         </div>
         <div>
-            <select class="form-contenedor" name="cantidad" required>
+            <select class="form-contenedor" name="cantidad">
                 <option value="" <%= Product.cantidad == "" ? "selected" : "" %>>Selecciona la cantidad de Muebles</option>              
                 <option value="1" <%= Product.cantidad == "1" ? "selected" : "" %>>1 unidad</option>
                 <% for( let i = 2; i<=20; i++) {%>
                     <option value="<%=i%>" <%= Product.cantidad == i ? "selected" : "" %>><%=i%> unidades</option>                                
                 <% } %>             
             </select>
-        </div>
-
-        <!-- <div>
-   <h4>Seleccione el tipo de mueble</h4>
-
-    <label for="genero">Silla</label>
-    <input type="radio" name="variable1" id="opcion1" value="valor1">
-
-    <label for="genero">Sillon</label>
-    <input type="radio" name="variable1" id="opcion2" value="valor2">
-
-    <label for="genero">Mesada</label>
-    <input type="radio" name="variable1" id="opcion3" value="valor3">
-
-    <label for="genero">Armario</label>
-    <input type="radio" name="variable1" id="opcion3" value="valor3">
-
-</div> -->
-        <div>
-            <input class="form-contenedor" type="text" name="precio" value="<%=Product.precio%>" placeholder="Ingresa el precio" >
+            <% if (locals.errors && errors.cantidad) { %>
+                <p><%= errors.cantidad.msg %></p>
+            <% } %>    
         </div>
         <div>
-            <input class="form-contenedor" type="text" name="dimensiones" value="<%=Product.dimensiones%>" placeholder="Ingresa las dimensiones" >
+            <input class="form-contenedor" type="text" name="precio" value="<%=Product.precio%>" placeholder="Ingresa el precio">
+            <% if (locals.errors && errors.precio) { %>
+                <p><%= errors.precio.msg %></p>
+            <% } %>
         </div>
         <div>
-            <input class="form-contenedor" type="text" name="peso" value="<%=Product.peso%>" placeholder="Ingresa el peso" >
+            <input class="form-contenedor" type="text" name="dimensiones" value="<%=Product.dimensiones%>" placeholder="Ingresa las dimensiones">
+            <% if (locals.errors && errors.dimensiones) { %>
+                <p><%= errors.dimensiones.msg %></p>
+            <% } %>
         </div>
         <div>
-            <input class= "form-contenedor" type="file" name="productImg" placeholder="Foto de producto" >
+            <input class="form-contenedor" type="text" name="peso" value="<%=Product.peso%>" placeholder="Ingresa el peso">
+            <% if (locals.errors && errors.peso) { %>
+                <p><%= errors.peso.msg %></p>
+            <% } %>
+        </div>
+        <div>
+            <select class="form-contenedor" name="categorias">
+                <option value="" <%= Product.categoriaId == "" ? "selected":"" %>>Selecciona la categoría de Mueble</option>              
+                <% for(let i = 0; i < categorias.length; i++) {%>
+                    <option value="<%= categorias[i].id %>" <%= Product.categoriaId == categorias[i].id ? "selected":"" %> ><%= categorias[i].name %> </option>                                
+                <% } %>
+            </select>
+            <% if (locals.errors && errors.categorias) { %>
+                <p><%= errors.categorias.msg %></p>
+            <% } %>            
+        </div>
+        <div>
+            <input class= "form-contenedor" type="file" name="productImg" placeholder="Foto de producto">
+            <% if (locals.errors && errors.productImg) { %>
+                <p><%= errors.productImg.msg %></p>
+            <% } %>
         </div>
         <button type="submit" class="submit">ACTUALIZAR</button>
     </form>
-    <form action="/products/<%= Product.id %>/delete?_method=DELETE" method="POST" >
+    <form action="/products/<%= Product.id %>/delete?_method=DELETE" method="POST">
         <button type="submit" class="submit">BORRAR</button>
     </form>
     </main> 
