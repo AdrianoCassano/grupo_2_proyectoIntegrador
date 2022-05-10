@@ -1,1 +1,0 @@
-Solo para que suba al git, eliminar a futuro
