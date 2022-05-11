@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <%- include("../partials/head") %>    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         body{
             background-image: url("https://i.ibb.co/tHLXfxJ/mueblesfondo.jpg");
@@ -9,19 +10,71 @@
             background-size: cover;
             align-items: center;
             font-family: 'Roboto', sans-serif;
+            text-align: center;
         }
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            margin: auto;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.6);
+            }
+            h1 {
+                color: rgb(34, 33, 33);
+            }
+            h2 {
+                color: whitesmoke;
+            }
+            p {
+                color: rgb(220, 220, 220);
+            }
+            .title {
+            color: rgb(220, 220, 220);
+            font-size: 18px;
+            }
+
+            button {
+            border: none;
+            outline: 0;
+            display: inline-block;
+            padding: 8px;
+            color: white;
+            background-color: #000;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+            }
+
+            a {
+            text-decoration: none;
+            font-size: 22px;
+            color: rgb(209, 209, 209);
+            }
+
+            button:hover, a:hover {
+                background:  #c9200a;
+            }
     </style>
     <body>
         <%- include("../partials/header.ejs") %>
 
-        <h2>Hola! <%= userLogged.first_name %></h2>
+        <h1>Hola <%= userLogged.firstName %>!</h1>
         
         <main>
-            <div> <%= userLogged.email %> </div>
-            <img src="/images/users/<%= userLogged.userAvatar %>" >
+            <div>  </div>
 
         </main>
-        
+        <div class="card">
+            <img src="/images/users/<%= userLogged.userAvatar %>" alt="John" style="width:100%">
+            <h2><%= userLogged.firstName %> <%= userLogged.lastName %></h2>
+            <p>Email: <%= userLogged.email %></p>
+            <p>País: <%= userLogged.country %></p>
+            <p>Género: <%= userLogged.gender %></p>
+            <p>Fecha de nacimiento: <%= userLogged.date %></p>
+            <p>Teléfono: <%= userLogged.phoneNumber %></p>
+            <p><button><a href="/register"><i class="fa fa-edit"></i></a> Editar</button></p>
+          </div>
         <%- include("../partials/footer") %>    
     </body>
 </html>
