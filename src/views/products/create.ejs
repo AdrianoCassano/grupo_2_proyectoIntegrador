@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <%- include("../partials/head") %>
+    <script src="/js/productFrontValidation.js"></script>
+
 <style>
 h3 {
     color: rgb(165, 42, 42)
@@ -69,6 +71,15 @@ h3 {
     .submit:hover{
         background-color: #c9200a;
     }
+
+    div.errores{
+        color:red;
+        list-style-type: none;
+        padding: 10px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        margin: 1px;
+    }
 </style>
 
 
@@ -81,26 +92,29 @@ h3 {
 <main>
     <form action="/products/creacion" method="POST" class= "register-form" enctype="multipart/form-data">
         <h3>Ingreso de Nuevo Producto</h3> 
+        <div class ="errores">
+            <ul></ul>
+        </div>
         <div>
-            <input class="form-contenedor" type="text" name="nombre" placeholder="Nombre del producto" value="<%= locals.old ? old.nombre: null %>">
+            <input class="form-contenedor" type="text" name="nombre" id="nombre" placeholder="Nombre del producto" value="<%= locals.old ? old.nombre: null %>">
             <% if (locals.errors && errors.nombre) { %>
                 <p><%= errors.nombre.msg %></p>
             <% } %>
         </div>
         <div>
-            <input class="form-contenedor" type="text" name="descripcion"placeholder="Descripcion del producto" value="<%= locals.old ? old.descripcion: null %>">
+            <input class="form-contenedor" type="text" name="descripcion" id= "descripcion" placeholder="Descripcion del producto" value="<%= locals.old ? old.descripcion: null %>">
             <% if (locals.errors && errors.descripcion) { %>
                 <p><%= errors.descripcion.msg %></p>
             <% } %>
         </div>
         <div>
-            <input class="form-contenedor" type="text" name="materiales"placeholder="Materiales del producto" value="<%= locals.old ? old.materiales: null %>">
+            <input class="form-contenedor" type="text" name="materiales" id= "materiales" placeholder="Materiales del producto" value="<%= locals.old ? old.materiales: null %>">
             <% if (locals.errors && errors.materiales) { %>
                 <p><%= errors.materiales.msg %></p>
             <% } %>
         </div>
         <div>
-            <select class="form-contenedor" name="cantidad">
+            <select class="form-contenedor" name="cantidad" id="cantidad">
                 <option value="" <%= locals.old ? "":"selected" %>>Selecciona la cantidad de Muebles</option>              
                 <option value="1" <%= locals.old && old.cantidad == "1"  ? "selected":"" %>>1 unidad</option>
                 <% for( let i = 2; i<=20; i++) {%>
@@ -112,25 +126,25 @@ h3 {
             <% } %>                    
         </div>
         <div>
-            <input class="form-contenedor" type="text" name="precio" placeholder="Precio" value="<%= locals.old ? old.precio: null %>">
+            <input class="form-contenedor" type="text" name="precio" id="precio" placeholder="Precio" value="<%= locals.old ? old.precio: null %>">
             <% if (locals.errors && errors.precio) { %>
                 <p><%= errors.precio.msg %></p>
             <% } %>
         </div>
         <div>
-            <input class="form-contenedor" type="text" name="dimensiones" placeholder="Dimensiones" value="<%= locals.old ? old.dimensiones: null %>">
+            <input class="form-contenedor" type="text" name="dimensiones" id="dimensiones" placeholder="Dimensiones" value="<%= locals.old ? old.dimensiones: null %>">
             <% if (locals.errors && errors.dimensiones) { %>
                 <p><%= errors.dimensiones.msg %></p>
             <% } %>
         </div>
         <div>
-            <input class="form-contenedor" type="text" name="peso" placeholder="Peso" value="<%= locals.old ? old.peso: null %>">
+            <input class="form-contenedor" type="text" name="peso" id="peso" placeholder="Peso" value="<%= locals.old ? old.peso: null %>">
             <% if (locals.errors && errors.peso) { %>
                 <p><%= errors.peso.msg %></p>
             <% } %>
         </div>
         <div>
-            <select class="form-contenedor" name="categorias">
+            <select class="form-contenedor" name="categorias" id="categorias">
                 <option value="" <%= locals.old ? "":"selected" %>>Selecciona la categoría de Mueble</option>              
                 <% for(let i = 0; i < categorias.length; i++) {%>
                     <option value="<%= categorias[i].id %>" <%= locals.old && old.categorias == categorias[i].id ? "selected":"" %> ><%= categorias[i].name %> </option>                                
@@ -141,7 +155,7 @@ h3 {
             <% } %>            
         </div>
         <div>
-            <input class= "form-contenedor" type="file" name="productImg" placeholder="Foto de producto">
+            <input class= "form-contenedor" type="file" name="productImg" id="productImg" placeholder="Foto de producto">
             <% if (locals.errors && errors.productImg) { %>
                 <p><%= errors.productImg.msg %></p>
             <% } %>
