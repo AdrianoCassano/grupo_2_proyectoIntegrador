@@ -130,14 +130,14 @@ h3 {
             <% } %>
         </div>
         <div>
-            <select class="form-contenedor" name="categorias">
+            <select class="form-contenedor" name="categoriaId">
                 <option value="" <%= locals.old ? "":"selected" %>>Selecciona la categoría de Mueble</option>              
                 <% for(let i = 0; i < categorias.length; i++) {%>
-                    <option value="<%= categorias[i].id %>" <%= locals.old && old.categorias == categorias[i].id ? "selected":"" %> ><%= categorias[i].name %> </option>                                
+                    <option value="<%= categorias[i].id %>" <%= locals.old && old.categorias === [i] ? "selected":"" %> ><%= categorias[i].name %> </option>                                
                 <% } %>
             </select>
-            <% if (locals.errors && errors.categorias) { %>
-                <p><%= errors.categorias.msg %></p>
+            <% if (locals.errors && errors.categoriaId) { %>
+                <p><%= errors.categoriaId.msg %></p>
             <% } %>            
         </div>
         <div>

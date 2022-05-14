@@ -8,6 +8,8 @@ const mainRoutes = require("./routes/mainRoutes");
 const productsRoutes = require("./routes/productsRoutes");
 const checkoutRoutes = require("./routes/checkoutRoutes");
 const userRoutes = require("./routes/userRoutes");
+
+const adminApiRoutes = require("./routes/adminApiRoutes")
 const methodOverride = require("method-override");
 
 app.use(express.static("public"));
@@ -31,6 +33,7 @@ app.use("/products", productsRoutes);
 app.use("/carrito", checkoutRoutes);
 app.use("/", userRoutes);
 app.use("/", userRoutes);
-
+ 
+app.use("/admin", adminApiRoutes); 
 
 app.listen (3030, () =>{console.log("server up")});
