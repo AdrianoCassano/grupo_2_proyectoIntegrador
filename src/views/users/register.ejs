@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <%- include("../partials/head") %>
+    <script src="/js/registerFrontValidation.js"></script>
 <style>
 h3 {
     color: rgb(165, 42, 42)
@@ -157,6 +158,14 @@ h3 {
     .submit:hover{
         background-color: #c9200a;
     }
+    div.errores{
+        color:red;
+        list-style-type: none;
+        padding: 10px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        margin: 1px;
+    }
 </style>
 
 
@@ -168,7 +177,10 @@ h3 {
     </div>
     <main>
         <form action="/register" method="post" class= "register-form" enctype="multipart/form-data"> 
-            <h3>Formulario de Registro</h3> 
+            <h3>Formulario de Registro</h3>
+            <div class ="errores">
+                <ul></ul>
+            </div> 
             <div>
                 <label for="name"></label>
                 <input class= "formularioColor" type="text" name="firstName" id="nombre" placeholder="Ingresa tu Nombre" value="<%= locals.old ? old.firstName: null %>">

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TODO Muebles - Login</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <script src="/js/loginFrontValidation.js"></script>
 </head>
 <style>
     body{
@@ -87,6 +88,15 @@
     .submit:hover{
         background-color: #c9200a;
     }
+    div.errores{
+        color:red;
+        list-style-type: none;
+        padding: 10px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        margin: 1px;
+    }
+    
 </style>
 <body>
     <%- include("../partials/header.ejs") %>
@@ -98,9 +108,12 @@
     <main>
         <form action="/login" method="POST" class="login-form">
             <h3>Login</h3>
+            <div class ="errores">
+                <ul></ul>
+            </div>
             <div class = "control-login">
                 <label for="email">Email</label>
-                <input type="text" name="email" id="username" placeholder="">
+                <input type="email" name="email" id="username" placeholder="">
                 <% if (locals.errors && errors.email) { %>
                     <div class="text-danger">
                         <%= errors.email%>
