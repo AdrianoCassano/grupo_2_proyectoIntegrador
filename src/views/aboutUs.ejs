@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./partials/head") %>
+<style>
+    body{
+       background-image: url("https://i.ibb.co/tHLXfxJ/mueblesfondo.jpg");
+       background-repeat: no-repeat;
+       background-attachment: fixed;
+       background-size: cover;
+       align-items: center;
+       font-family: 'Roboto', sans-serif;
+   }
+   html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+h2 {
+    color: whitesmoke;
+}
+p {
+    color: rgb(231, 231, 231);
+    text-align: justify;
+}
+.column {
+  float: left;
+  width: 30.3%;
+  margin-top: 25px;
+  margin-bottom: 16px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 8px;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: rgb(214, 214, 214);
+  text-decoration: underline;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+    background:  #c9200a;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+</style>
+<body>
+    <%- include("./partials/header.ejs") %>  
+<main>
+    <!-- <div class="about-section">
+        <h1>About Us Page</h1>
+        <p>Some text about who we are and what we do.</p>
+        <p>Resize the browser window to see that this page is responsive by the way.</p>
+      </div>
+      
+      <h2 style="text-align:center"></h2> -->
+      <div class="row">
+        <div class="column">
+          <div class="card">
+            <img src="/images/camafeliz.PNG" alt="Adriano Cassano" style="width:100%" height="350px">
+            <div class="container">
+              <h2>Adriano Cassano</h2>
+              <p class="title">Director Ejecutivo & Fundador</p>
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet perspiciatis blanditiis voluptas animi id ab, sint magni sapiente porro vero vel ex quia est, facilis eos delectus aliquam laboriosam ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos hic ducimus cum possimus, laborum voluptate molestiae, distinctio soluta, ad odio nihil quae nobis quaerat eum illo recusandae deleniti maiores ratione.</p>
+              <p>adri@todomuebles.com</p>
+              <p><button class="button">Contactar</button></p>
+            </div>
+          </div>
+        </div>
+      
+        <div class="column">
+          <div class="card">
+            <img src="/images/sofafeliz.PNG" alt="Alvaro Blanquicett" style="width:100%" height="350px">
+            <div class="container">
+              <h2>Alvaro Blanquicett</h2>
+              <p class="title">Director de Arte & Diseño</p>
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet perspiciatis blanditiis voluptas animi id ab, sint magni sapiente porro vero vel ex quia est, facilis eos delectus aliquam laboriosam ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos hic ducimus cum possimus, laborum voluptate molestiae, distinctio soluta, ad odio nihil quae nobis quaerat eum illo recusandae deleniti maiores ratione.</p>
+              <p>alva@todomuebles.com</p>
+              <p><button class="button">Contactar</button></p>
+            </div>
+          </div>
+        </div>
+      
+        <div class="column">
+          <div class="card">
+            <img src="/images/mesafeliz.PNG" alt="Renzo Restaino" style="width:100%" height="350px">
+            <div class="container">
+              <h2>Renzo Restaino</h2>
+              <p class="title">Director de Operaciones</p>
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet perspiciatis blanditiis voluptas animi id ab, sint magni sapiente porro vero vel ex quia est, facilis eos delectus aliquam laboriosam ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos hic ducimus cum possimus, laborum voluptate molestiae, distinctio soluta, ad odio nihil quae nobis quaerat eum illo recusandae deleniti maiores ratione.</p>
+              <p>ren@todomuebles.com</p>
+              <p><button class="button">Contactar</button></p>
+            </div>
+          </div>
+        </div>
+      </div>
+</main>
+<br>
+<%- include("./partials/footer") %>
+</body>
+</html>
