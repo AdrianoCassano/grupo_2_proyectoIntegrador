@@ -121,7 +121,7 @@
         padding:3% ;
         list-style-type: none;
     }
-    
+ 
     .tercera{
         display:flex;
         flex-wrap: nowrap;
@@ -135,17 +135,19 @@
     <%- include("../partials/header.ejs") %>
     <main>
         <div>
-        <button type="text" class="submit">Volver</button>
+            <a href="/products">
+                <button type="text" class="submit">Volver</button>
+            </a>
         </div>
         <section class= principal>
             <div class= imagen-principal>
-                <img src="/images/TodoMueble.png" alt="imagen1">
+                <img src="/images/products/<%= product.productImg %>" alt="imagen1">
             </div>
             <div class="detalle">
                 <ul>
-                    <li class="nombre-producto">Nombre de producto</li>
+                    <li class="nombre-producto"><%= product.nombre%></li>
                     <li class="cantidad">Cantidad <input type="number" id="qty" value="1"></li>                    
-                    <li class="precio">$75.000</li>
+                    <li class="precio"><%= product.price%></li>
                     <li><button type="text" class="submit">Agregar al Carrito</button></li>
                 </ul>
             </div>
@@ -158,18 +160,28 @@
                 <img src="" alt="imagen5">
             </div>
             <div class="medios-pago">
+                <p>Metodos de pago</p>
                 <ul>                    
-                    <li><img src="" alt="Mercadopago"></li>
-                    <li><img src="" alt="Visa"></li>
-                    <li><img src="" alt="Amex"></li>
-                    <li><img src="" alt="Mastercard"></li>
+                    <li><img src="/images/mercadopago.png" alt="Mercadopago"></li>
+                    <li><img src="/images/visa.png" alt="Visa"></li>
+                    <li><img src="/images/americanexpress.png" alt="Amex"></li>
+                    <li><img src="/images/mastercard.png" alt="Mastercard"></li>
                 </ul>
 
             </div>
 
         </section>
         <section class="tercera">
-            Descripcion, materiales, peso y dimensiones
+        <div class="productDescripcion">
+            <%= product.descripcion%>
+        </div>
+        <div class="productMateriales">
+            <%= product.materiales%>
+        </div>
+        <div class="productPesoDimensiones">
+            <%= product.peso%>
+            <%= product.dimensiones%>
+        </div> 
         </section>
     </main>
     <%- include("../partials/footer") %>

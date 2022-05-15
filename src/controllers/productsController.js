@@ -60,9 +60,9 @@ const productsController = {
         }
     },
     edit: (req,res) => {
-        let Product1 = db.Product.findByPk(req.params.id)
-        let categorias1 = db.Categoria.findAll()
-        Promise.all([Product1, categorias1])
+        let Product = db.Product.findByPk(req.params.id)
+        let categorias = db.Categoria.findAll()
+        Promise.all([Product, categorias])
         .then(function([Product, categorias]){
             return res.render("products/edit",{Product:Product, categorias:categorias}) 
         }).catch((error)=>{
@@ -81,8 +81,10 @@ const productsController = {
                 console.log(error)
             })
         }else{
+            let Product = db.Product.findByPk(req.params.id)
             db.Product.update({
-                ...req.body
+                ...req.body,
+                productImg: req.file ? req.file.filename : Product.productImg
             }, {
                 where: {
                     id: req.params.id

@@ -144,18 +144,18 @@ h3 {
             <% } %>
         </div>
         <div>
-            <select class="form-contenedor" name="categorias" id="categorias">
+            <select class="form-contenedor" name="categoriaId" id="categorias">
                 <option value="" <%= Product.categoriaId == "" ? "selected":"" %>>Selecciona la categoría de Mueble</option>              
                 <% for(let i = 0; i < categorias.length; i++) {%>
-                    <option value="<%= categorias[i].id %>" <%= Product.categoriaId == categorias[i].id ? "selected":"" %> ><%= categorias[i].name %> </option>                                
+                    <option value="<%= categorias[i].id %>" <%= categorias[i].id === Product.categoriaId ? "selected":"" %> ><%= categorias[i].name %> </option>                                
                 <% } %>
             </select>
-            <% if (locals.errors && errors.categorias) { %>
-                <p><%= errors.categorias.msg %></p>
+            <% if (locals.errors && errors.categoriaId) { %>
+                <p><%= errors.categoriaId.msg %></p>
             <% } %>            
         </div>
         <div>
-            <input class= "form-contenedor" type="file" name="productImg" id="productImg" placeholder="Foto de producto">
+            <input class= "form-contenedor" type="file" name="productImg" id="productImg" placeholder="Foto de producto" value="<%=Product.productImg%>">
             <% if (locals.errors && errors.productImg) { %>
                 <p><%= errors.productImg.msg %></p>
             <% } %>

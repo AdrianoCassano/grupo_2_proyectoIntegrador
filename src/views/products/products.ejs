@@ -16,16 +16,14 @@
     }
    .categories {
         background-color: rgba(0, 0, 0, 0.6)
-     }
-
-     .row {
+    }
+    .row {
         display: flex;
         align-items: center;
         flex-wrap: wrap;
         justify-content: space-around;
         
     }
-
    .col-4 {
         flex-basis: 20%;
         padding: 5px;
@@ -40,6 +38,19 @@
     .col-4:hover {
        transform: translateY(-6px)
     }
+    .submit {
+        background-color: #a52a2a;
+        border-radius: 6px;
+        border: 0;
+        color: #eee;
+        cursor: pointer;
+        font-size: 14px;
+        height: 38px;
+        margin: 1% 5%;
+        outline: 0;
+        text-align: center;
+        width: 60%;
+    }
 </style>
 <body>
     <%- include("../partials/header.ejs") %>    
@@ -47,9 +58,12 @@
     <div class="categories">
         <h2 class="titles">Todos los productos</h2>
             <div class="row">
+                <% products.forEach( product => { %>
                 <div class="col-4">
-                    <img src="/images/Escritorio.JPG" width="250px" height="300px" href="">
-                    <h3>Mesa Roble</h3>
+                    <a href="/products/<%= product.id %>">
+                        <img src="/images/products/<%= product.productImg %>" width="250px" height="300px" href="">
+                    </a>
+                    <h3><%= product.nombre %></h3>
                     <div class="rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -57,138 +71,12 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-half"></i>
                     </div>
-                    <p>$ 160.00</p>
+                    <p>$<%= product.precio %></p>
+                    <a href="/carrito">
+                        <button type="text" class="submit">Agregar al carrito</button>
+                    </a>
                 </div>
-                <div class="col-4">
-                    <img src="/images/EstanteGrande.JPG" width="250px" height="300px" href="">
-                    <h3>Estante Helsinki</h3>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <p>$ 240.00</p>
-                </div>
-                <div class="col-4">
-                    <img src="/images/MesaNoche.JPG" width="250px" height="300px" href="">
-                    <h3>Nochero Avellana</h3>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half"></i>
-                    </div>
-                    <p>$ 49.00</p>
-                </div>
-                <div class="col-4">
-                    <img src="/images/MuebleTV.JPG" width="250px" height="300px" href="">
-                    <h3>Mueble TV Zurich</h3>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <p>$ 450.00</p>
-                </div>
-                <div class="col-4">
-                    <img src="/images/MuebleTV.JPG" width="250px" height="300px" href="">
-                    <h3>Mueble TV Zurich</h3>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <p>$ 450.00</p>
-                </div>
-                <div class="col-4">
-                    <img src="/images/MuebleTV.JPG" width="250px" height="300px" href="">
-                    <h3>Mueble TV Zurich</h3>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <p>$ 450.00</p>
-                </div>
-                <div class="col-4">
-                    <img src="/images/MuebleTV.JPG" width="250px" height="300px" href="">
-                    <h3>Mueble TV Zurich</h3>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <p>$ 450.00</p>
-                </div>
-                <div class="col-4">
-                    <img src="/images/MuebleTV.JPG" width="250px" height="300px" href="">
-                    <h3>Mueble TV Zurich</h3>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <p>$ 450.00</p>
-                </div>
-                <div class="col-4">
-                    <img src="/images/MuebleTV.JPG" width="250px" height="300px" href="">
-                    <h3>Mueble TV Zurich</h3>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <p>$ 450.00</p>
-                </div>
-                <div class="col-4">
-                    <img src="/images/MuebleTV.JPG" width="250px" height="300px" href="">
-                    <h3>Mueble TV Zurich</h3>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <p>$ 450.00</p>
-                </div>
-                <div class="col-4">
-                    <img src="/images/MuebleTV.JPG" width="250px" height="300px" href="">
-                    <h3>Mueble TV Zurich</h3>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <p>$ 450.00</p>
-                </div>
-                <div class="col-4">
-                    <img src="/images/MuebleTV.JPG" width="250px" height="300px" href="">
-                    <h3>Mueble TV Zurich</h3>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <p>$ 450.00</p>
-                </div>
+                <% }) %>
             </div>
     </div>
 </main>
