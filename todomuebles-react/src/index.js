@@ -4,9 +4,9 @@ import './assets/css/App.css';
 import App from './components/App';
 import {BrowserRouter} from 'react-router-dom';
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
   <BrowserRouter>
     <App />
   </BrowserRouter>,
-  document.getElementById('root')
 );

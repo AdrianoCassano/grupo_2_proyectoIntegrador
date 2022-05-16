@@ -11,4 +11,4 @@ router.get("/productos", adminApiController.products);
 router.get("/productos/:id", adminApiController.productDetail);
 
 module.exports = router
-
+ 

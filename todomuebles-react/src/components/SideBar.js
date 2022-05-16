@@ -1,15 +1,17 @@
 import React from 'react';
 import image from '../assets/images/TodoMueble.png';
-import { Link, Route, Routes } from 'react-router-dom';
-
-
-
+import { Link, Routes, Route } from 'react-router-dom';
+import NotFound from './NotFound';
+import ContentRowProducts from './ContentRowProducts';
+import ContentWrapper from './ContentWrapper';
+import CategoriesInDb from './CategoriesInDb';
+import LastProductInDb from './LastProductInDb';
 
 function SideBar() {
     return (
         <React.Fragment>
             {/*<!-- Sidebar -->*/}
-            <ul className="navbar-nav bg-gradient-secondary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <ul className="navbar-nav bg-dark -secondary sidebar sidebar-dark accordion" id="accordionSidebar">
 
                 {/*<!-- Sidebar - Brand -->*/}
                 <a className="sidebar-brand d-flex align-items-center justify-content-center" href="/">
@@ -49,28 +51,39 @@ function SideBar() {
                         <span>Charts</span></Link>
                 </li>
 
-                {/*<!-- Nav Item - Tables -->*/}
+                {/*<!-- Nav Item - Tabla -->*/}
                 <li className="nav-item nav-link">
                     <Link className="nav-link" to="/ContentRowMovies">
                         <i className="fas fa-fw fa-table"></i>
                         <span>Tabla</span></Link>
                 </li>
 
-                {/*<!-- Buscador -->*/}
-                <li className="nav-item nav-link">
-                    <Link className="nav-link" to="/SearchMovies">
-                        <i className="fas fa-search"></i>
-                        <span>Buscar Mueble</span>
-                    </Link>
-                </li>
 
                 {/*<!-- Divider -->*/}
                 <hr className="sidebar-divider d-none d-md-block" />
             </ul>
             {/*<!-- End of Sidebar -->*/}
 
-           
-        
+            <Routes>
+                 <Route  path="/" element={ <ContentWrapper />}>
+                 </Route>
+
+                 <Route  path="/CategoriesInDb" element={ <CategoriesInDb />}>
+                 </Route>
+
+                 <Route  path="/LastProductInDb" element={ <LastProductInDb />}>
+                 </Route>    
+
+               
+                 <Route path="/ContentRowProducts" element={<ContentRowProducts />}>
+                 </Route>
+
+                 <Route element={NotFound} ></Route>
+            </Routes>
+       
+    
+                    
+                
                 
          
         </React.Fragment>
