@@ -17,8 +17,10 @@
         font-family: 'Roboto', sans-serif;
         border-radius: 6px;
         background: rgba(221, 221, 221, 0.85);
-        margin-left: 100px;
-        margin-right: 100px;
+        margin-left: 6em;
+        margin-right: 6em;
+        margin-top: 3em;
+        margin-bottom: 3em;
         flex-wrap: wrap;
     }
     .submit {
@@ -50,7 +52,7 @@
         padding: 1%;
     }
     .detalle{
-        padding: 1%       
+        padding-right: 4%;       
     }
     
     .detalle li{
@@ -59,9 +61,9 @@
         list-style-type: none; 
     }
     .detalle .nombre-producto{
-        font-size:large;
+        font-size: 50px;
         font-weight: bold;
-        color:#a52a2a;
+        color:#000000;
         text-align: center;
     }
     .detalle .cantidad{
@@ -74,8 +76,8 @@
          width: 10%;
      }   
     .detalle .precio{
-        font-size:large;
-        font-weight: bold;
+        font-size: 35px;
+        font-weight: 200;
         color:#a52a2a;
         text-align: center;
     }
@@ -87,12 +89,14 @@
         cursor: pointer;
         font-size: 14px;
         height: 38px;
-        margin: 1% 5%;
+        margin-left: 25%;
         outline: 0;
         text-align: center;
-        width: 80%;
+        width: 50%;
     }
-
+    .submit:hover {
+        background:  #c9200a;
+    } 
     .secundaria{
         display: flex;
         flex-wrap: nowrap;
@@ -109,36 +113,36 @@
     .secundaria div img{
         width: 25%;
         padding: 0px 2%;
-        border:#a52a2a solid;
+        border-color: #c9200a;  
     }
-    .secundaria div .medios-pago{
-        display:flex;
-        flex-grow: 50%;
-        justify-content: space-between;
+    .medios-pago {
+        text-align: center;
+        align-items: center;
     }
-    .medios-pago li{
-        display: inline-block;
-        padding:3% ;
-        list-style-type: none;
+    .medios-pago img {
+        max-width: 45px;
+        height: 37px;
     }
- 
     .tercera{
         display:flex;
         flex-wrap: nowrap;
         justify-content: flex-start;
         width: 100%;
         display:inline-block;
-        padding: 5%;
+        padding: 1%;
+        background-color: rgba(0, 0, 0, 0.4);
+        color: whitesmoke;
     }
 </style>
 <body>
     <%- include("../partials/header.ejs") %>
     <main>
-        <div>
+        <br>
+        <!-- <div>
             <a href="/products">
                 <button type="text" class="submit">Volver</button>
             </a>
-        </div>
+        </div> -->
         <section class= principal>
             <div class= imagen-principal>
                 <img src="/images/products/<%= product.productImg %>" alt="imagen1">
@@ -146,8 +150,8 @@
             <div class="detalle">
                 <ul>
                     <li class="nombre-producto"><%= product.nombre%></li>
+                    <li class="precio">$<%= product.precio%></li>
                     <li class="cantidad">Cantidad <input type="number" id="qty" value="1"></li>                    
-                    <li class="precio"><%= product.price%></li>
                     <li><button type="text" class="submit">Agregar al Carrito</button></li>
                 </ul>
             </div>
@@ -160,29 +164,28 @@
                 <img src="" alt="imagen5">
             </div>
             <div class="medios-pago">
-                <p>Metodos de pago</p>
-                <ul>                    
-                    <li><img src="/images/mercadopago.png" alt="Mercadopago"></li>
-                    <li><img src="/images/visa.png" alt="Visa"></li>
-                    <li><img src="/images/americanexpress.png" alt="Amex"></li>
-                    <li><img src="/images/mastercard.png" alt="Mastercard"></li>
-                </ul>
-
+                <p>Métodos de pago</p>                   
+                    <img src="/images/mercadopago.png" alt="Mercadopago">
+                    <img src="/images/visa.png" alt="Visa">
+                    <img src="/images/americanexpress.png" alt="Amex">
+                    <img src="/images/mastercard.png" alt="Mastercard">
             </div>
 
         </section>
         <section class="tercera">
-        <div class="productDescripcion">
-            <%= product.descripcion%>
-        </div>
-        <div class="productMateriales">
-            <%= product.materiales%>
-        </div>
-        <div class="productPesoDimensiones">
-            <%= product.peso%>
-            <%= product.dimensiones%>
-        </div> 
-        </section>
+            <h3>Descripción:</h3>
+            <div class="productDescripcion">
+                <%= product.descripcion%>
+            </div>
+            <div class="productMateriales">
+                <%= product.materiales%>
+            </div>
+            <div class="productPesoDimensiones">
+                <%= product.peso%>
+                <%= product.dimensiones%>
+             </div> 
+         </section>
+        <br>
     </main>
     <%- include("../partials/footer") %>
 </body>

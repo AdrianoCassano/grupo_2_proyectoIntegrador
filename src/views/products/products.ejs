@@ -12,7 +12,7 @@
        
    }
    h2{
-        color:rgb(220, 220, 220);
+        color:rgb(32, 32, 32);
     }
    .categories {
         background-color: rgba(0, 0, 0, 0.3)
@@ -46,17 +46,22 @@
         cursor: pointer;
         font-size: 14px;
         height: 38px;
-        margin: 1% 5%;
+        margin-left: 20%;
+        margin-right: 10%;
+        margin-bottom: 1%;
         outline: 0;
         text-align: center;
         width: 60%;
     }
+    .submit:hover {
+        background:  #c9200a;
+    } 
 </style>
 <body>
     <%- include("../partials/header.ejs") %>    
 <main>
     <div class="categories">
-        <h2 class="titles">Todos los productos</h2>
+        <h2 class="titles">Nuestros productos</h2>
             <div class="row">
                 <% products.forEach( product => { %>
                 <div class="col-4">
@@ -64,13 +69,6 @@
                         <img src="/images/products/<%= product.productImg %>" width="250px" height="300px" href="">
                     </a>
                     <h3><%= product.nombre %></h3>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half"></i>
-                    </div>
                     <p>$<%= product.precio %></p>
                     <a href="/carrito">
                         <button type="text" class="submit">Agregar al carrito</button>
