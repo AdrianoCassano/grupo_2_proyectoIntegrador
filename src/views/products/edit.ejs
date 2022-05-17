@@ -17,13 +17,13 @@ h3 {
     }
     main {
         align-items: center;
-        display: flex;
+        display:block;
         justify-content: center;
         font-family: 'Roboto', sans-serif;
         border-radius: 6px;
         background: rgba(221, 221, 221, 0.85);
-       margin-left: 100px;
-       margin-right: 100px;
+        max-width: 550px;
+        margin: auto;
     }
     .formulario-de-Registro {
         text-align: center;
@@ -41,7 +41,7 @@ h3 {
         height: 30px;
         position: relative;
         box-sizing: border-box;
-        width: 100%;
+        width: 85%;
         border: 0;
         border-radius: 6px;
         margin: 10px 0px 30px
@@ -66,12 +66,31 @@ h3 {
         margin-bottom: 15px;
         outline: 0;
         text-align: center;
-        width: 100%;
+        width: 85%;
     }
     .submit:hover{
         background-color: #c9200a;
     }
-    
+    .submit-2 {
+        background-color: rgb(165, 42, 42);
+        border-radius: 6px;
+        border: 0;
+        box-sizing: border-box;
+        color: #eee;
+        cursor: pointer;
+        font-size: 14px;
+        height: 38px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        margin-left: 3.7em;
+        outline: 0;
+        text-align: center;
+        width: 81%;
+    }
+    .submit-2:hover{
+        background-color: #c9200a;
+    }
+   
     div.errores{
         color:red;
         list-style-type: none;
@@ -91,7 +110,7 @@ h3 {
     </div>
 <main>
     <form action="/products/edicion/<%= Product.id %>/?_method=PUT" method="POST" class= "register-form">
-        <h3>Edicion de Producto</h3> 
+        <h3>Edición de producto</h3> 
         <div class ="errores">
             <ul></ul>
         </div>
@@ -160,12 +179,15 @@ h3 {
                 <p><%= errors.productImg.msg %></p>
             <% } %>
         </div>
-        <button type="submit" class="submit">ACTUALIZAR</button>
+        <button type="submit" class="submit">Actualizar</button>
     </form>
     <form action="/products/<%= Product.id %>/delete?_method=DELETE" method="POST">
-        <button type="submit" class="submit">BORRAR</button>
+        <button type="submit" class="submit-2">Borrar</button>
     </form>
-    </main> 
+    <br>
+    </main>
+    <br>
+    <br> 
 <%- include("../partials/footer") %>
 </body>
 </html>

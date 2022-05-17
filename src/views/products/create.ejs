@@ -22,8 +22,8 @@ h3 {
         font-family: 'Roboto', sans-serif;
         border-radius: 6px;
         background: rgba(221, 221, 221, 0.85);
-       margin-left: 100px;
-       margin-right: 100px;
+        max-width: 550px;
+        margin: auto;
     }
     .formulario-de-Registro {
         text-align: center;
@@ -35,7 +35,7 @@ h3 {
         margin-top: 15px;
         height: auto;
         padding: 15px;
-        text-align: center
+        text-align: center;
     }
     .form-contenedor{
         height: 30px;
@@ -91,7 +91,7 @@ h3 {
     </div>
 <main>
     <form action="/products/creacion" method="POST" class= "register-form" enctype="multipart/form-data">
-        <h3>Ingreso de Nuevo Producto</h3> 
+        <h3>Ingreso de nuevo producto</h3> 
         <div class ="errores">
             <ul></ul>
         </div>
@@ -160,9 +160,11 @@ h3 {
                 <p><%= errors.productImg.msg %></p>
             <% } %>
         </div>
-        <button type="submit" class="submit">CREAR</button>
+        <button type="submit" class="submit">Crear</button>
     </form>
 </main>
+<br>
+<br>
 <%- include("../partials/footer") %>
 </body>
 </html>

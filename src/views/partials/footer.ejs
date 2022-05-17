@@ -20,7 +20,9 @@
     color: rgb(45, 45, 45);
     margin-bottom: 20px;
 }
-
+#h3-aparte {
+    margin-left: 2em;
+}
 .footer-col-1, .footer-col-2, .footer-col-3, .footer-col-4 {
     min-width: 250px;
     margin-bottom: 20px;
@@ -48,8 +50,14 @@
 
 ul {
     list-style-type: none;
+    text-decoration: none;  
+   
 }
-
+a {
+    color:#5f5f5f;
+    list-style-type: none;
+    text-decoration: none;
+}
 .app-logo {
     margin-top: 20px;
 }
@@ -77,7 +85,7 @@ ul {
 </style>
 
 <footer>
-    <div class="footer">
+    <div class="footer" id="footer">
         <div class="row">
             <div class="footer-col-1">
                <h3>Nuestra app</h3>
@@ -87,24 +95,25 @@ ul {
                </div>
             </div>
             <div class="footer-col-2">
-                <img src="/images/TodoMueble.png" alt="">
+                <a href="#header"><img src="/images/TodoMueble.png" alt=""></a>
             </div>
             <div class="footer-col-3">
-               <h3>Links</h3>
+               <h3 id="h3-aparte">Contacto</h3>
                <ul>
-                   <li>Contacto</li>
-                   <li>Blogpost</li>
-                   <li>Servicio al cliente</li>
-                   <li>Ayuda con sitio</li>
+                   <li>info@todomuebles.com<br>
+                       Tel: +99 101-7246
+                   </li>
+                   <li>Avenida Siempreviva 123</li>
+                   <li>Bangkok, Tailandia</li>
                </ul>
             </div>
             <div class="footer-col-4">
-                <h3>Síguenos</h3>
+                <h3 id="h3-aparte">Síguenos</h3>
                 <ul>
-                    <li>Facebook</li>
-                    <li>Instagram</li>
-                    <li>Twitter</li>
-                    <li>Pinterest</li>
+                    <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+                    <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+                    <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+                    <li><a href="https://pinterest.com" target="_blank">Pinterest</a></li>
                 </ul>
             </div>
         </div>
