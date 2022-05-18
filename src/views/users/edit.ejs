@@ -19,13 +19,17 @@ h3 {
     }
     main {
         align-items: center;
-        display: flex;
+        display: block;
         justify-content: center;
         font-family: 'Roboto', sans-serif;
         border-radius: 6px;
         background: rgba(221, 221, 221, 0.85);
-       margin-left: 100px;
-       margin-right: 100px;
+        max-width: 550px;
+        margin: auto;
+    }
+    section {
+        width: 85%;
+        margin-left: 2.5em;
     }
     .Formulario-de-Registro {
         text-align: center;
@@ -37,8 +41,15 @@ h3 {
         margin-top: 15px;
         height: auto;
         padding: 15px;
-        text-align: center
+        text-align: center;
     }
+    .form-contenedor:focus{
+        background-color: rgb(165, 42, 42);
+        color: snow;
+    }
+    input:focus::placeholder{
+        color: snow;
+        }
     #nombre {
         height: 30px;
         position: relative;
@@ -152,9 +163,28 @@ h3 {
         margin-bottom: 15px;
         outline: 0;
         text-align: center;
-        width: 100%;
+        width: 85%;
     }
     .submit:hover{
+        background-color: #c9200a;
+    }
+    .submit-2 {
+        background-color: rgb(165, 42, 42);
+        border-radius: 6px;
+        border: 0;
+        box-sizing: border-box;
+        color: #eee;
+        cursor: pointer;
+        font-size: 14px;
+        height: 38px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        margin-left: 3.7em;
+        outline: 0;
+        text-align: center;
+        width: 81%;
+    }
+    .submit-2:hover{
         background-color: #c9200a;
     }
 </style>
@@ -170,7 +200,8 @@ h3 {
 <main>
     <form action="/edicion/<%=userToEdit.id%>/?_method=PUT" method="post" class= "register-form" enctype="multipart/form-data">
 
-        <h3>Formulario de Edición</h3> 
+        <h3>Edita tu usuario</h3>
+<section>
     <div>
     <label for="name"></label>
     <input class= "formularioColor" type="text" name="first_name" value="<%=userToEdit.firstName%>" id="nombre" placeholder="Ingresa tu nombre*" required>
@@ -472,18 +503,20 @@ h3 {
     <label for="name"></label>
     <input class= "formularioColor" type="text" name="phoneNumber" value="<%=userToEdit.phoneNumber%>" id="Celular" placeholder="Ingresa tu Celular" required>
 </div>
-
+</section> 
 <div>
 <input type="file" name="userAvatar" id="file">
 </div>
 
-    <button type="submit" class="submit">ACTUALIZAR</button>
+    <button type="submit" class="submit">Actualizar</button>
 </form>
 <form action="/<%= userToEdit.id %>/delete?_method=DELETE" method="POST" >
-    <button type="submit" class="submit" >BORRAR</button>
+    <button type="submit" class="submit-2" >Borrar</button>
 </form>
+<br>
 </main>
-    
+   <br>
+   <br> 
 <%- include("../partials/footer") %>
 
 </body>

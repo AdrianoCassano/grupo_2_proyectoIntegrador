@@ -48,7 +48,6 @@
 
             a {
             text-decoration: none;
-            font-size: 22px;
             color: rgb(209, 209, 209);
             }
 
@@ -73,7 +72,7 @@
             <p>Género: <%= userLogged.gender %></p>
             <p>Fecha de nacimiento: <%= userLogged.date %></p>
             <p>Teléfono: <%= userLogged.phoneNumber %></p>
-            <p><button><a href="/register"><i class="fa fa-edit"></i></a> Editar</button></p>
+            <p><a href="/edicion/<%= userLogged.id %>"><button type="text" class="submit"><i class="fa fa-edit"></i> Editar</button></a></p>
           </div>
         <%- include("../partials/footer") %>    
     </body>
