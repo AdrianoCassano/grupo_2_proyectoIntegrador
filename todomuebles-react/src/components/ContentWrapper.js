@@ -7,7 +7,7 @@ function ContentWrapper(){
     return (
         <React.Fragment>
              {/*<!-- Content Wrapper -->*/}
-             <div id="content-wrapper" className="d-flex flex-column">
+             <div id="content-wrapper" className="d-flex flex-column" >
                 {/*<!-- Main Content -->*/}
                 <div id="content">
                     <TopBar />

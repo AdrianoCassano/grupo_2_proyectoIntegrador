@@ -11,11 +11,12 @@ function SideBar() {
     return (
         <React.Fragment>
             {/*<!-- Sidebar -->*/}
-            <ul className="navbar-nav bg-dark -secondary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <div style= {{background: "black"}}>
+            <ul className="navbar-nav  -secondary sidebar sidebar-dark accordion" id="accordionSidebar" >
 
                 {/*<!-- Sidebar - Brand -->*/}
                 <a className="sidebar-brand d-flex align-items-center justify-content-center" href="/">
-                    <div className="sidebar-brand-icon">
+                    <div className="sidebar-brand-icon" >
                         <img className="w-100" src={image} alt="Todo Muebles" />
                     </div>
                 </a>
@@ -24,10 +25,10 @@ function SideBar() {
                 <hr className="sidebar-divider my-0" />
 
                 {/*<!-- Nav Item - Dashboard -->*/}
-                <li className="nav-item active">
+                <li className="nav-item active" >
                     <Link className="nav-link" to="/">
                         <i className="fas fa-fw fa-tachometer-alt"></i>
-                        <span>Dashboard - Todo Muebles</span></Link>
+                        <span >Dashboard - Todo Muebles</span></Link>
                 </li>
 
                 {/*<!-- Divider -->*/}
@@ -62,6 +63,7 @@ function SideBar() {
                 {/*<!-- Divider -->*/}
                 <hr className="sidebar-divider d-none d-md-block" />
             </ul>
+            </div>
             {/*<!-- End of Sidebar -->*/}
 
             <Routes>
