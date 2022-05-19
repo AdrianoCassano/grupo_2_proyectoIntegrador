@@ -5,6 +5,8 @@ const userController = require("../controllers/userController");
 const guestValidation = require("../middlewares/guestValidation");
 const authValidation = require("../middlewares/authValidation");
 const registerValidation = require("../middlewares/registerValidation")
+const editValidation = require("../middlewares/editValidation")
+
 
 
 const multer = require ("multer");
@@ -29,8 +31,8 @@ router.post("/register", upload.single("userAvatar"), registerValidation, userCo
 router.get("/login", guestValidation, userController.login);
 router.post("/login", userController.authenticate);
 
-router.get("/edicion/:id", userController.edit);
-router.put("/edicion/:id",upload.single("userAvatar"), registerValidation, userController.updated);
+router.get("/edicion/:id", editValidation, userController.edit);
+router.put("/edicion/:id", upload.single("userAvatar"), registerValidation, userController.updated);
 
 router.delete("/:id/delete", userController.delete);
 

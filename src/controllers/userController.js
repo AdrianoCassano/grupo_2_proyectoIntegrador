@@ -60,19 +60,21 @@ const userController = {
 
             if(userLogged) {
                 if(bcryptjs.compareSync(password, userLogged.password)){                
-                    delete userLogged.password
+                    delete userLogged.dataValues.password
                     req.session.userLogged = userLogged
+                    console.log(userLogged)
+                    
                     if(req.body.remember){
-                        const userLoginPath = path.join(__dirname, "../olddatabase/userLogin.json");
-                        const usersLogin = JSON.parse(fs.readFileSync(userLoginPath, 'utf-8'))
                         const token = crypto.randomBytes(64).toString("base64");
                         userLogged.token = token
                         
-                        let userLogin = [...usersLogin, userLogged]
-                        fs.writeFileSync(userLoginPath, JSON.stringify(userLogin, null,""));
+                        let usersLogin = {
+                            token: userLogged.token,
+                            userId: userLogged.id
+                          };
+                          await db.UserLog.create(usersLogin)
     
-                        res.cookie("rememberToken", {maxAge: 1000*60*60*24*120});
-                        // res.cookie("rememberToken", req.body.email, { maxAge: 1000*60*60*24*120 })                   
+                        res.cookie("rememberToken", {maxAge: 1000*60*60*24*120});                   
                     }
                     return res.redirect("/perfil")              
                 }else{
@@ -105,25 +107,28 @@ const userController = {
             console.log(error)
         })
     },
-    updated: (req,res) => {
-        db.User.update({
-            ...req.body
-        }, {
-            where: {
-                id: req.params.id
-            }
-        })
-        .then(() => {          
+    updated: async (req,res) => {
+        try {
+            await db.User.update({
+                ...req.body
+            }, {
+                where: {
+                    id: req.params.id
+                }
+            })
+            let userLogged = await db.User.findOne({
+                where:{
+                    id: req.params.id
+                }
+            })
+            delete userLogged.dataValues.password
+            req.session.userLogged = userLogged
             res.redirect("/perfil")
-        })
-        .catch((error)=>{
+        } catch (error) {
             console.log(error)
-        })
+        }
     },
     delete: (req,res) => {
-        // let idUser = req.params.id
-        // let userToEdit = users.filter(user => user.id != idUser)         
-        // fs.writeFileSync(usersPath, JSON.stringify(userToEdit, null, " "));
         db.User.destroy({
             where:{
                 id: req.params.id
@@ -137,9 +142,7 @@ const userController = {
         })
     },
     profile: (req,res) => {
-        res.render("users/userProfile",{
-            userLogged: req.session.userLogged
-        })
+        res.render("users/userProfile")
     },
     logout: (req,res) => {
         res.clearCookie("recordarToken")

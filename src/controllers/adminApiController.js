@@ -26,7 +26,7 @@ const adminApiController ={
 
             const rows = usersList.rows.map(user => {
                 const { dataValues } = user;
-                const url = `${req.protocol}://${req.get('host')}${req.originalUrl}/${user.id}`;
+                const url = `${req.protocol}://${req.get('host')}${req.baseUrl}${req.path}${user.id}`;
                 return {
                     ...dataValues,
                     url
@@ -49,11 +49,11 @@ const adminApiController ={
     userDetail: async (req,res) => {
         try {
             let userDetail = await db.User.findByPk(req.params.id, {attributes: {exclude:["password", "categoryId"]}})
-            let userAvatarUrl = JSON.parse(userDetail.userAvatar)
+            let userAvatarUrl = userDetail.userAvatar
             
             let response = {
                 user: userDetail,
-                userAvatarUrl: `${req.protocol}://${req.get('host')}${req.originalUrl}/${userAvatarUrl}`
+                userAvatarUrl: `${req.protocol}://${req.get('host')}/images/users/${userAvatarUrl}`
             }
             res.status(200).json({response})     
         } catch (error) {
@@ -72,9 +72,11 @@ const adminApiController ={
                 offset: offset,
                 limit: limit,
             })
+
+            
             const rows = products.rows.map(product => {
                 const { dataValues } = product;
-                const url = `${req.protocol}://${req.get('host')}${req.originalUrl}/${product.productImg}`;
+                const url = `${req.protocol}://${req.get('host')}${req.baseUrl}${req.path}/${product.id}`;
                 return {
                     ...dataValues,
                     url
@@ -94,6 +96,7 @@ const adminApiController ={
             //     //console.log("cat", cat);
             //     console.log("dataValues", dataValues);
             // })
+            console.log(rows)
             const totalPages = Math.ceil(products.count / limit)
             let response = {
                 totalPages: totalPages,
@@ -115,11 +118,11 @@ const adminApiController ={
                 include: [{association:"categorias"},{association:"users"}]
             })
             
-            let productImgUrl = JSON.parse(productDetail.productImg)
+            let productImgUrl = productDetail.productImg
 
             let response = {
                 product: productDetail,
-                productImgUrl: `${req.protocol}://${req.get('host')}${req.originalUrl}/${productImgUrl}`
+                productImgUrl: `${req.protocol}://${req.get('host')}/images/products/${productImgUrl}`
             }
             res.status(200).json({response})
         } catch (error) {

@@ -33,7 +33,7 @@ window.addEventListener('load', function (){
 
 
        
-        if(campoEmail.value===""){
+        if(campoEmail.value=""){
             errores.push('El email es  obligatorio')  
 
         }
