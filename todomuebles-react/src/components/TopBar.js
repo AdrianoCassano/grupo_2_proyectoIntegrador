@@ -3,7 +3,9 @@ import foto from '../assets/images/mesaPavo.jpg';
 
 
 function TopBar(){
-	
+
+
+
     return(
         <React.Fragment>
 				{/*<!-- Topbar -->*/} 

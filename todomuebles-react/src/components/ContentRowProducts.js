@@ -1,53 +1,66 @@
-import React from 'react';
-import SmallCard from './SmallCard';
-import TotalProductsInDb from './TotalProductsInDb'
-import TotalCategoriesInDb from './TotalCategoriesInDb'
-import TotalUsersInDb from './TotalUsersInDb'
+import React from "react";
+import SmallCard from "./SmallCard";
+import { useState, useEffect } from "react";
 
-/*  Cada set de datos es un objeto literal */
-
-/* <!-- Productos en la DataBase --> */
-
-// let productsInDB = {
-//     title: 'Total de Productos en la DataBase',
-//     color: 'danger', 
-//     cuantity: 33,
-//     icon: 'fa-clipboard-list'
-// }
-
-/* <!--Total de Categorias --> */
-
-// let totalCategories = {
-//     title:' Total de Categorias', 
-//     color:'danger', 
-//     cuantity: 9,
-//     icon:'fa-award'
-// }
-
-/* <!--Cantidad de Usuarios --> */
-
-// let UsersQuantity = {
-//     title:'Cantidad de Usuarios' ,
-//     color:'danger',
-//     cuantity:49,
-//     icon:'fa-user-check'
-// }
-
-let cartProps = [{TotalProductsInDb,TotalCategoriesInDb,TotalUsersInDb}];
-
-function ContentRowProducts(){
-    return (
+function ContentRowProducts() {
+    const [products, setProducts] = useState([]);
+    const [categories, setCategories] = useState([]);
+    const [users, setUsers] = useState([]);
     
-        <div className="row">
-            
-            // {cartProps.map( (product, i) => {
+    useEffect(() => {
+        fetch("admin/productos")
+            .then(respuesta => respuesta.json())
+            .then(products => {
+                setProducts(products.response);
+            });
+    }, []);
 
-                return <SmallCard {...product} key={i}/>
-            
+    useEffect(() => {
+        fetch("admin/productos")
+            .then(respuesta => respuesta.json())
+            .then(categories => {
+                setCategories(categories.response.countByCategory);
+            });
+    }, []);
+
+    useEffect(() => {
+        fetch("admin/usuarios")
+            .then(respuesta => respuesta.json())
+            .then(users => {
+                setUsers(users.response);
+            });
+    }, []);
+
+    let totalProducts={
+        title: " Productos en la base de datos ",
+        color: "success",
+        quantity: products.count,
+        icon: "fa-list",
+        }
+    let totalUsers ={
+        title: "Usuarios registrados",
+        color: "primary",
+        quantity: users.count,
+        icon: "fa-user-check",
+        }
+    let categoryQuantity = categories.length
+    let totalCategories ={
+        title: "Categorias",
+        color: "info",
+        quantity: categoryQuantity,
+        icon: "fa-barcode",
+    }
+   
+    let smallCardData =[totalProducts,totalCategories,totalUsers]
+   
+    return (
+        <div className="row ">
+        
+        {smallCardData.map((cardData, i) => {
+            return <SmallCard {...cardData} key={i} />;
             })}
-            
         </div>
-    )
+  );
 }
 
 export default ContentRowProducts;
