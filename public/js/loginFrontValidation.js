@@ -28,8 +28,8 @@ window.addEventListener('load', function (){
 
         if(campoPassword.value ==""){
             errores.push('El Password es obligatorio')      
-        }else if (campoPassword.value.length < 9){
-            errores.push ('El Password debe tener mínimo 9 caracteres')
+        }else if (campoPassword.value.length < 8){
+            errores.push ('El Password debe tener mínimo 8 caracteres')
         }
 
         if (errores.length >0){

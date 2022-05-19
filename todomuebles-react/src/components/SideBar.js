@@ -6,6 +6,7 @@ import ContentRowProducts from './ContentRowProducts';
 import ContentWrapper from './ContentWrapper';
 import CategoriesInDb from './CategoriesInDb';
 import LastProductInDb from './LastProductInDb';
+import TablaProductos from './TablaProductos';
 
 function SideBar() {
     return (
@@ -53,7 +54,7 @@ function SideBar() {
 
                 {/*<!-- Nav Item - Tabla -->*/}
                 <li className="nav-item nav-link">
-                    <Link className="nav-link" to="/ContentRowMovies">
+                    <Link className="nav-link" to="/TablaProductos">
                         <i className="fas fa-fw fa-table"></i>
                         <span>Tabla</span></Link>
                 </li>
@@ -73,7 +74,8 @@ function SideBar() {
 
                  <Route  path="/LastProductInDb" element={ <LastProductInDb />}>
                  </Route>    
-
+                 <Route  path="/TablaProductos" element={ <TablaProductos />}>
+                 </Route>  
                
                  <Route path="/ContentRowProducts" element={<ContentRowProducts />}>
                  </Route>
