@@ -15,7 +15,7 @@ function CategoriesInDb () {
             })
     }, [])
 
-   
+
 
         return (
             <React.Fragment>

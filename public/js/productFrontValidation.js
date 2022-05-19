@@ -10,7 +10,7 @@ window.addEventListener('load', function (){
         
         let campoNombre = document.querySelector('#nombre');
         
-        if(campoNombre.value ==""){
+        if(campoNombre.value ===""){
             errores.push('El nombre del producto es obligatorio')  
             
         }else if (campoNombre.value.length < 6){
@@ -19,7 +19,7 @@ window.addEventListener('load', function (){
         
         let campoDescripcion = document.querySelector('#descripcion');
         
-        if(campoDescripcion.value ==""){
+        if(campoDescripcion.value ===""){
             errores.push('la descripcion del producto es obligatoria')
         }else if (campoDescripcion.value.length < 21){
             errores.push ('La descripcion debe tener mínimo 20 caracteres');    
@@ -27,7 +27,7 @@ window.addEventListener('load', function (){
 
         let image = document.querySelector('#productImg');
 
-        if(image.value.length == 0){
+        if(image.value.length === 0){
             errores.push('Debe cargar una imagen')   
         } 
         else if (image.value) {

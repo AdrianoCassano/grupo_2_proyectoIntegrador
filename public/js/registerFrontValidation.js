@@ -10,7 +10,7 @@ window.addEventListener('load', function (){
 
         let campoNombre = document.querySelector('#nombre');
 
-        if(campoNombre.value ==""){
+        if(campoNombre.value ===""){
             errores.push('El nombre es obligatorio')
                   
         }else if (campoNombre.value.length < 2){
@@ -19,7 +19,7 @@ window.addEventListener('load', function (){
 
         let campoApellido = document.querySelector('#Apellido');
 
-        if(campoApellido.value ==""){
+        if(campoApellido.value ===""){
             errores.push('El apellido es obligatorio')      
         }else if (campoApellido.value.length < 2){
             errores.push ('El apellido debe tener mínimo 2 caracteres')
@@ -40,8 +40,6 @@ window.addEventListener('load', function (){
         else if (!regexEmail.test(campoEmail.value)) {
             errores.push('El formato no es del tipo email')
             return false 
-
-
         }
     
 
@@ -51,7 +49,7 @@ window.addEventListener('load', function (){
         
         let campoPassword = document.querySelector('#Contraseña');
 
-        if(campoPassword.value ==""){
+        if(campoPassword.value ===""){
             errores.push('El Password es obligatorio')      
         }else if (campoPassword.value.length < 8){
             errores.push ('El Password debe tener mínimo 8 caracteres')
