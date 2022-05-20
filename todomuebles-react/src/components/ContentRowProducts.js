@@ -48,7 +48,7 @@ function ContentRowProducts() {
         title: "Categorias",
         color: "info",
         quantity: categoryQuantity,
-        icon: "fa-barcode",
+        icon: 'fa-award',
     }
    
     let smallCardData =[totalProducts,totalCategories,totalUsers]
