@@ -82,14 +82,34 @@ a {
         flex-wrap: wrap;
         justify-content: space-around;
     }
+    @media (max-width: 705px) {
+                    .footer-col-1 {
+                        display: none;
+                    }
+                    .footer-col-2 {
+                        display: none;
+                    }
+                    .horizontal-line {
+                        display: none;
+                    }
+                    .copyright {
+                        padding-left: 2em;
+                    }
+                }
+    @media (max-width: 705px) {
+            .footer {
+                padding-right: 2.2em;
+            }    
+
+            }
 </style>
 
 <footer>
     <div class="footer" id="footer">
         <div class="row">
             <div class="footer-col-1">
-               <h3>Nuestra app</h3>
-               <p>Descarga nuestra app para Android o iOS</p>
+               <h3 class="respons">Nuestra app</h3>
+               <p class="respons">Descarga nuestra app para Android o iOS</p>
                <div class="app-logo">
                    <a href="https://www.apple.com/app-store/" target="_blank"><img src="/images/appandplay.png" alt=""></a>
                </div>
@@ -117,7 +137,7 @@ a {
                 </ul>
             </div>
         </div>
-        <hr>
+        <hr class="horizontal-line">
         <p class="copyright">Términos y condiciones - Copyright © 2022 Todo Muebles Inc.</p>
     </div>
 </footer>
