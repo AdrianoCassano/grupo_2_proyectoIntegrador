@@ -1,12 +1,8 @@
-import React, { Component } from 'react'
+import React from "react";
 
-function Pagination({totalPages,currentPageNumber}) {
-    const nextPage = async() =>{
-        await setPagina (pagina + 1)
-    }
-    const previousPage = async() =>{
-        await setPagina (pagina - 1)
-    }
+
+function Pagination({pageNumber, currentPageNumber,nextPage,previousPage, totalPages}) {
+
 
         // const { postsPerPage, totalPosts, paginate, nextPage, prevPage } = this.props;
 
@@ -22,8 +18,8 @@ function Pagination({totalPages,currentPageNumber}) {
                     <li className="page-item">
                         <a className="page-link" href="#" onClick={() => previousPage()}>Previous</a>
                     </li>                    
-                        <li className="page-item" key={currentPageNumber}>
-                            <a onClick={() => paginate(currentPageNumber)} href="#" className="page-link">{currentPageNumber}</a>
+                        <li className="page-item" key={pageNumber}>
+                            <a onClick={() => (pageNumber)} href="#" className="page-link">{pageNumber}</a>
                         </li>                  
                     <li className="page-item">
                         <a className="page-link" href="#" onClick={() => nextPage()}>Next</a>

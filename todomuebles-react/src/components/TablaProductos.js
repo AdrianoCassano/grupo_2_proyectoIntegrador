@@ -17,8 +17,17 @@ function TablaProductos() {
             .catch(error => console.error(error))
     }, [])
 
+    const pageNumber = page
+    const currentPageNumber = products.currentPageNumber
+    const totalPages = products.totalPages
+    const nextPage = async() =>{
+        await setPage (page + 1)
+    }
+    const previousPage = async() =>{
+        await setPage (page - 1)
+    }
 
-    const paginate = (currentPageNumber) => setCurrentPage{currentPageNumber}
+    // const paginate = (currentPageNumber) => setCurrentPage{currentPageNumber}
 
 
     
@@ -55,7 +64,7 @@ function TablaProductos() {
                                 } 
                             </tbody>
                         </table>
-                        {/* <Pagination/> */}
+                        <Pagination {...pageNumber}{...currentPageNumber} {...nextPage} {...previousPage} {...totalPages}/> 
                     </div>
                 </div>
             </div>
