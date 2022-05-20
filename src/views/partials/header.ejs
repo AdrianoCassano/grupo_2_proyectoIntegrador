@@ -1,3 +1,5 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
 <style>
     /* .logo {
         text-align: center;
@@ -41,26 +43,76 @@
         font-family: 'Roboto', sans-serif;
         } 
 
-            .navigation ul li {
-                display: inline-block;
-                margin-right: 20px;
-                font-family: 'Roboto', sans-serif;
+    .navigation ul li {
+        display: inline-block;
+        margin-right: 20px;
+        font-family: 'Roboto', sans-serif;
                 
-            }
+         }
+            
+    .navigation ul li a {
+        display: block;
+        padding: 0.5rem 1rem;
+        transition: all 0.2s linear;
+        border-radius: 5px;
+        color: whitesmoke;
+        text-decoration: none;
+        }
+    .navigation ul li a:hover {
+        background:  #c9200a;
+        } 
 
-                .navigation ul li a {
-                    display: block;
-                    padding: 0.5rem 1rem;
-                    transition: all 0.2s linear;
-                    border-radius: 5px;
-                    color: whitesmoke;
-                    text-decoration: none;
-                }
-                .navigation ul li a:hover {
-                    background:  #c9200a;
-                } 
-                    
-   
+   label #btn,
+   label #cancel {
+       color: white;
+       font-size: 30px;
+       float: right;
+       line-height: 80px;
+       margin-right: 25px;
+       cursor: pointer;
+       display: none;
+   }
+   #check {
+       display: none;
+   }
+    @media (max-width: 750px) {
+       .navbar {
+           position: fixed;
+           z-index: 1;
+       }
+       
+        label #btn {
+           display: block;
+       }
+       .navigation ul {
+           position: fixed;
+           width: 100%;
+           background: rgba(0, 0, 0, 0.9);
+           top: 63px;
+           left: -110%;
+           text-align: center;
+           padding-left: 10px;
+           transition: all .5s;
+       } 
+       .navigation ul li {
+        display: block;
+        margin-right: 50px 0;
+        font-family: 'Roboto', sans-serif;
+        line-height: 30px; 
+         }        
+        #check:checked ~ ul {
+            left: 0;
+        }
+        #check:checked ~ label #btn {
+            display: none;
+        } 
+        #check:checked ~ label #cancel {
+            display: block;
+        }
+        img {
+            max-width: 200px;
+        }        
+        }
     
 </style>
 <header>
@@ -78,6 +130,11 @@
                     </a>
                 </div>
                 <nav class ="navigation">
+                    <input type="checkbox" id="check">
+                        <label for="check">
+                            <i class="fas fa-bars" id="btn"></i>
+                            <i class="fas fa-times" id="cancel"></i>
+                        </label>
                     <ul>
                         <li><a href="/products">Productos</a></li>
                         <li><a href="/aboutUs">About us</a></li>

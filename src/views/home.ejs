@@ -164,6 +164,25 @@
        transform: translateY(-6px)
     }
     /* termina productos sugeridos */
+    @media (max-width: 750px) {
+        .col-2 {
+            display: none;
+        }
+        .slider {
+            display: none;
+        }
+        .col-3 {
+            padding-top: 0em;
+            padding-bottom: 2em;
+        }
+        .rating {
+            display: none;
+        }
+    }
+
+    @media (max-width: 420px) {
+        
+    }
 </style>
 <body>
     <%- include("./partials/header.ejs") %>
