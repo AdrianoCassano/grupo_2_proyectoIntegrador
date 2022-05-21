@@ -71,7 +71,7 @@
                     <h3><%= product.nombre %></h3>
                     <p>$<%= product.precio %></p>
                     <a href="/carrito">
-                        <button type="text" class="submit">Agregar al carrito</button>
+                        <button type="text" id="cartBtn" class="submit">Agregar al Carrito</button>
                     </a>
                 </div>
                 <% }) %>
@@ -80,5 +80,6 @@
 </main>
 <br>
     <%- include("../partials/footer") %>
+    <script src="/js/agregarCarrito.js"></script>
 </body>
 </html>
