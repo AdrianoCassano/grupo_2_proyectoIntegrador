@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from "react";
 import Pagination from "./Pagination";
-import TablaProductosRow from './TablaProductosRow'
+import TablaUsuariosRow from './TablaUsuariosRow'
 
-function TablaProductos() {
-    const [products, setProducts] = useState([])
+function TablaUsuarios() {
+    const [users, setUsers] = useState([])
     const [page, setPage] = useState(1)
     const [totalPages, setTotalPages] = useState()
 
     useEffect( () => {
-        fetch(`/admin/productos?page=${page}`)
+        fetch(`/admin/usuarios?page=${page}`)
             .then(response => {
                 return response.json()
             })
-            .then(products => {
-                setProducts(products.response.products)
-                setTotalPages(products.response.totalPages)
+            .then(users => {
+                setUsers(users.response.users)
+                setTotalPages(users.response.totalPages)
             })
             .catch(error => console.error(error))
     }, [page])
@@ -58,8 +58,8 @@ function TablaProductos() {
                             </tfoot>
                             <tbody>                                    
                                 {
-                                    products.map((product,index)=>{
-                                        return <TablaProductosRow {...product} key={index} />
+                                    users.map((user,index)=>{
+                                        return <TablaUsuariosRow {...user} key={index} />
                                         })
                                 } 
                             </tbody>
@@ -73,4 +73,4 @@ function TablaProductos() {
 } 
 
 
-export default TablaProductos
+export default TablaUsuarios
