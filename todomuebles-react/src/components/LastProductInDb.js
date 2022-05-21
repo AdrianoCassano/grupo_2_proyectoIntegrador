@@ -1,7 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState} from "react";
+// import { Link } from "react-router-dom";
 import imagenFondo from '../assets/images/mesaPavo.jpg';
 
 function LastProductInDb(){
+
+
+    const [lastProduct, setLastProduct] = useState([]);
+
+    useEffect(() => {
+        fetch("admin/productos")
+          .then((respuesta) => {
+            return respuesta.json();
+          })
+          .then((lastProduct) => {
+            setLastProduct(lastProduct.response.products);
+          });
+      }, []);
+
+ 
 
 
     return(
@@ -12,6 +28,7 @@ function LastProductInDb(){
                 </div>
                 <div className="card-body">
                     <div className="text-center">
+                    <h3 className="Mueble">Ultimo Producto {lastProduct.length}</h3>
                         <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: 20 +'rem'}} src={imagenFondo} alt=" Mesa Pavo "/>
                     </div>
                     <p>Majestuosa ave dandole soporte a tus comidas, creada en marmol y pintada a mano, producto exclusivo traido desde Paris</p>

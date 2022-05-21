@@ -5,4 +5,20 @@
     <title>TODO Muebles</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+    <script>
+        function Delete(e){
+
+
+  let productos = [];
+  JSON.parse(sessionStorage.getItem("pc")).map(data=>{
+      const title = document.getElementById("title").innerText
+if(data.name !== title ){
+ productos.push(data);
+}
+
+});
+sessionStorage.setItem("pc",JSON.stringify(productos))
+window.location.reload();
+};
+    </script>
 </head>

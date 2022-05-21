@@ -7,7 +7,7 @@ function TablaProductos() {
     const [page,setPage] = useState(1)
 
     useEffect( () => {
-        fetch(`/admin/productos?pagina=${page}`)
+        fetch(`/admin/productos?page=${page}`)
             .then(response => {
                 return response.json()
             })

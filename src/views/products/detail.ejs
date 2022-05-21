@@ -145,14 +145,14 @@
         </div>
         <section class= principal>
             <div class= imagen-principal>
-                <img src="/images/products/<%= product.productImg %>" alt="imagen1">
+                <img id="prdImg" src="/images/products/<%= product.productImg %>" alt="imagen1">
             </div>
             <div class="detalle">
                 <ul>
-                    <li class="nombre-producto"><%= product.nombre%></li>
-                    <li class="precio">$<%= product.precio%></li>
+                    <li class="nombre-producto" id="name"><%= product.nombre%></li>
+                    <li class="precio" id="precio">$<%= product.precio%></li>
                     <li class="cantidad">Cantidad <input type="number" id="qty" value="1"></li>                    
-                    <li><button type="text" class="submit">Agregar al Carrito</button></li>
+                    <li><button type="text" id="cartBtn" class="submit">Agregar al Carrito</button></li>
                 </ul>
             </div>
         </section>
@@ -174,7 +174,7 @@
         </section>
         <section class="tercera">
             <h3>Descripción:</h3>
-            <div class="productDescripcion">
+            <div class="productDescripcion" id="descripcion">
                 <%= product.descripcion%>
             </div>
             <div class="productMateriales">
@@ -188,6 +188,7 @@
         <br>
     </main>
     <%- include("../partials/footer") %>
+    <script src="/js/agregarCarrito.js"></script>
 </body>
 </html>
 

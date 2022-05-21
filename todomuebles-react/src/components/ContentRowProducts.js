@@ -33,22 +33,22 @@ function ContentRowProducts() {
 
     let totalProducts={
         title: " Productos en la base de datos ",
-        color: "success",
+        color: "primary",
         quantity: products.count,
-        icon: "fa-list",
+        icon: "fa-solid fa-couch",
         }
     let totalUsers ={
         title: "Usuarios registrados",
-        color: "primary",
+        color: "info",
         quantity: users.count,
-        icon: "fa-user-check",
+        icon: "fa-solid fa-users",
         }
     let categoryQuantity = categories.length
     let totalCategories ={
         title: "Categorias",
-        color: "info",
+        color: "success",
         quantity: categoryQuantity,
-        icon: 'fa-award',
+        icon: "fa-solid fa-clipboard-list",
     }
    
     let smallCardData =[totalProducts,totalCategories,totalUsers]

@@ -238,113 +238,74 @@
                 <p id="prec">Precio</p>
                 <p id="cant">Cantidad</p>
             </div>
-                <article>
-                    <div class="imagen"><img src="/images/Estante.JPG" id="imagen-art"></div>
-                    <div class="description">
-                        <p><u>Artículo:</u> Estante Helsinki</p>
-                        <p><u>Color:</u> Roble Gris</p>
-                        <p><u>Medidas:</u> 120x80x30cm</p>
-                    </div>
-                    <p id="precio-art">$50.000</p>
-                    <div id="cant-art">
-                        <a href="#" class="qty">-</a>
-                        <input type="numeric" value="1" id="value-cant" />
-                        <a href="#" class="qty">+</a>
-                    </div>
-                    <button class="eliminar">X</button>
-                </article>
-                <article>
-                    <div class="imagen"><img src="/images/Escritorio.JPG" id="imagen-art"></div>
-                    <div class="description">
-                        <p><u>Artículo:</u> Escritorio Mónaco</p>
-                        <p><u>Color:</u> Caoba</p>
-                        <p><u>Medidas:</u> 100x70x35cm</p>
-                    </div>
-                    <p id="precio-art">$80.000</p>
-                    <div id="cant-art">
-                        <a href="#" class="qty">-</a>
-                        <input type="numeric" value="1" id="value-cant" />
-                        <a href="#" class="qty">+</a>
-                    </div>
-                    <button class="eliminar">X</button>
-                </article>
-                <article>
-                    <div class="imagen"><img src="/images/MesaNoche.JPG" id="imagen-art"></div>
-                    <div class="description">
-                        <p><u>Artículo:</u> Mesa de noche</p>
-                        <p><u>Color:</u> Humo</p>
-                        <p><u>Medidas:</u> 70x70x50cm</p>
-                    </div>
-                    <p id="precio-art">$30.000</p>
-                    <div id="cant-art">
-                        <a href="#" class="qty">-</a>
-                        <input type="numeric" value="2" id="value-cant" />
-                        <a href="#" class="qty">+</a>
-                    </div>
-                    <button class="eliminar">X</button>
-                </article>
+            <div id="carro">
+               
+               
+            </div>
             <div class="total">
-                <p id="total-word">Total carrito:</p>
-                <p id="total-monto">$190.000</p>
+                <p id="total-word">Total carrito: </p>
+                <p id="total-monto" class="carritoTotal"></p>
             </div>
-        </div>
-       <div class="envio">
-           <div class="address">
-               <p><b>Enviar a:</b></p>
-                <p>Avenida Siempreviva 123
-                    Seattle, WA
-                    95514, USA</p>
-                   <p>Recibe: Cosme Fulanito</p>
-                <p id="alter"><a href="#">Cambiar mi dirección de envio</a></p>
-            </div>
-           <div class="pay">
-               <p><b>Método de pago:</b></p>
-               <p>Tarjeta Visa Terminada en
-                XXXX-8998
-                </p>
-               <p>A nombre de: Cosme Fulanito</p>
-            <p id="alter"><a href="#">Cambiar mi método de pago</a></p>
-            </div>
-           <button id="confirmar-boton">Confirmar compra</button>
-       </div>
-       <div class="interesar">
-           <p><b>Productos similares:</b></p>
-           <div class="article-2">
-               <a href="#"><img src="/images/Banca.JPG" id="imagen-art2" alt="Banca Tokyo"></a>
-               <a href="#"><div id="overlay">
-                   <div id="overlay-title">Banca Tokyo</div>
-                   <p id="interesar-desc">$60.000</p>
-               </div>
-               </a>
-            </div>
-            <div class="article-2">
-                <a href="#"><img src="/images/EstanteGrande.JPG" id="imagen-art2" alt="Estante Grande"></a>
-                <a href="#"><div id="overlay">
-                    <div id="overlay-title">Estante</div>
-                    <p id="interesar-desc">$50.000</p>
-                </div>
-                </a>
+            <!-- <div class="row"> 
+             <div class="envio" >
+                 <div class="address">
+                     <p><b>Enviar a:</b></p>
+                      <p>Avenida Siempreviva 123
+                          Seattle, WA
+                          95514, USA</p>
+                         <p>Recibe: Cosme Fulanito</p>
+                      <p id="alter"><a href="#">Cambiar mi dirección de envio</a></p>
+                  </div>
+                 <div class="pay">
+                     <p><b>Método de pago:</b></p>
+                     <p>Tarjeta Visa Terminada en
+                      XXXX-8998
+                      </p>
+                     <p>A nombre de: Cosme Fulanito</p>
+                  <p id="alter"><a href="#">Cambiar mi método de pago</a></p>
+                  </div>
+                 <button id="confirmar-boton">Confirmar compra</button>
              </div>
-             <div class="article-2">
-                <a href="#"><img src="/images/Mesa.JPG" id="imagen-art2" alt="MEsa"></a>
-                <a href="#"><div id="overlay">
-                    <div id="overlay-title">Mesa Cali</div>
-                    <p id="interesar-desc">$99.000</p>
-                </div>
-                </a>
+             <div class="interesar">
+                 <p><b>Productos similares:</b></p>
+                 <div class="article-2">
+                     <a href="#"><img src="/images/Banca.JPG" id="imagen-art2" alt="Banca Tokyo"></a>
+                     <a href="#"><div id="overlay">
+                         <div id="overlay-title">Banca Tokyo</div>
+                         <p id="interesar-desc">$60.000</p>
+                     </div>
+                     </a>
+                  </div>
+                  <div class="article-2">
+                      <a href="#"><img src="/images/EstanteGrande.JPG" id="imagen-art2" alt="Estante Grande"></a>
+                      <a href="#"><div id="overlay">
+                          <div id="overlay-title">Estante</div>
+                          <p id="interesar-desc">$50.000</p>
+                      </div>
+                      </a>
+                   </div>
+                   <div class="article-2">
+                      <a href="#"><img src="/images/Mesa.JPG" id="imagen-art2" alt="MEsa"></a>
+                      <a href="#"><div id="overlay">
+                          <div id="overlay-title">Mesa Cali</div>
+                          <p id="interesar-desc">$99.000</p>
+                      </div>
+                      </a>
+                   </div>
+                   <div class="article-2">
+                      <img src="/images/MuebleTV.JPG" id="imagen-art2" alt="Mueble TV"></a>
+                      <a href="#"><div id="overlay">
+                          <div id="overlay-title">Mueble TV</div>
+                          <p id="interesar-desc">$23.000</p>
+                      </div>
+                      </a>
+                   </div>
              </div>
-             <div class="article-2">
-                <img src="/images/MuebleTV.JPG" id="imagen-art2" alt="Mueble TV"></a>
-                <a href="#"><div id="overlay">
-                    <div id="overlay-title">Mueble TV</div>
-                    <p id="interesar-desc">$23.000</p>
-                </div>
-                </a>
-             </div>
-       </div>
+          </div> -->  -->
     </main> 
     <br>
     <%- include("../partials/footer") %>
+<script src="/js/carroVista.js"></script>
 </body>
 </html>
 
