@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         body{
-            background-image: url("https://i.ibb.co/tHLXfxJ/mueblesfondo.jpg");
+            background-image: url("https://i.ibb.co/gSSdWbv/alformbraroja.jpg");
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: cover;
@@ -54,16 +54,24 @@
             button:hover {
                 background:  #c9200a;
             }
+            @media (max-width: 750px) {
+        .card {
+            padding-top: 125px;
+        }
+         .hola-user {
+            display: none;
+        }
+        }
     </style>
     <body>
         <%- include("../partials/header.ejs") %>
 
-        <h1>Hola <%= userLogged.firstName %>!</h1>
+        <h1 class="hola-user">Hola <%= userLogged.firstName %>!</h1>
         
-        <main>
+        <!-- <main>
             <div>  </div>
 
-        </main>
+        </main> -->
         <div class="card">
             <img src="/images/users/<%= userLogged.userAvatar %>" alt="John" style="width:100%">
             <h2><%= userLogged.firstName %> <%= userLogged.lastName %></h2>
