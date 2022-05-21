@@ -35,7 +35,8 @@ const userController = {
                 await db.User.create({
                     ...req.body,
                     password: bcryptjs.hashSync(req.body.password, 10),
-                    userAvatar
+                    userAvatar,
+                    categoryId: 2
                 })
                 return res.redirect("/register")
             } else {
@@ -108,6 +109,7 @@ const userController = {
         })
     },
     updated: async (req,res) => {
+        console.log("hola")
         try {
             await db.User.update({
                 ...req.body
@@ -128,18 +130,22 @@ const userController = {
             console.log(error)
         }
     },
-    delete: (req,res) => {
-        db.User.destroy({
-            where:{
-                id: req.params.id
-            }
-        })
-        .then(() => {
+    delete: async (req,res) => {
+        try {
+            await db.UserLog.destroy({
+                where:{
+                    userId: req.params.id
+                }
+            }),
+            await db.User.destroy({
+                where:{
+                    id: req.params.id
+                },
+            })
             res.redirect ("/")
-        })
-        .catch((error)=>{
+        } catch (error) {
             console.log(error)
-        })
+        }
     },
     profile: (req,res) => {
         res.render("users/userProfile")

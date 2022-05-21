@@ -10,19 +10,15 @@ module.exports = function(sequelize, dataTypes){
         },
         firstName:{
             type: dataTypes.STRING
-
         },
         lastName:{
             type: dataTypes.STRING
-
         },
         email:{
             type: dataTypes.STRING
         },
-
         password:{
             type: dataTypes.STRING
-
         },
         country:{
             type: dataTypes.STRING
@@ -44,7 +40,7 @@ module.exports = function(sequelize, dataTypes){
         },
         userAvatar:{
             type: dataTypes.STRING
-        }
+        },
     }
 
     let config = {

@@ -32,6 +32,16 @@ function TablaUsuarios() {
    
     const paginate = (pageNum) => setPage(pageNum)
     
+    const deleteUser = (userId) =>{
+        fetch(`/${userId}/delete?_method=DELETE`, {method:"POST"})
+        .then( () => {
+            window.location.reload(false);
+            return 
+        })
+        .catch(error => console.error(error))
+    }
+
+
     return (
         <>
             <div className="card shadow mb-4">
@@ -42,24 +52,26 @@ function TablaUsuarios() {
                                 <tr>
                                     <th>Id</th>
                                     <th>Nombre</th>
-                                    <th>Descripción</th>
+                                    <th>Email</th>
                                     <th>Categoria</th>
                                     <th>Acceder</th>
+                                    <th>Eliminar</th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
                                     <th>Id</th>
                                     <th>Nombre</th>
-                                    <th>Descripción</th>
+                                    <th>Email</th>
                                     <th>Categoria</th>
                                     <th>Acceder</th>
+                                    <th>Eliminar</th>
                                 </tr>
                             </tfoot>
                             <tbody>                                    
                                 {
                                     users.map((user,index)=>{
-                                        return <TablaUsuariosRow {...user} key={index} />
+                                        return <TablaUsuariosRow deleteUser={deleteUser} {...user} key={index} />
                                         })
                                 } 
                             </tbody>
