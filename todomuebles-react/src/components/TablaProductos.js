@@ -4,7 +4,8 @@ import TablaProductosRow from './TablaProductosRow'
 
 function TablaProductos() {
     const [products, setProducts] = useState([])
-    const [page,setPage] = useState(1)
+    const [page, setPage] = useState(1)
+    const [totalPages, setTotalPages] = useState()
 
     useEffect( () => {
         fetch(`/admin/productos?page=${page}`)
@@ -13,23 +14,23 @@ function TablaProductos() {
             })
             .then(products => {
                 setProducts(products.response.products)
+                setTotalPages(products.response.totalPages)
             })
             .catch(error => console.error(error))
-    }, [])
+    }, [page])
 
-    const pageNumber = page
-    const currentPageNumber = products.currentPageNumber
-    const totalPages = products.totalPages
-    const nextPage = async() =>{
-        await setPage (page + 1)
+    const nextPage = () =>{
+        if(page<totalPages){
+            setPage (page + 1)
+        }
     }
-    const previousPage = async() =>{
-        await setPage (page - 1)
+    const previousPage = () =>{
+        if(page>1){
+            setPage (page - 1)
+        }
     }
-
-    // const paginate = (currentPageNumber) => setCurrentPage{currentPageNumber}
-
-
+   
+    const paginate = (pageNum) => setPage(pageNum)
     
     return (
         <>
@@ -58,13 +59,13 @@ function TablaProductos() {
                             <tbody>                                    
                                 {
                                     products.map((product,index)=>{
-                                        
+                                        {console.log(product)}
                                         return <TablaProductosRow {...product} key={index} />
                                         })
                                 } 
                             </tbody>
                         </table>
-                        <Pagination {...pageNumber}{...currentPageNumber} {...nextPage} {...previousPage} {...totalPages}/> 
+                            <Pagination page={page} paginate={paginate} nextPage={nextPage} previousPage={previousPage} totalPages={totalPages}/> 
                     </div>
                 </div>
             </div>
