@@ -18,7 +18,7 @@ function TopBar(){
                 </a>
 				
 				<div className="d-sm-flex aligns-items-center justify-content-center mb-1" >
-						<h1 className="h3 mb-1 text-gray-200 " > App Dashboard</h1>
+						<h1 className="h3 mb-1 text-gray-200 " >  App Dashboard</h1>
 					</div>
 
 
