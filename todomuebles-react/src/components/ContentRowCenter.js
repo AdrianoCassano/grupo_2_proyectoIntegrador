@@ -1,7 +1,7 @@
 import React from 'react';
 import LastProductInDb from './LastProductInDb';
 import CategoriesInDb from './CategoriesInDb';
-import TotalProductsInDb from './TotalProductsInDb';
+
 
 function ContentRowCenter(){
     return (

@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 const TablaProductosRow = (props) => {
     return (
         <>
@@ -8,11 +7,10 @@ const TablaProductosRow = (props) => {
                 <td>{props.id}</td>
                 <td>{props.firstName} {props.lastName}</td>
                 <td>{props.email}</td>
-                <td>{props.usercategory}</td>
+                <td>{props.usercategory.name}</td>
                 <td><a href={`${props.url}`}>Link</a></td>
-                <td><button classname="submit" onClick={() => props.deleteUser(props.id)} >Eliminar</button></td>
+                <td><button onClick={() => props.deleteUser(props.id)} >Eliminar</button></td>
             </tr>
-
         </>
     )
 }

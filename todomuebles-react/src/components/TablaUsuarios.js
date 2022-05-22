@@ -41,7 +41,6 @@ function TablaUsuarios() {
         .catch(error => console.error(error))
     }
 
-
     return (
         <>
             <div className="card shadow mb-4">
@@ -71,6 +70,7 @@ function TablaUsuarios() {
                             <tbody>                                    
                                 {
                                     users.map((user,index)=>{
+                                        console.log(user)
                                         return <TablaUsuariosRow deleteUser={deleteUser} {...user} key={index} />
                                         })
                                 } 
