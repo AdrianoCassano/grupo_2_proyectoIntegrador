@@ -1,6 +1,6 @@
 import React from 'react';
 import foto from '../assets/images/mesaPavo.jpg';
-
+import image from '../assets/images/TodoMueble.png';
 
 function TopBar(){
 
@@ -10,7 +10,17 @@ function TopBar(){
         <React.Fragment>
 				{/*<!-- Topbar -->*/} 
 			<div style= {{background: "black"}}>
-				<nav className="navbar navbar-expand navbar-light bg-black topbar mb-4 static-top shadow">
+				<nav className="navbar navbar-expand navbar-light bg-black topbar  static-top shadow">
+				<a className="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+                    <div className="sidebar-brand-icon" >
+                        <img className="w-50" src={image} alt="Todo Muebles" />
+                    </div>
+                </a>
+				
+				<div className="d-sm-flex aligns-items-center justify-content-center mb-1" >
+						<h1 className="h3 mb-1 text-gray-200 " > App Dashboard</h1>
+					</div>
+
 
 					{/*<!-- Sidebar Toggle (Topbar) -->*/}
 					<button id="sidebarToggleTop" className="btn btn-link d-md-none rounded-circle mr-3">

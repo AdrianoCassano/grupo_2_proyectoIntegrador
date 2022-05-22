@@ -17,11 +17,11 @@ function SideBar() {
             <ul className="navbar-nav  -secondary sidebar sidebar-dark accordion" id="accordionSidebar" >
 
                 {/*<!-- Sidebar - Brand -->*/}
-                <a className="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+                {/* <a className="sidebar-brand d-flex align-items-center justify-content-center" href="/">
                     <div className="sidebar-brand-icon" >
                         <img className="w-100" src={image} alt="Todo Muebles" />
                     </div>
-                </a>
+                </a> */}
 
                 {/*<!-- Divider -->*/}
                 <hr className="sidebar-divider my-0" />
