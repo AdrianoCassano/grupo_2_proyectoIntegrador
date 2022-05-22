@@ -83,13 +83,29 @@ p {
 
 @media screen and (max-width: 650px) {
   .column {
-    width: 100%;
+    width: 70%;
     height: 90%;
     display: block;
     margin-top: 90px;
   }
-}
+  .fotopf {
+    max-width: 430px;
+  }
+  
+    h2 {
+      text-align: center;
+    }
 
+  }
+
+@media screen and (max-width: 430px) {
+  .fotopf {
+    max-width: 330px;
+}
+ .column {
+   width: 90%;
+ }
+} 
 
 </style>
 <body>
@@ -118,7 +134,7 @@ p {
       
         <div class="column">
           <div class="card">
-            <img src="/images/perfilab.png" alt="Alvaro Blanquicett" style="width:90%" height="350px">
+            <img class="fotopf" src="/images/perfilab.png" alt="Alvaro Blanquicett" style="width:90%" height="350px">
             <div class="container">
               <h2>Alvaro Blanquicett</h2>
               <p class="title">Director de Arte & Diseño</p>
@@ -128,7 +144,7 @@ p {
             </div>
           </div>
         </div>
-      
+        
         <div class="column">
           <div class="card">
             <img src="/images/perfilrr.PNG" alt="Renzo Restaino" style="width:90%" height="350px">
@@ -141,6 +157,8 @@ p {
             </div>
           </div>
         </div>
+
+     
       </div>
 </main>
 <br>
