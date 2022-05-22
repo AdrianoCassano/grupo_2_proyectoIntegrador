@@ -134,11 +134,12 @@
         color: whitesmoke;
     }
 
-    @media (max-width: 750px) {
+     @media (max-width: 750px) {
+    
         main {
             margin-top: 65px;
         }
-        }
+        } 
 </style>
 <body>
     <%- include("../partials/header.ejs") %>
@@ -149,7 +150,7 @@
                 <button type="text" class="submit">Volver</button>
             </a>
         </div>
-        <section class= principal>
+        <section class= "principal">
             <div class= imagen-principal>
                 <img id="prdImg" src="/images/products/<%= product.productImg %>" width="450px" height="500px" alt="imagen1">
             </div>
