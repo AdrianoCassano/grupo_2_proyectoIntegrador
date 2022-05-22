@@ -27,10 +27,7 @@ window.addEventListener('load', function (){
 
         let image = document.querySelector('#productImg');
 
-        if(image.value.length === 0){
-            errores.push('Debe cargar una imagen')   
-        } 
-        else if (image.value) {
+        if (image.value) {
             
             fileName = image.value;
             idxDot = fileName.lastIndexOf(".") + 1,
