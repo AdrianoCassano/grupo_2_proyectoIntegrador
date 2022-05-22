@@ -123,19 +123,19 @@ h3 {
         <div>
             <input class="form-contenedor" type="text" name="nombre" id="nombre" value="<%=Product.nombre%>" placeholder="Ingrese nombre de producto">
             <% if (locals.errors && errors.nombre) { %>
-                <p><%= errors.nombre.msg %></p>
+                <p class ="errores"><%= errors.nombre.msg %></p>
             <% } %>
         </div>
         <div>
             <input class="form-contenedor" type="text" name="descripcion" id="descripcion" value="<%=Product.descripcion%>" placeholder="Descripcion del producto" >
             <% if (locals.errors && errors.descripcion) { %>
-                <p><%= errors.descripcion.msg %></p>
+                <p class ="errores"><%= errors.descripcion.msg %></p>
             <% } %>
         </div>
         <div>
             <input class="form-contenedor" type="text" name="materiales" id="materiales" value="<%=Product.materiales%>" placeholder="Materiales del producto">
             <% if (locals.errors && errors.materiales) { %>
-                <p><%= errors.materiales.msg %></p>
+                <p class ="errores"><%= errors.materiales.msg %></p>
             <% } %>
         </div>
         <div>
@@ -147,25 +147,25 @@ h3 {
                 <% } %>             
             </select>
             <% if (locals.errors && errors.cantidad) { %>
-                <p><%= errors.cantidad.msg %></p>
+                <p class ="errores"><%= errors.cantidad.msg %></p>
             <% } %>    
         </div>
         <div>
             <input class="form-contenedor" type="text" name="precio" id="precio" value="<%=Product.precio%>" placeholder="Ingresa el precio">
             <% if (locals.errors && errors.precio) { %>
-                <p><%= errors.precio.msg %></p>
+                <p class ="errores"><%= errors.precio.msg %></p>
             <% } %>
         </div>
         <div>
             <input class="form-contenedor" type="text" name="dimensiones" id="dimensiones" value="<%=Product.dimensiones%>" placeholder="Ingresa las dimensiones">
             <% if (locals.errors && errors.dimensiones) { %>
-                <p><%= errors.dimensiones.msg %></p>
+                <p class ="errores"><%= errors.dimensiones.msg %></p>
             <% } %>
         </div>
         <div>
             <input class="form-contenedor" type="text" name="peso" id="peso" value="<%=Product.peso%>" placeholder="Ingresa el peso">
             <% if (locals.errors && errors.peso) { %>
-                <p><%= errors.peso.msg %></p>
+                <p class ="errores"><%= errors.peso.msg %></p>
             <% } %>
         </div>
         <div>
@@ -176,13 +176,13 @@ h3 {
                 <% } %>
             </select>
             <% if (locals.errors && errors.categoriaId) { %>
-                <p><%= errors.categoriaId.msg %></p>
+                <p class ="errores"><%= errors.categoriaId.msg %></p>
             <% } %>            
         </div>
         <div>
             <input class= "form-contenedor" type="file" name="productImg" id="productImg" placeholder="Foto de producto" value="<%=Product.productImg%>">
             <% if (locals.errors && errors.productImg) { %>
-                <p><%= errors.productImg.msg %></p>
+                <p class ="errores"><%= errors.productImg.msg %></p>
             <% } %>
         </div>
         <button type="submit" class="submit">Actualizar</button>

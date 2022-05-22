@@ -21,6 +21,7 @@ const upload = multer({storage});
 //   })
 
 router.get("/", productsController.products);
+router.get("/buscar", productsController.search);
 router.get("/creacion", productsController.create);
 router.post("/creacion", upload.single("productImg"), productValidation, productsController.created);
 router.get("/:id", productsController.detalle);

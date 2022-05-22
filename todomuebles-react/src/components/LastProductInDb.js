@@ -1,6 +1,5 @@
 import React, { useEffect, useState} from "react";
 // import { Link } from "react-router-dom";
-import imagenFondo from '../assets/images/mesaPavo.jpg';
 import LastProductInDbInfo from "./LastProductInDbInfo";
 
 function LastProductInDb(){

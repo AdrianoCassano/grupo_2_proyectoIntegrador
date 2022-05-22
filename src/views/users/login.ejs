@@ -89,11 +89,12 @@
     .submit:hover{
         background-color: #c9200a;
     }
-    div.errores{
+    .errores{
         color:red;
         list-style-type: none;
         padding: 10px;
         border-radius: 20px;
+        font-weight: bold;
         font-size: 0.8rem;
         margin: 1px;
     }
@@ -121,18 +122,14 @@
                 <label for="email">Email</label>
                 <input type="email" name="email" id="username" placeholder="">
                 <% if (locals.errors && errors.email) { %>
-                    <div class="text-danger">
-                        <%= errors.email%>
-                    </div>
+                    <p class="errores"><%= errors.email%></p>
                 <% } %>
             </div>
             <div class="control-login">
                 <label for="password">Contraseña:</label>
                 <input type="password" name="password" id="password" placeholder="">
                 <% if (locals.errors && errors.password) { %>
-                    <div class="text-danger">
-                        <%= errors.password%>
-                    </div>
+                    <p class="errores"><%= errors.password%></p>
                 <% } %>
             </div>
             <div class="remember-login">

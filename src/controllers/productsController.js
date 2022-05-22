@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const {validationResult} = require("express-validator")
 const db = require ("../database/models")
+const Op = db.Sequelize.Op
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -14,6 +15,24 @@ const productsController = {
             console.log(error)
         })
     },
+    search: async (req,res) => {
+        console.log("entro search")
+        try {
+            let input = req.query.search;
+            let products = await db.Product.findAll({
+              where: {
+                [Op.or]: [
+                  { nombre: db.sequelize.where(db.sequelize.fn('LOWER', db.sequelize.col('nombre')), 'LIKE', '%' + input.toLowerCase() + '%') },
+                  { descripcion: db.sequelize.where(db.sequelize.fn('LOWER', db.sequelize.col('descripcion')), 'LIKE', '%' + input.toLowerCase() + '%') },
+                //   { caract1: sequelize.where(sequelize.fn('LOWER', sequelize.col('caract1')), 'LIKE', '%' + search.toLowerCase() + '%') },
+                ]
+              }
+            })
+            res.render("./products/search", {products});
+          } catch (error) {
+            console.log(error);
+          }
+        },
     detalle: (req,res) => {
         db.Product.findByPk(req.params.id, {
             include: [{association:"categorias"},{association:"users"}]

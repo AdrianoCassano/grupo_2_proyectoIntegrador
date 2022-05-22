@@ -45,7 +45,6 @@
         padding: 4% 4% 1% 4%;
         width:100%
     }
-
     .imagen-principal{
         border-radius: 0.5%;
         box-shadow: 50px #a52a2a;        
@@ -54,7 +53,6 @@
     .detalle{
         padding-right: 4%;       
     }
-    
     .detalle li{
         padding:3% ;
         width:100%;
@@ -72,9 +70,9 @@
         color:#a52a2a;
         text-align: center; 
      }
-     #qty{
+    #qty{
          width: 10%;
-     }   
+    }   
     .detalle .precio{
         font-size: 35px;
         font-weight: 200;
@@ -119,6 +117,12 @@
         text-align: center;
         align-items: center;
     }
+    .medios-pago-titulo{
+        font-size: 35px;
+        font-weight: 200;
+        color:#a52a2a;
+        text-align: center;
+    }
     .medios-pago img {
         max-width: 45px;
         height: 37px;
@@ -128,12 +132,17 @@
         flex-wrap: nowrap;
         justify-content: flex-start;
         width: 100%;
-        display:inline-block;
+        display:flex;
         padding: 1%;
         background-color: rgba(0, 0, 0, 0.4);
         color: whitesmoke;
+        flex-direction: row;
     }
+    .productDescripcion,
+    .productMateriales,
+    .productPesoDimensiones{
 
+    }
     @media (max-width: 750px) {
         main {
             margin-top: 65px;
@@ -142,13 +151,12 @@
 </style>
 <body>
     <%- include("../partials/header.ejs") %>
+    <div>
+        <a href="/products">
+            <button type="text" class="submit">Volver</button>
+        </a>
+    </div>
     <main>
-        <br>
-        <div>
-            <a href="/products">
-                <button type="text" class="submit">Volver</button>
-            </a>
-        </div>
         <section class= principal>
             <div class= imagen-principal>
                 <img id="prdImg" src="/images/products/<%= product.productImg %>" width="450px" height="500px" alt="imagen1">
@@ -170,7 +178,7 @@
                 <img src="" alt="imagen5">
             </div>
             <div class="medios-pago">
-                <p>Métodos de pago</p>                   
+                <p class="medios-pago-titulo">Métodos de pago</p>                   
                     <img src="/images/mercadopago.png" alt="Mercadopago">
                     <img src="/images/visa.png" alt="Visa">
                     <img src="/images/americanexpress.png" alt="Amex">
@@ -179,14 +187,16 @@
 
         </section>
         <section class="tercera">
-            <h3>Descripción:</h3>
-            <div class="productDescripcion" id="descripcion">
+            <div class="productDescripcion">
+                <h3>DESCRIPCIÓN</h3>
                 <%= product.descripcion%>
             </div>
             <div class="productMateriales">
+                <h3>MATERIALES</h3>
                 <%= product.materiales%>
             </div>
             <div class="productPesoDimensiones">
+                <h3>DIMENSIONES</h3>
                 <%= product.peso%>
                 <%= product.dimensiones%>
              </div> 
