@@ -44,7 +44,7 @@ function TablaProductos() {
                                     <th>Nombre</th>
                                     <th>Descripción</th>
                                     <th>Categoria</th>
-                                    <th>Acceder</th>
+                                    <th>Editar</th>
                                 </tr>
                             </thead>
                             <tfoot>
@@ -53,7 +53,7 @@ function TablaProductos() {
                                     <th>Nombre</th>
                                     <th>Descripción</th>
                                     <th>Categoria</th>
-                                    <th>Acceder</th>
+                                    <th>Editar</th>
                                 </tr>
                             </tfoot>
                             <tbody>                                    

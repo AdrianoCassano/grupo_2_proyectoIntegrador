@@ -9,7 +9,7 @@ const TablaProductosRow = (props) => {
                 <td>{props.nombre}</td>
                 <td>{props.descripcion}</td>
                 <td>{props.categorias.name}</td>
-                <td><a href={`${props.url}`}>Link</a></td>
+                <td><a href={`${props.edit}`}>Link</a></td>
             </tr>
 
         </>

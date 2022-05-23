@@ -26,10 +26,12 @@ const adminApiController ={
 
             const rows = usersList.rows.map(user => {
                 const { dataValues } = user;
-                const url = `${req.protocol}://${req.get('host')}${req.baseUrl}${req.path}${user.id}`;
+                const url = `${req.protocol}://${req.get('host')}${req.baseUrl}${req.path}/${user.id}`;
+                const edit = `${req.protocol}://${req.get('host')}/edicion/${user.id}`;
                 return {
                     ...dataValues,
-                    url
+                    url,
+                    edit
                 }
             })
             const totalPages = Math.ceil(usersList.count / limit)
@@ -77,9 +79,11 @@ const adminApiController ={
             const rows = products.rows.map(product => {
                 const { dataValues } = product;
                 const url = `${req.protocol}://${req.get('host')}${req.baseUrl}${req.path}/${product.id}`;
+                const edit = `${req.protocol}://${req.get('host')}${req.path}/edicion/${product.id}`
                 return {
                     ...dataValues,
-                    url
+                    url,
+                    edit
                 }
             })
             

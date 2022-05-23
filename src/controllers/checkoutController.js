@@ -1,6 +1,6 @@
 const checkoutController = {
-    carrito: (req,res) => {
-        res.render("checkout/carrito")
+    checkout: (req,res) => {
+        res.render("checkout/cart")
     }
 }
 module.exports = checkoutController

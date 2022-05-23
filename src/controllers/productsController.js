@@ -72,7 +72,7 @@ const productsController = {
                 productImg
             })
             .then(()=>{
-                res.redirect("/products")
+                res.redirect("/productos")
             }).catch((error)=>{
                 console.log(error)
             })
@@ -109,7 +109,7 @@ const productsController = {
                     id: req.params.id
                 }
             }).then(() => {          
-                res.redirect("/products/edicion/"+ req.params.id)
+                res.redirect("/productos/edicion/"+ req.params.id)
             }).catch((error)=>{
                 console.log(error)
             })
@@ -122,7 +122,7 @@ const productsController = {
             }
         })
         .then(() => {
-            res.redirect("/products")
+            res.redirect("/productos")
         })
         .catch((error)=>{
             console.log(error)

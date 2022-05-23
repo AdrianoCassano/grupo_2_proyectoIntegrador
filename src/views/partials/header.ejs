@@ -136,16 +136,16 @@
                             <i class="fas fa-times" id="cancel"></i>
                         </label>
                     <ul>
-                        <li><a href="/products">Productos</a></li>
-                        <li><a href="/aboutUs">Nosotros</a></li>
+                        <li><a href="/productos">Productos</a></li>
+                        <li><a href="/nosotros">Nosotros</a></li>
                         <li><a href="#footer">Contacto</a></li>
                         <li id="mi-carrito"><a href="/carrito">Mi Carrito <i class="fas fa-shopping-cart"></i></a></li>
                         <% if(locals.userLogged) { %>              
                         <li id="acesso-login"><a href="/perfil">Mi Cuenta <i class="fas fa-user-circle"></i></a></li>
-                        <li id="acesso-login"><a href="/logout">Salir <i class="fas fa-sign-out-alt"></i></a></li>
+                        <li id="acesso-login"><a href="/salir">Salir <i class="fas fa-sign-out-alt"></i></a></li>
                         <% } else {%>
-                        <li><a href="/register">Registrarse</a></li>
-                        <li id="acesso-login"><a href="/login">Ingresar <i class="fas fa-user-circle"></i></a></li>
+                        <li><a href="/registrarse">Registrarse</a></li>
+                        <li id="acesso-login"><a href="/ingresar">Ingresar <i class="fas fa-user-circle"></i></a></li>
                         <% } %>
                     </ul>
                 </nav>

@@ -38,7 +38,7 @@ const userController = {
                     userAvatar,
                     categoryId: 2
                 })
-                return res.redirect("/register")
+                return res.redirect("/registrarse")
             } else {
                 return res.render("users/register",{errors: { email: "El email ya existe" }, old: req.body})
             }           

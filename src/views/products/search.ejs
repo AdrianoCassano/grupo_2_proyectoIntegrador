@@ -77,7 +77,7 @@
 <main>
     <div>
         <ul>
-            <li><a href="/products">Ver todo</a></li>
+            <li><a href="/productos">Ver todo</a></li>
             <li>
                 <form class="form" action="/products/buscar" method="GET">
                     <div>
@@ -99,7 +99,7 @@
                     <div class="row">
                         <% products.forEach( product => { %>
                         <div class="col-4">
-                            <a href="/products/<%= product.id %>">
+                            <a href="/productos/<%= product.id %>">
                                 <img src="/images/products/<%= product.productImg %>" width="250px" height="300px" href="">
                             </a>
                             <h3><%= product.nombre %></h3>

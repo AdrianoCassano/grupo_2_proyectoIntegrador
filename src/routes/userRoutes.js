@@ -26,10 +26,10 @@ const upload = multer({ storage: storage });
 //     res.send("Archivo subido correctamente")
 //   })
 
-router.get("/register", guestValidation, userController.register);
-router.post("/register", upload.single("userAvatar"), registerValidation, userController.registered);
-router.get("/login", guestValidation, userController.login);
-router.post("/login", userController.authenticate);
+router.get("/registrarse", guestValidation, userController.register);
+router.post("/registrarse", upload.single("userAvatar"), registerValidation, userController.registered);
+router.get("/ingresar", guestValidation, userController.login);
+router.post("/ingresar", userController.authenticate);
 
 router.get("/edicion/:id", editValidation, userController.edit);
 router.put("/edicion/:id", upload.single("userAvatar"), registerValidation, userController.updated);
@@ -38,6 +38,6 @@ router.delete("/:id/delete", userController.delete);
 
 router.get("/perfil", authValidation, userController.profile);
 
-router.get("/logout", userController.logout);
+router.get("/salir", userController.logout);
 
 module.exports = router

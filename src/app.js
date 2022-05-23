@@ -29,7 +29,7 @@ app.set("view engine", "ejs");
 
 
 app.use("/", mainRoutes);
-app.use("/products", productsRoutes);
+app.use("/productos", productsRoutes);
 app.use("/carrito", checkoutRoutes);
 app.use("/", userRoutes);
 app.use("/", userRoutes);
