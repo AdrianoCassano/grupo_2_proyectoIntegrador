@@ -90,6 +90,7 @@
     .submit:hover{
         background-color: #c9200a;
     }
+    div.errores,
     .errores{
         color:red;
         list-style-type: none;
@@ -121,7 +122,7 @@
             </div>
             <div class = "control-login">
                 <label for="email">Email</label>
-                <input type="email" name="email" id="username" placeholder="">
+                <input type="email" name="email" id="username" placeholder="" value="<%= locals.old ? old.email: null %>">
                 <% if (locals.errors && errors.email) { %>
                     <p class="errores"><%= errors.email%></p>
                 <% } %>

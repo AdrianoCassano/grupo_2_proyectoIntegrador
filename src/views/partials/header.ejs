@@ -137,6 +137,13 @@
                             <i class="fas fa-bars" id="btn"></i>
                             <i class="fas fa-times" id="cancel"></i>
                         </label>
+                    <%if(locals.userLogged.categoryId == 1) {%> 
+                        <ul>
+                            <li>
+                                <li><a class="adminBtn" href="http://localhost:3000/">Admin Dashboard</a></li>
+                            </li>
+                        </ul>
+                        <% } %>
                     <ul>
                         <li><a href="/productos">Productos</a></li>
                         <li><a href="/nosotros">Nosotros</a></li>
