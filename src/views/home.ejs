@@ -168,12 +168,12 @@
        transform: translateY(-6px)
     }
     /* termina productos sugeridos */
-    @media (max-width: 750px) {
+    @media (max-width: 769px) {
         .col-2 {
             display: none;
         }
         .slider {
-            display: none;
+            height: 80vh;
         }
         .col-3 {
             padding-top: 0em;
@@ -183,8 +183,12 @@
             display: none;
         }
         .image__img {
-            max-width: 300px;
+            max-width: 200px;
+            max-height: 170px;
             
+        }
+        .titles {
+            padding: 0;
         }
     }
 
@@ -193,7 +197,18 @@
             max-width: 300px;
             
         }
-       
+        .slider {
+            display: none;
+        }
+        .categories {
+            padding-top: 60px;
+        }
+        .titles {
+            margin-bottom: 30px;
+        }
+       .small-container {
+           padding-bottom: 0;
+       }
     }
 </style>
 <body>

@@ -81,12 +81,12 @@ p {
     background:  #c9200a;
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 769px) {
   .column {
     width: 70%;
     height: 90%;
-    display: block;
-    margin-top: 90px;
+    display: flex;
+    margin-top: 120px;
   }
   .fotopf {
     max-width: 430px;
@@ -97,7 +97,11 @@ p {
     }
 
   }
-
+@media (max-width: 769px) {
+  .column {
+    display: block;
+  }
+}
 @media screen and (max-width: 430px) {
   .fotopf {
     max-width: 330px;
@@ -106,6 +110,11 @@ p {
    width: 90%;
  }
 } 
+@media (max-width: 450px) {
+  .column {
+    margin-top: 85px;
+  }
+}
 
 </style>
 <body>
@@ -121,7 +130,7 @@ p {
       <div class="row">
         <div class="column">
           <div class="card">
-            <img src="/images/perfilac.jpg" alt="Adriano Cassano" style="width:90%" height="350px">
+            <img class="fotopf" src="/images/perfilac.jpg" alt="Adriano Cassano" style="width:90%" height="350px">
             <div class="container">
               <h2>Adriano Cassano</h2>
               <p class="title">Director Ejecutivo & Fundador</p>
@@ -147,7 +156,7 @@ p {
         
         <div class="column">
           <div class="card">
-            <img src="/images/perfilrrbw.png" alt="Renzo Restaino" style="width:90%" height="350px">
+            <img class="fotopf" src="/images/perfilrrbw.png" alt="Renzo Restaino" style="width:90%" height="350px">
             <div class="container">
               <h2>Renzo Restaino</h2>
               <p class="title">Director de Operaciones</p>

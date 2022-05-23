@@ -142,15 +142,16 @@
     .productMateriales,
     .productPesoDimensiones{} ESTO ERA LO QUE ME SALIA DE WARNING*/
 
-     @media (max-width: 750px) {
+     @media (max-width: 769px) {
     
         html {
-            margin-top: -49px;
+            margin-top: 0px;
         }
         main { 
             margin-left: 1.5em;
             margin-right: 1.5em;
-            padding-top: 6em;
+            padding-top: 0;
+            margin-top: 4em;
         }
         
         .principal {
@@ -192,6 +193,20 @@
         }
     
         } 
+        @media (max-width: 450px) {
+            .tercera {
+                width: 98%;
+            }
+            h3 {
+                display: none;
+            }
+            .productMateriales {
+                display:none;
+            }
+            .productPesoDimensiones {
+                display: none;
+            }
+        }
 </style>
 <body>
     <%- include("../partials/header.ejs") %>
