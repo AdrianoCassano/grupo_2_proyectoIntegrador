@@ -13,6 +13,11 @@
    }
    h2{
         color:rgb(32, 32, 32);
+        background-color: rgba(255, 255, 255, 0.2);
+        justify-content: center;
+        text-align: center;
+        padding-top: 2px;
+        padding-bottom: 2px;
     }
    .categories {
         background-color: rgba(0, 0, 0, 0.3)
@@ -79,7 +84,7 @@
         <ul>
             <li><a href="/productos">Ver todo</a></li>
             <li>
-                <form class="form" action="/products/buscar" method="GET">
+                <form class="form" action="/productos/buscar" method="GET">
                     <div>
                         <p class="searchError"></p>
                         <input type="text" class="input" name="search" placeholder="Buscar productos"></input>

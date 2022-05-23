@@ -8,7 +8,7 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const productsController = { 
     products: (req,res) => {
-        db.Product.findAll()
+        db.Product.findAll({include: [{association:"categorias"}]})
         .then(products => {
             res.render("products/products", {products})
         }).catch((error)=>{
@@ -16,17 +16,18 @@ const productsController = {
         })
     },
     search: async (req,res) => {
-        console.log("entro search")
         try {
             let input = req.query.search;
+            
             let products = await db.Product.findAll({
               where: {
                 [Op.or]: [
                   { nombre: db.sequelize.where(db.sequelize.fn('LOWER', db.sequelize.col('nombre')), 'LIKE', '%' + input.toLowerCase() + '%') },
                   { descripcion: db.sequelize.where(db.sequelize.fn('LOWER', db.sequelize.col('descripcion')), 'LIKE', '%' + input.toLowerCase() + '%') },
-                //   { caract1: sequelize.where(sequelize.fn('LOWER', sequelize.col('caract1')), 'LIKE', '%' + search.toLowerCase() + '%') },
+                  { categorias: db.sequelize.where(db.sequelize.fn('LOWER', db.sequelize.col('name')), 'LIKE', '%' + input.toLowerCase() + '%') },
                 ]
-              }
+              },
+              include: [{association:"categorias"}]
             })
             res.render("./products/search", {products});
           } catch (error) {

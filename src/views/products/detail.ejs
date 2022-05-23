@@ -209,7 +209,7 @@
                 <ul>
                     <li class="nombre-producto" id="name"><%= product.nombre%></li>
                     <li class="precio" id="precio">$<%= product.precio%></li>
-                    <li class="cantidad">Cantidad <input type="number" id="qty" value="1"></li>                    
+                    <li class="cantidad">Cantidad <input type="number" min=1 id="qty" value="1"></li>                    
                     <li><button type="text" id="cartBtn" class="submit">Agregar al Carrito</button></li>
                 </ul>
             </div>
@@ -231,7 +231,7 @@
 
         </section>
         <section class="tercera">
-            <div class="productDescripcion">
+            <div class="productDescripcion" id="descripcion">
                 <h3>DESCRIPCIÓN</h3>
                 <%= product.descripcion%>
             </div>
