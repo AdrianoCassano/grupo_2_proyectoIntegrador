@@ -20,6 +20,9 @@
         padding-top: 2px;
         padding-bottom: 2px;
     }
+    .buscador {
+        padding-top: 80px;
+    }
    .categories {
         background-color: rgba(0, 0, 0, 0.3)
     }
@@ -78,7 +81,7 @@
         background:  #c9200a;
     } 
     @media (max-width: 750px) {
-      .categories {
+      .buscador {
           padding-top: 80px;  
       }
       h2 {
@@ -106,7 +109,7 @@
 <body>
     <%- include("../partials/header.ejs") %>    
 <main>
-    <div>
+    <div class="buscador">
         <ul>
             <li><a href="/productos">Ver todo</a></li>
             <li>
