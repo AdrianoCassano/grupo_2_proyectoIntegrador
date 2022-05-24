@@ -25,6 +25,7 @@ DROP TABLE IF EXISTS `categorias`;
 CREATE TABLE `categorias` (
   `id` int(50) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
+  `categoriaImg` text DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -35,7 +36,7 @@ CREATE TABLE `categorias` (
 
 LOCK TABLES `categorias` WRITE;
 /*!40000 ALTER TABLE `categorias` DISABLE KEYS */;
-INSERT INTO `categorias` VALUES (1,'Sillones'),(2,'Sofas'),(3,'Camas'),(4,'Escritorios'),(5,'Sillas'),(6,'Bibliotecas'),(7,'Muebles TV'),(8,'Roperos'),(9,'Mesas');
+INSERT INTO `categorias` VALUES (1,'Sillones','sillones.jpg'),(2,'Sofas','sofas.jpg'),(3,'Camas','camas.jpg'),(4,'Escritorios','escritorios.jpg'),(5,'Sillas','sillas.jpg'),(6,'Bibliotecas','bibliotecas.jpg'),(7,'Muebles TV','mueblestv.jpg'),(8,'Roperos','roperos.jpg'),(9,'Mesas','mesas.jpg');
 /*!40000 ALTER TABLE `categorias` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -201,4 +202,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-05-24  0:14:49
+-- Dump completed on 2022-05-24  0:42:43
