@@ -1,6 +1,10 @@
 import React from 'react'
 
+
+
 const TablaProductosRow = (props) => {
+    
+    
     return (
         <>
             <tr>
@@ -9,8 +13,9 @@ const TablaProductosRow = (props) => {
                 <td>{props.email}</td>
                 <td>{props.usercategory.name}</td>
                 <td><a href={`${props.edit}`}>Link</a></td>
-                <td><button onClick={() => props.deleteUser(props.id)} >Eliminar</button></td>
+                <td><button type="button" onClick={() => props.deleteUser(props.id)} className="btn btn-primary" data-bs-toggle="modalEliminar" data-bs-target={`#id${props.id}`} >Eliminar</button></td>
             </tr>
+
         </>
     )
 }

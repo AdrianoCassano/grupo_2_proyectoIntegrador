@@ -3,14 +3,23 @@ const { Sequelize } = require('sequelize');
 
 const adminApiController ={
 
-    lastProduct: (req,res) => {
+    lastProduct: async (req,res) => {
         try {
-            
+            let products = await db.Product.findAll({
+                include: [{association:"categorias"},{association:"users"}]
+            })  
+            const lastProduct = products.pop()
+            let lastProductImgUrl = lastProduct.productImg
+
+            let response = {
+                lastProduct: lastProduct,
+                lastProductImgUrl: `${req.protocol}://${req.get('host')}/images/products/${lastProductImgUrl}`
+            }
+            res.status(200).json({response})
         } catch (error) {
             console.log(error)
             res.status(500).json({msg:"error"})
         }
-        res.json("panel")
     },
     users: async (req,res) => {
         try {

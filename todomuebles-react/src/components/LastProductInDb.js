@@ -1,24 +1,75 @@
 import React, { useEffect, useState} from "react";
-// import { Link } from "react-router-dom";
-import LastProductInDbInfo from "./LastProductInDbInfo";
+
 
 function LastProductInDb(){
-    const [lastPage, setLastPage] = useState([]);
-    // const [lastProductUrl, setLastProductUrl] = useState([]);
-    // const [lastProduct, setLastProduct] = useState([]);
+    const [lastProduct, setLastProduct] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch("admin/productos")
+                const response = await fetch("admin/lastProduct")
                 const json = await response.json()
-                setLastPage(json.response.totalPages);               
+                setLastProduct(json.response.lastProduct);               
             } catch (error) {
                 console.log(error)
             }
         };
         fetchData()
       }, [])
+
+
+      
+      return(
+        <>
+            <div className="col-lg-6 mb-4">
+                <div className="card shadow mb-4">
+                    <div className="card-header py-3">
+                        <h5 className="m-0 font-weight-bold text-gray-800">Ultimo producto creado</h5>
+                    </div>
+                    <div className="card-body">
+                        <div className="text-center">
+                            <h3 className="Mueble">{lastProduct.nombre}</h3>
+                            <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: 20 +'rem'}} src={`/images/products/${lastProduct.productImg}`} alt=" Mesa Pavo "/>
+                        </div>
+                        <p>{lastProduct.descripcion}</p>
+                        <a className="btn btn-danger" target="_blank" rel="nofollow" href={`http://localhost:3030/productos/edicion/${lastProduct.id}`}>Ver detalle del mueble</a>
+                    </div>
+                </div>
+            </div>
+        </>
+    )
+}
+
+export default LastProductInDb;
+
+
+
+
+
+
+
+
+// import React, { useEffect, useState} from "react";
+
+// import LastProductInDbInfo from "./LastProductInDbInfo";
+
+// function LastProductInDb(){
+//     const [lastPage, setLastPage] = useState([]);
+//     // const [lastProductUrl, setLastProductUrl] = useState([]);
+//     // const [lastProduct, setLastProduct] = useState([]);
+
+//     useEffect(() => {
+//         const fetchData = async () => {
+//             try {
+//                 const response = await fetch("admin/productos")
+//                 const json = await response.json()
+//                 setLastPage(json.response.totalPages);               
+//             } catch (error) {
+//                 console.log(error)
+//             }
+//         };
+//         fetchData()
+//       }, [])
 
     // useEffect anidado adentro
     // useEffect(() => {
@@ -87,20 +138,25 @@ function LastProductInDb(){
 //       }, [])
 //     console.log(lastProductUrl)
       
-    return(
-        <>
-            <div className="col-lg-6 mb-4">
-                <div className="card shadow mb-4">
-                    <div className="card-header py-3">
-                        <h5 className="m-0 font-weight-bold text-gray-800">Ultimo producto creado</h5>
-                    </div>
-                    {lastPage &&
-                        <LastProductInDbInfo lastPage={lastPage}/>
-                    }
-                </div>
-            </div>
-        </>
-    )
-}
+//     return(
+//         <>
+//             <div className="col-lg-6 mb-4">
+//                 <div className="card shadow mb-4">
+//                     <div className="card-header py-3">
+//                         <h5 className="m-0 font-weight-bold text-gray-800">Ultimo producto creado</h5>
+//                     </div>
+//                     <div className="card-body">
+//                         <div className="text-center">
+//                             <h3 className="Mueble">{lastProductInfo.nombre}</h3>
+//                             <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: 20 +'rem'}} src={`/images/products/${lastProduct.productImg}`} alt=" Mesa Pavo "/>
+//                         </div>
+//                         <p>{lastProductInfo.descripcion}</p>
+//                         <a className="btn btn-danger" target="_blank" rel="nofollow" href={`http://localhost:3030/products/${lastProductInfo.id}`}>Ver detalle del mueble</a>
+//                     </div>
+//                 </div>
+//             </div>
+//         </>
+//     )
+// }
 
-export default LastProductInDb;
+// export default LastProductInDb;
