@@ -3,50 +3,52 @@ window.addEventListener('load', function (){
     let form = document.querySelector('.register-form');
 
     form.addEventListener('submit', function(e){
-       
-        
+
+
         let errores = [];
-      
+
 
         let campoNombre = document.querySelector('#nombre');
 
-        if(campoNombre.value ===""){
+        if(campoNombre.value ==""){
             errores.push('El nombre es obligatorio')
-                  
+
         }else if (campoNombre.value.length < 2){
             errores.push ('El nombre debe tener mínimo 2 caracteres')
         }
 
         let campoApellido = document.querySelector('#Apellido');
 
-        if(campoApellido.value ===""){
+        if(campoApellido.value ==""){
             errores.push('El apellido es obligatorio')      
         }else if (campoApellido.value.length < 2){
             errores.push ('El apellido debe tener mínimo 2 caracteres')
         }
 
-        
+
 
         let campoEmail = document.querySelector('#Email');
-        
+
         let regexEmail = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/
 
 
-       
+
         if(campoEmail.value==""){
-            errores.push('El email es  obligatorio')  
+            errores.push('El email es obligatorio')  
 
         }
         else if (!regexEmail.test(campoEmail.value)) {
             errores.push('El formato no es del tipo email')
             return false 
+
+
         }
-    
 
 
 
-        
-        
+
+
+
         let campoPassword = document.querySelector('#Contraseña');
 
         if(campoPassword.value ==""){
@@ -58,7 +60,7 @@ window.addEventListener('load', function (){
         let image = document.querySelector('#file');
 
         if (image.value) {
-            
+
             fileName = image.value;
             idxDot = fileName.lastIndexOf(".") + 1,
             extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
@@ -78,6 +80,6 @@ window.addEventListener('load', function (){
         }else{
             form.submit();
         }
-        
+
 })
 })
