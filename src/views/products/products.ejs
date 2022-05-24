@@ -121,6 +121,16 @@
     .submit:hover {
         background:  #c9200a;
     } 
+
+    .productsNotFound {
+        padding: 180px 230px 180px 230px;
+        font-size: xx-large;
+        font-style: bold;
+        text-align: center;
+        color: snow;
+    
+    }
+
     @media (max-width: 769px) {
       .buscador {
           padding-top: 100px;  
@@ -131,11 +141,15 @@
       .col-4 {
           height: 390px;
       }
+      .productsNotFound {
+        padding: 6px 8px 18px 23px;
+    
     }
-    @media (max-width: 415px) {
+    }
+    @media (max-width: 450px) {
       .row {
           width: 100%;
-          padding: 0;
+          padding: 10px 0 0 0;
           margin: 0;
       }
       .col-4 {
@@ -144,7 +158,31 @@
       .col-4 img {
           min-width: 299px;
       }
-    }    
+      .categorias-productos {
+        
+        display: block;
+    }
+    .categorias {
+        display: flex;
+        padding-left: 7em;
+    } 
+    .productsNotFound {
+        padding-top: 18px;
+    }
+
+    } 
+
+    @media (max-width: 376px) {
+        .categorias {
+        padding-left: 5em;
+        } 
+    } 
+
+    @media (max-width: 321px) {
+        .categorias {
+        padding-left: 3.5em;
+    } 
+    }   
 </style>
 <body>
     <%- include("../partials/header.ejs") %>    
@@ -190,7 +228,7 @@
                         </a> -->
                     </div>
                     <% })} else { %>
-                        <div class="productsNotFound">No se encontraron resultados! Por favor intentalo de nuevo!</div>
+                        <div class="productsNotFound">No se encontraron resultados! Por favor intentalo de nuevo.</div>
                     <% } %>
                 </div>
         </div>
