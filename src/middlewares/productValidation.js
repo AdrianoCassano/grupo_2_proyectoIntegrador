@@ -14,13 +14,13 @@ module.exports = [
     body("peso").notEmpty().withMessage("El peso es obligatorio").bail()
     .isInt({min:1}).withMessage("El peso no puede ser 0"),
     body("categoriaId").notEmpty().withMessage("La categoría es obligatoria"),
-    body("productImg").custom((value, {req}) => {
-        let file = req.file
-        if (file){
-            let extensions = [".jpg", ".jpeg", ".png", ".gif"]
-            let fileExtensions = path.extname(file.originalname)
-            if (!extensions.includes(fileExtensions)) throw new Error(`La imagen debe tener uno de los siguientes formatos: ${extensions.join(", ")}`)    
-        }
-        return true}
-    )
+    // body("productImg").custom((value, {req}) => {
+    //     let file = req.file
+    //     if (file){
+    //         let extensions = [".jpg", ".jpeg", ".png", ".gif"]
+    //         let fileExtensions = path.extname(file.originalname)
+    //         if (!extensions.includes(fileExtensions)) throw new Error(`La imagen debe tener uno de los siguientes formatos: ${extensions.join(", ")}`)    
+    //     }
+    //     return true}
+    // )
 ]

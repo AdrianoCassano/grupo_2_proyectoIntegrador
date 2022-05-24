@@ -9,7 +9,7 @@ window.addEventListener('load', function (){
         let errores = [];
 
 
-        let campoNombre = document.querySelector('#nombre');
+        let campoNombre = document.getElementById('nombre');
 
         if(campoNombre.value ==""){
             errores.push('El nombre es obligatorio')
@@ -18,7 +18,7 @@ window.addEventListener('load', function (){
             errores.push ('El nombre debe tener mínimo 2 caracteres')
         }
 
-        let campoApellido = document.querySelector('#Apellido');
+        let campoApellido = document.getElementById('Apellido');
 
         if(campoApellido.value ==""){
             errores.push('El apellido es obligatorio')      
@@ -28,7 +28,7 @@ window.addEventListener('load', function (){
 
 
 
-        let campoEmail = document.querySelector('#Email');
+        let campoEmail = document.getElementById('Email');
 
         let regexEmail = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/
 
@@ -46,7 +46,7 @@ window.addEventListener('load', function (){
         }
 
 
-        let campoPassword = document.querySelector('#Contraseña');
+        let campoPassword = document.getElementById('Contraseña');
 
         if(campoPassword.value ==""){
             errores.push('El Password es obligatorio')      
@@ -54,7 +54,7 @@ window.addEventListener('load', function (){
             errores.push ('El Password debe tener mínimo 8 caracteres')
         }
 
-        let image = document.querySelector('#file');
+        let image = document.getElementById('Imagen');
 
         if (image.value) {
 
@@ -77,6 +77,6 @@ window.addEventListener('load', function (){
         }else{
             form.submit();
         }
-
+    
 })
 })

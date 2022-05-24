@@ -22,14 +22,14 @@ module.exports = [
     body("gender").notEmpty().withMessage("Por favor seleccione una opción"),
     body("date").notEmpty().withMessage("Por favor indique su fecha de nacimiento"),
     body("phoneNumber").notEmpty().withMessage("Por favor indique su numero de contacto"),
-    body("file").custom((value, {req}) => {
-        let file = req.file
-        if (file){
-            let extensions = [".jpg", ".jpeg", ".png", ".gif"]
-            let fileExtensions = path.extname(file.originalname)
-            if (!extensions.includes(fileExtensions)) throw new Error(`La imagen debe tener uno de los siguientes formatos: ${extensions.join(", ")}`)    
-        }
-    return true}
-    ),
+    // body("file").custom((value, {req}) => {
+    //     let file = req.file
+    //     if (file){
+    //         let extensions = [".jpg", ".jpeg", ".png", ".gif"]
+    //         let fileExtensions = path.extname(file.originalname)
+    //         if (!extensions.includes(fileExtensions)) throw new Error(`La imagen debe tener uno de los siguientes formatos: ${extensions.join(", ")}`)    
+    //     }
+    // return true}
+    // ),
     body("terms").notEmpty().withMessage("Para registrarse debe confirmar que ha leido y acepta los terminos y condiciones"),
 ]

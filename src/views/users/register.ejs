@@ -203,7 +203,7 @@ h3 {
     <main>
         <form action="/registrarse" method="post" class= "register-form" enctype="multipart/form-data"> 
             <h3>Formulario de Registro</h3>
-            <div class ="erroresBack">
+            <div class ="errores">
                 <ul></ul>
             </div> 
             <div>
@@ -535,7 +535,7 @@ h3 {
             </div>
             <div>
                 <label for="file">Imagen de perfil</label>
-                <input id="Imagen" type="file" name="userAvatar" id="file">
+                <input id="Imagen" type="file" name="userAvatar">
                 <% if (locals.errors && errors.file) { %>
                     <p class="erroresBack"><%= errors.file.msg %></p>
                 <% } %>
