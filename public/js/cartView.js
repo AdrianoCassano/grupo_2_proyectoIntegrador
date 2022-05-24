@@ -15,7 +15,7 @@ window.addEventListener("load" ,function(){
       
   }else{
   productos.map(data=>{
-      tabla +='<article><div class="imagen"><img src='+data.prodImg+' id="imagen-art"></div><div class="description"><p id="title">'+data.name+'</p> <p>'+data.descripcion+' </p></div><p id="precio-art">'+data.precio+'</p><div id="cant-art"><a href="#" class="qty">-</a><input type="numeric" value="'+data.qty+'"id="value-cant" /><a href="#" class="qty">+</a></div><button onclick=Delete(this) class="eliminar">X</button></article>' 
+      tabla +='<article><div class="imagen"><img src='+data.prodImg+' id="imagen-art"></div><div class="description"><p id="title">'+data.name+'</p> <p>'+data.descripcion+' </p></div><p id="precio-art">'+data.precio+'</p><div id="cant-art"><a href="#" class="qty">-</a><input type="number" value="'+data.qty+'"id="value-cant" /><a href="#" class="qty">+</a></div><button onclick=Delete(this) class="eliminar">X</button></article>' 
 
   });
   

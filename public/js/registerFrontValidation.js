@@ -1,3 +1,4 @@
+console.log("ES POR ACA")
 window.addEventListener('load', function (){
 
     let form = document.querySelector('.register-form');
@@ -43,10 +44,6 @@ window.addEventListener('load', function (){
 
 
         }
-
-
-
-
 
 
         let campoPassword = document.querySelector('#Contraseña');
