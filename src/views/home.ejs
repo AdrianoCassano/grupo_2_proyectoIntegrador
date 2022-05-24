@@ -275,7 +275,7 @@
     <h2 class="titles">Productos Destacados</h2>
         <div class="row">
             <% products.forEach( product => { %>
-                <% if (product.precio >= 500000){ %>
+                <% if (product.precio >= 150000){ %>
                 <div class="col-4">
                     <a href="/products/<%= product.id %>">
                         <img src="/images/products/<%= product.productImg %>" width="250px" height="300px" href="">
