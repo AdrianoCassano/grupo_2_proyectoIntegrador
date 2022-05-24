@@ -17,18 +17,61 @@
         text-align: center;
         padding-top: 2px;
         padding-bottom: 2px;
+        display: none;
     }
     .buscador {
         padding-top: 80px;
+        padding-left: 0;
+        display: flex;
     }
    .productos {
         background-color: rgba(0, 0, 0, 0.3)
     }
+    .categorias-productos {
+        
+        display: flex;
+    }
+    .categorias {
+        padding-left: 3em;
+        padding-right: 4em;
+
+        /* background-color: rgb(0, 0, 0); */
+        
+    }
+    .categorias ul {
+        padding-top: 2px;
+    
+    }
+    .categorias ul li {
+        padding-top: 7px;
+        padding-bottom: 7px;
+      
+    }
+    .categorias ul li a {
+    color: whitesmoke;
+    list-style-type: none;
+    text-decoration: none;
+    }
+    .btn-categoria {
+        display: block;
+        width: 100px;
+        padding: 0.5rem 1rem;
+        transition: all 0.2s linear;
+        border-radius: 5px;
+        color: whitesmoke;
+        background:  #a52a2a;
+        text-decoration: none;
+        text-align: center;
+    }
+    /* .btn-categoria:hover {
+        
+    }  */
     .row {
         display: flex;
         align-items: center;
         flex-wrap: wrap;
         justify-content: space-around;
+        padding-top: 20px;
         
     }
    .col-4 {
@@ -108,7 +151,7 @@
 <main>
     <div class="buscador">
         <ul>
-            <li><a href="/productos">Ver todo</a></li>
+            <li><a class="btn-categoria" href="/productos">Ver todo</a></li>
             <li>
                 <form class="form" action="/productos/buscar" method="GET">
                     <div>
@@ -127,13 +170,14 @@
         <div class="categorias">
             <ul>
                 <% categorias.forEach( categoria => { %>                   
-                <li><a href="/productos/buscar?search=<%= categoria.name %>"><%= categoria.name %></a></li>
+                <li><a class="btn-categoria" href="/productos/buscar?search=<%= categoria.name %>"><%= categoria.name %></a></li>
                 <% }) %>
             </ul>
         </div>
         <div class="productos">
             <h2 class="titles">Nuestros productos</h2>
                 <div class="row">
+                    <% if(products.length > 0 ) { %>
                     <% products.forEach( product => { %>
                     <div class="col-4">
                         <a href="/productos/<%= product.id %>">
@@ -145,7 +189,9 @@
                             <button type="text" id="cartBtn" class="submit">Agregar al Carrito</button>
                         </a> -->
                     </div>
-                    <% }) %>
+                    <% })} else { %>
+                        <div class="productsNotFound">No se encontraron resultados! Por favor intentalo de nuevo!</div>
+                    <% } %>
                 </div>
         </div>
     </div>
