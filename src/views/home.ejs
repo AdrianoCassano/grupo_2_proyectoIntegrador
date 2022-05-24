@@ -17,6 +17,7 @@
         justify-content: center;
         text-align: center;
         padding-bottom: 1.5em;
+        font-size: 40px
     }
 
     .row-1 {
@@ -209,6 +210,9 @@
        .small-container {
            padding-bottom: 0;
        }
+       h2{
+        font-size: 1.5em
+    }
     }
 </style>
 <body>
@@ -268,7 +272,7 @@
 
 <!-- abre productos sugeridos  -->
 <div class="categories">
-    <h2 class="titles">Productos Sugeridos</h2>
+    <h2 class="titles">Productos Destacados</h2>
         <div class="row">
             <% products.forEach( product => { %>
                 <% if (product.precio >= 500000){ %>

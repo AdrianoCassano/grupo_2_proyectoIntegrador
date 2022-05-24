@@ -2,12 +2,14 @@ const db = require ("../database/models")
 
 const mainController = {
     home: (req,res) => {
-        db.Product.findAll()
-        .then(products => {
-        res.render("home", {products})
-    }).catch((error)=>{
-        console.log(error)
-    })
+        let products = db.Product.findAll({include: [{association:"categorias"}]})
+        let categorias = db.Categoria.findAll()
+        Promise.all([products, categorias])
+        .then(function([products, categorias]){
+            return res.render("home",{products:products, categorias:categorias})
+        }).catch((error)=>{
+            console.log(error)
+        })
     },
     aboutUs: (req,res) => {
         res.render("aboutUs")

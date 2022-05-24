@@ -6,7 +6,7 @@ window.onload=function(){
     nuevoProducto.precio = document.getElementById('precio').innerText
     nuevoProducto.prodImg = document.getElementById('prdImg').src
     nuevoProducto.descripcion = document.getElementById('descripcion').innerText
-    nuevoProducto.qty = document.getElementById('qty').val()
+    nuevoProducto.qty = document.getElementById('qty').value
     console.log("console de NPQty:",nuevoProducto.qty)
    var cartBtn= document.getElementById("cartBtn")
    

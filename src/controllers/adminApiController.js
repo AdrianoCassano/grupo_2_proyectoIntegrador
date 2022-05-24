@@ -3,7 +3,7 @@ const { Sequelize } = require('sequelize');
 
 const adminApiController ={
 
-    panel: (req,res) => {
+    lastProduct: (req,res) => {
         try {
             
         } catch (error) {
@@ -52,7 +52,7 @@ const adminApiController ={
         try {
             let userDetail = await db.User.findByPk(req.params.id, {attributes: {exclude:["password", "categoryId"]}})
             let userAvatarUrl = userDetail.userAvatar
-            
+            console.log(userDetail.userAvatar)
             let response = {
                 user: userDetail,
                 userAvatarUrl: `${req.protocol}://${req.get('host')}/images/users/${userAvatarUrl}`
@@ -123,6 +123,7 @@ const adminApiController ={
             })
             
             let productImgUrl = productDetail.productImg
+            console.log(productDetail)
 
             let response = {
                 product: productDetail,
