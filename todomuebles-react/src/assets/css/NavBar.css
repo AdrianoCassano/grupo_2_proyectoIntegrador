@@ -36,17 +36,17 @@ body{
            
     }
        
-.navigation ul li a {
-   display: block;
-   padding: 0.5rem 1rem;
-   transition: all 0.2s linear;
-   border-radius: 5px;
-   color: whitesmoke;
-   text-decoration: none;
-   }
-.navigation ul li a:hover {
-   background:  #c9200a;
-   } 
+.adminBtn{
+    font-weight: bold;
+    display: block;
+    padding: 0.5rem 1rem;
+    transition: all 0.2s linear;
+    border-radius: 5px;
+    color: black;
+    text-decoration: none;
+    background:  #D4AF37;
+ }
+
 
 label #btn,
 label #cancel {

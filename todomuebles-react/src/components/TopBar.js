@@ -31,12 +31,12 @@ function TopBar(){
                     <nav class ="navigation">
 
                     <ul>
-                        <li><a href="http://localhost:3030/productos/creacion">Crear Productos</a></li>
-                        <li><a href="http://localhost:3030/nosotros">Nosotros</a></li>
+                        <li><a className="adminBtn" href="http://localhost:3030/productos/creacion">Crear Productos</a></li>
+                        {/* <li><a className="adminBtn" href="http://localhost:3030/nosotros">Nosotros</a></li> */}
                         {/* <li><a href="#footer">Contacto</a></li> */}
                         {/* <li id="mi-carrito"><a href="/carrito">Mi Carrito <i class="fas fa-shopping-cart"></i></a></li> */}
                                   
-                        <li id="acesso-login"><a href="http://localhost:3030/perfil">Mi Cuenta <i class="fas fa-user-circle"></i></a></li>
+                        <li id="acesso-login"><a className="adminBtn" href="http://localhost:3030/perfil">Mi Cuenta <i class="fas fa-user-circle"></i></a></li>
                         {/* <li id="acesso-login"><a href="/logout">Salir <i class="fas fa-sign-out-alt"></i></a></li>
                         
                         <li><a href="/register">Registrarse</a></li>

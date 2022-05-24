@@ -8,15 +8,16 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const productsController = { 
     products: (req,res) => {
-        db.Product.findAll({include: [{association:"categorias"}]})
-        .then(products => {
-            res.render("products/products", {products})
+        let products = db.Product.findAll({include: [{association:"categorias"}]})
+        let categorias = db.Categoria.findAll()
+        Promise.all([products, categorias])
+        .then(function([products, categorias]){
+            return res.render("products/products",{products:products, categorias:categorias})
         }).catch((error)=>{
             console.log(error)
         })
     },
     search: async (req,res) => {
-        try {
             let input = req.query.search;
             
             let products = await db.Product.findAll({
@@ -26,13 +27,15 @@ const productsController = {
                   { descripcion: db.sequelize.where(db.sequelize.fn('LOWER', db.sequelize.col('descripcion')), 'LIKE', '%' + input.toLowerCase() + '%') },
                   { categorias: db.sequelize.where(db.sequelize.fn('LOWER', db.sequelize.col('name')), 'LIKE', '%' + input.toLowerCase() + '%') },
                 ]
-              },
-              include: [{association:"categorias"}]
+              }, include: [{association:"categorias"}]
             })
-            res.render("./products/search", {products});
-          } catch (error) {
-            console.log(error);
-          }
+            let categorias = db.Categoria.findAll()
+            Promise.all([products, categorias])
+            .then(function([products, categorias]){
+                return res.render("products/products",{products:products, categorias:categorias})
+            }).catch((error)=>{
+                console.log(error)
+            })
         },
     detalle: (req,res) => {
         db.Product.findByPk(req.params.id, {
