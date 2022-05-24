@@ -2,7 +2,7 @@ const express = require ("express");
 const router = express.Router();
 const adminApiController = require("../controllers/adminApiController");
 
-router.get("/panel", adminApiController.panel);
+router.get("/lastProduct", adminApiController.lastProduct);
 
 router.get("/usuarios", adminApiController.users);
 router.get("/usuarios/:id", adminApiController.userDetail);

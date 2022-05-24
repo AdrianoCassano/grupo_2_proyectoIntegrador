@@ -30,7 +30,7 @@ const userController = {
                 if(req.file != undefined){
                     userAvatar = req.file.filename
                 } else {
-                    userAvatar = "default-userAvatar.png"
+                    userAvatar = `default-userAvatar${Math.floor(Math.random() * 6) + 1}.png`
                 }
                 await db.User.create({
                     ...req.body,
