@@ -8,9 +8,7 @@
        background-attachment: fixed;
        background-size: cover;
        align-items: center;
-       font-family: 'Roboto', sans-serif;
-       
-       
+       font-family: 'Roboto', sans-serif;      
    }
     h2{
         color:rgb(0, 0, 0);
@@ -103,8 +101,7 @@
       .col-4 img {
           min-width: 299px;
       }
-    }
-    
+    }    
 </style>
 <body>
     <%- include("../partials/header.ejs") %>    
@@ -129,7 +126,9 @@
     <div class="categorias-productos">
         <div class="categorias">
             <ul>
-                <li></li>
+                <% categorias.forEach( categoria => { %>                   
+                <li><a href="/productos/buscar?search=<%= categoria.name %>"><%= categoria.name %></a></li>
+                <% }) %>
             </ul>
         </div>
         <div class="productos">

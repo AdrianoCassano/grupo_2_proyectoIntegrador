@@ -52,7 +52,7 @@
                 
          }
             
-    .navigation ul li a {
+    .topbarBtn {
         display: block;
         padding: 0.5rem 1rem;
         transition: all 0.2s linear;
@@ -60,7 +60,7 @@
         color: whitesmoke;
         text-decoration: none;
         }
-    .navigation ul li a:hover {
+    .topbarBtn:hover {
         background:  #c9200a;
         } 
 
@@ -77,6 +77,19 @@
    #check {
        display: none;
    }
+   .adminBtn{
+        font-weight: bold;
+        display: block;
+        padding: 0.5rem 1rem;
+        transition: all 0.2s linear;
+        border-radius: 5px;
+        color: black;
+        text-decoration: none;
+        background:  #e8e8e5e7;
+   }
+   .adminBtn:hover {
+        background:  #D4AF37;
+        }
     @media (max-width: 750px) {
        .navbar {
            position: fixed;
@@ -117,7 +130,7 @@
         }
     
 </style>
-<header>
+<header id="header">
         <!-- <form action="" class=>
             <input type="text" placeholder="Buscar productos, marcas...">
             <button class="boton">
@@ -145,16 +158,16 @@
                         </ul>
                         <% } %>
                     <ul>
-                        <li><a href="/productos">Productos</a></li>
-                        <li><a href="/nosotros">Nosotros</a></li>
-                        <li><a href="#footer">Contacto</a></li>
-                        <li id="mi-carrito"><a href="/carrito">Mi Carrito <i class="fas fa-shopping-cart"></i></a></li>
+                        <li><a class="topbarBtn" href="/productos">Productos</a></li>
+                        <li><a class="topbarBtn" href="/nosotros">Nosotros</a></li>
+                        <li><a class="topbarBtn" href="#footer">Contacto</a></li>
+                        <li id="mi-carrito"><a class="topbarBtn" href="/carrito">Mi Carrito <i class="fas fa-shopping-cart"></i></a></li>
                         <% if(locals.userLogged) { %>              
-                        <li id="acesso-login"><a href="/perfil">Mi Cuenta <i class="fas fa-user-circle"></i></a></li>
-                        <li id="acesso-login"><a href="/salir">Salir <i class="fas fa-sign-out-alt"></i></a></li>
+                        <li id="acesso-login"><a class="topbarBtn" href="/perfil">Mi Cuenta <i class="fas fa-user-circle"></i></a></li>
+                        <li id="acesso-login"><a class="topbarBtn" href="/salir">Salir <i class="fas fa-sign-out-alt"></i></a></li>
                         <% } else {%>
-                        <li><a href="/registrarse">Registrarse</a></li>
-                        <li id="acesso-login"><a href="/ingresar">Ingresar <i class="fas fa-user-circle"></i></a></li>
+                        <li><a class="topbarBtn" class="topbarBtn" href="/registrarse">Registrarse</a></li>
+                        <li id="acesso-login"><a class="topbarBtn" href="/ingresar">Ingresar <i class="fas fa-user-circle"></i></a></li>
                         <% } %>
                     </ul>
                 </nav>

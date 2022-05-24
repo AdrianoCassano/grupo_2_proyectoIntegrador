@@ -9,8 +9,6 @@
        background-size: cover;
        align-items: center;
        font-family: 'Roboto', sans-serif;
-       
-       
    }
     h2{
         color:rgb(0, 0, 0);
@@ -125,27 +123,31 @@
             </li>
         </ul>
     </div>
-    <div class="categories">
-        <h2 class="titles">Nuestros productos</h2>
-            <div class="row">
-                <% if(products.length > 0 ) { %>
-                    <div class="row">
-                        <% products.forEach( product => { %>
-                        <div class="col-4">
-                            <a href="/productos/<%= product.id %>">
-                                <img src="/images/products/<%= product.productImg %>" width="250px" height="300px" href="">
-                            </a>
-                            <h3><%= product.nombre %></h3>
-                            <p>$<%= product.precio %></p>
-                            <!-- <a href="/carrito">
-                                <button type="text" id="cartBtn" class="submit">Agregar al Carrito</button>
-                            </a> -->
-                        </div>
-                        <% })} else { %>
-                            <div class="productsNotFound">No se encontraron resultados! Intentalo nuevamente!</div>
-                        <% } %>
+    <div class="categorias-productos">
+        <div class="categorias">
+            <ul>
+                <% categorias.forEach( categoria => { %>                   
+                <li><a href="/productos/buscar?search=<%= categoria.name %>"><%= categoria.name %></a></li>
+                <% }) %>
+            </ul>
+        </div>
+        <div class="productos">
+            <h2 class="titles">Nuestros productos</h2>
+                <div class="row">
+                    <% products.forEach( product => { %>
+                    <div class="col-4">
+                        <a href="/productos/<%= product.id %>">
+                            <img src="/images/products/<%= product.productImg %>" width="250px" height="300px" href="">
+                        </a>
+                        <h3><%= product.nombre %></h3>
+                        <p>$<%= product.precio %></p>
+                        <!-- <a href="/carrito">
+                            <button type="text" id="cartBtn" class="submit">Agregar al Carrito</button>
+                        </a> -->
                     </div>
-            </div>
+                    <% }) %>
+                </div>
+        </div>
     </div>
 </main>
 <br>
