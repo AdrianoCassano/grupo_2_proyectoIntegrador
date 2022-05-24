@@ -244,25 +244,26 @@
         <h2 class="titles">Categorías</h2>
         <div class="small-container">
             <div class="row">
-                <div class="col-3"><a href="/products">
-                    <img class ="image__img" src="/images/Mesa.JPG" width="350px" height="400px" href="#">
+                <% let value1 = Math.floor(Math.random() * 3)  %>
+                <div class="col-3"><a href="/productos/buscar?search=<%= categorias[value1].name %>">
+                    <img class ="image__img" src="/images/categories/<%= categorias[value1].name %>" width="350px" height="400px" href="#">
                         <div class="image__overlay image__overlay--blur">
-                            <div class="image__title">Interior</div>
-                            <p class="image__description">Ideal para el hogar</p>
+                            <div class="image__title"><%= categorias[value1].name %></div>
                         </div></a>
                 </div>
-                <div class="col-3"><a href="/products">
-                    <img class ="image__img" src="/images/ext.jpg" width="350px" height="400px" href="#">
+                <% let value2 = Math.floor((Math.random() * 3)+3)  %>
+                <div class="col-3"><a href="/productos/buscar?search=<%= categorias[value2].name %>">
+                    <img class ="image__img" src="/images/categories/<%= categorias[value2].name %>" width="350px" height="400px" href="#">
                         <div class="image__overlay image__overlay--blur">
-                            <div class="image__title">Exterior</div>
-                            <p class="image__description">Ambientes abiertos</p>
+                            <div class="image__title"><%= categorias[value2].name %></div>
+
                         </div>
                 </div></a>
-                <div class="col-3"><a href="/products">
-                    <img class ="image__img" src="/images/emp.jpg" width="350px" height="400px" href="#">
+                <% let value3 = Math.floor((Math.random() * 3)+6)  %>
+                <div class="col-3"><a href="/productos/buscar?search=<%= categorias[value3].name %>">
+                    <img class ="image__img" src="/images/categories/<%= categorias[value3].name %>" width="350px" height="400px" href="#">
                         <div class="image__overlay image__overlay--blur">
-                            <div class="image__title">Empresarial</div>
-                            <p class="image__description">Oficinas e industria</p>
+                            <div class="image__title"><%= categorias[value3].name %></div>
                         </div>
                 </div></a>
             </div>
